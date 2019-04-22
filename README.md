@@ -1,0 +1,5 @@
+# TOBAT-Online
+Perkembangan teknologi yang sangat pesat telah menciptakan jenis–jenis peluang bisnis yang baru dimana transaksi–transaksi bisnis makin banyak dilakukan secara elektronika. Perusahaan telah dituntut untuk bisa lebih kreatif dan inovatif dalam mengembangkan bisnisnya. Internet membantu kita sehingga dapat berinteraksi, berkomunikasi, bahkan melakukan perdagangan dengan orang dari segala penjuru dunia dengan murah, cepat dan mudah. Salah satunya adalah TOBAT ( Toko Obat ) Online yang berkeinginan untuk menerapkan sistem penjualan berbasis web. Website yang menunjang kegiatan perdagangan melalui media komputer yang terhubung oleh jaringan internet biasa disebut Electronic Commerce (ecommerce)
+
+# Cara Download
+Bagi kalian yang ingin mengunduhnya dapat langsung mengunduh dengan cara menampilkan sebagai tampilan desktop lalu ke pojok kanan dan klik **Clone or Download** lalu download sebagai **ZIP** atau bisa langsung download dengan mengklik [Download File](https://github.com/Syizuril/TOBAT-Online/archive/master.zip)
