@@ -57,8 +57,8 @@
         <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Kelola Data:</h6>
-            <a class="collapse-item active" href="dataakun.php">Akun</a>
-            <a class="collapse-item" href="cards.html">Obat</a>
+            <a class="collapse-item" href="dataakun.php">Akun</a>
+            <a class="collapse-item active" href="tablesobat.php">Obat</a>
           </div>
         </div>
       </li>
@@ -95,9 +95,8 @@
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="../index.php">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="#">Kelola Data</a></li>
-                <li class="breadcrumb-item"><a href="tablesuser.php">Kelola Data User</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Tambah Data</li>
+                <li class="breadcrumb-item"><a href="tablesobat.php">Kelola Data Obat</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Tambah Data Obat</li>
               </ol>
             </nav>
             <?php
@@ -224,7 +223,7 @@
                       <input name="harga" class="form-control" placeholder="Harga Obat" type="number" required>
                   </div> <!-- form-group// -->
                   <div class="form-group input-group mb-0">
-                    <button type="submit" class="btn btn-success btn-block" name="tambah"> Buat Akun </button>
+                    <button type="submit" class="btn btn-success btn-block" name="tambah"> Tambah Obat </button>
                   </div> <!-- form-group// -->
                 </div>
               </div>

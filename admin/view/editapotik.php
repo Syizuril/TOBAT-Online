@@ -58,7 +58,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Kelola Data:</h6>
             <a class="collapse-item active" href="dataakun.php">Akun</a>
-            <a class="collapse-item" href="cards.html">Obat</a>
+            <a class="collapse-item" href="tablesobat.php">Obat</a>
           </div>
         </div>
       </li>

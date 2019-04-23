@@ -1,7 +1,7 @@
 <?php
   require_once("../../config/config.php");
   require("../config/auth.php");
-  require("../config/read.php");
+  require("../config/readobat.php");
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,8 +55,8 @@
         <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Kelola Data:</h6>
-            <a class="collapse-item active" href="dataakun.php">Akun</a>
-            <a class="collapse-item" href="tablesobat.php">Obat</a>
+            <a class="collapse-item" href="dataakun.php">Akun</a>
+            <a class="collapse-item active" href="tablesobat.html">Obat</a>
           </div>
         </div>
       </li>
@@ -71,7 +71,7 @@
       require("navbar/navitem4.php");
       require("navbar/navitem5.php");
       require("navbar/navitem6.php");
-      require("navbar/toggle.php")
+      require("navbar/toggle.php");
       ?>
     </ul>
     <!-- End of Sidebar -->
@@ -92,24 +92,23 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="../index.php">Dashboard</a></li>
-              <li class="breadcrumb-item"><a href="dataakun.php">Kelola Data</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Kelola Data User</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Kelola Data Obat</a></li>
             </ol>
           </nav>
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Kelola Akun User</h1>
-          <p class="mb-4">Berikut adalah tampilan data dari Akun User, Anda dapat mengaturnya seperti menambahkan, mengedit, hingga menghapus akun user tersebut.</p>
+          <h1 class="h3 mb-2 text-gray-800">Kelola Data Obat</h1>
+          <p class="mb-4">Berikut adalah tampilan data dari obat yang ditampilkan, Anda dapat mengaturnya seperti menambahkan, mengedit, hingga menghapus data obat tersebut.</p>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <div class="row">
                 <div class="col-6">
-                  <h6 class="m-0 mt-2 font-weight-bold text-primary">Akun User</h6>
+                  <h6 class="m-0 mt-2 font-weight-bold text-primary">Data Obat</h6>
                 </div>
                 <div class="col-6">
-                  <a href="tambahuser.php" class="float-right btn btn-info m-0">Tambah User</a>
+                  <a href="tambahobat.php" class="float-right btn btn-info m-0">Tambah Obat</a>
                 </div>
               </div>
             </div>
@@ -117,24 +116,24 @@
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
-                    <th>Nama</th>
-                    <th>Email</th>
-                    <th>Nomor HP</th>
-                    <th>Alamat</th>
+                    <th>Nama Obat</th>
+                    <th>Deskripsi</th>
+                    <th>Sub Kategori</th>
+                    <th>Harga</th>
                   </thead>
                   <tfoot>
-                    <th>Nama</th>
-                    <th>Email</th>
-                    <th>Nomor HP</th>
-                    <th>Alamat</th>
+                    <th>Nama Obat</th>
+                    <th>Deskripsi</th>
+                    <th>Sub Kategori</th>
+                    <th>Harga</th>
                   </tfoot>
                   <tbody>
                     <?php foreach ($data as $value): ?>
                     <tr>
-                        <td><a href="edituser.php?email=<?php echo $value['email'] ?>"><?php echo $value['nama'] ?></a></td>
-                        <td><?php echo $value['email'] ?></td>
-                        <td>+62<?php echo $value['no_hp'] ?></td>
-                        <td><?php echo $value['alamat'] ?></td>
+                        <td><a href="editobat.php?id_obat=<?php echo $value['id_obat'] ?>"><?php echo $value['nama_obat'] ?></a></td>
+                        <td><?php echo $value['deskripsi_obat'] ?></td>
+                        <td><?php echo $value['sub'] ?></td>
+                        <td><?php echo rp($value['harga']) ?></td>
                     </tr>
                     <?php endforeach; ?>
                   </tbody>
