@@ -2,6 +2,7 @@
   if(isset($_POST['tambah'])){
     //filter data yang diinputkan agar tidak terkena serangan
     $nama_obat = filter_input(INPUT_POST,'nama_obat',FILTER_SANITIZE_STRING);
+    $deskripsi_obat = filter_input(INPUT_POST,'deskripsi_obat',FILTER_SANITIZE_STRING);
     $sub = filter_input(INPUT_POST,'sub',FILTER_SANITIZE_STRING);
     $komposisi = filter_input(INPUT_POST,'komposisi',FILTER_SANITIZE_STRING);
     $indikasi = filter_input(INPUT_POST,'indikasi',FILTER_SANITIZE_STRING);
@@ -10,12 +11,12 @@
     $cara = filter_input(INPUT_POST,'cara',FILTER_SANITIZE_STRING);
     $perhatian = filter_input(INPUT_POST,'perhatian',FILTER_SANITIZE_STRING);
     $efek = filter_input(INPUT_POST,'efek',FILTER_SANITIZE_STRING);
-    $kemasan = filter_input(INPUT_POST,'kemasan',FILTER_SANITIZE_STRING);
+    $kemasan = filter_input(INPUT_POST,'kemasan',FILTER_SANITIZE_NUMBER_INT);
     $pabrik = filter_input(INPUT_POST,'pabrik',FILTER_SANITIZE_STRING);
     $keterangan = filter_input(INPUT_POST,'keterangan',FILTER_SANITIZE_STRING);
     $referensi = filter_input(INPUT_POST,'referensi',FILTER_SANITIZE_STRING);
     $harga = filter_input(INPUT_POST,'harga',FILTER_SANITIZE_NUMBER_INT);
-    $email = filter_input(INPUT_POST,'email',FILTER_VALIDATE_EMAIL);
+
 
     $folder ="../../images/items/";
     $image = $_FILES['image']['name'];
@@ -33,18 +34,27 @@
       move_uploaded_file( $_FILES['image'] ['tmp_name'], $path);
 
     //menyiapkan query
-    $sql = "INSERT INTO obat (nama_obat,sub,komposisi,indikasi,dosis,penyajian,cara,perhatian,efek,kemasan,pabrik,keterangan,referensi,harga) VALUES (:nama_obat, :sub, :komposisi, :indikasi, :dosis, :penyajian, :cara, :perhatian, :efek, :kemasan, :pabrik, :keterangan, :referensi, :harga)";
+    $sql = "INSERT INTO obat (nama_obat,deskripsi_obat,foto_obat,sub,komposisi,indikasi,dosis,penyajian,cara,perhatian,efek,kemasan,pabrik,keterangan,referensi,harga) VALUES (:nama_obat,:deskripsi_obat,:foto_obat, :sub, :komposisi, :indikasi, :dosis, :penyajian, :cara, :perhatian, :efek, :kemasan, :pabrik, :keterangan, :referensi, :harga)";
     $stmt = $db->prepare($sql);
 
     //bind parameter kequery
     $params = array (
-      ":email"=>$email,
-      ":password"=>$password,
-      ":nama"=>$nama,
-      ":no_hp"=>$no_hp,
-      ":alamat"=>$alamat,
-      ":level"=>0,
-      ":foto"=>$image
+      ":nama_obat"=>$nama_obat,
+      ":deskripsi_obat"=>$deskripsi_obat,
+      ":foto_obat"=>$image,
+      ":sub"=>$sub,
+      ":komposisi"=>$komposisi,
+      ":indikasi"=>$indikasi,
+      ":dosis"=>$dosis,
+      ":penyajian"=>$penyajian,
+      ":cara"=>$cara,
+      ":perhatian"=>$perhatian,
+      ":efek"=>$efek,
+      ":kemasan"=>$kemasan,
+      ":pabrik"=>$pabrik,
+      ":keterangan"=>$keterangan,
+      ":referensi"=>$referensi,
+      ":harga"=>$harga
     );
 
     //eksekusi query untuk menyimpan ke database

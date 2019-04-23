@@ -73,7 +73,7 @@
       require("navbar/navitem4.php");
       require("navbar/navitem5.php");
       require("navbar/navitem6.php");
-      require("navbar/toggle.php")
+      require("navbar/toggle.php");
       ?>
     </ul>
     <!-- End of Sidebar -->
@@ -101,12 +101,12 @@
               </ol>
             </nav>
             <?php
-              require("../config/registeruser.php");
+              require("../config/tambahobat.php");
              ?>
           <div class="d-sm-flex align-items-center justify-content-between mb-3">
             <h1 class="h3 mb-0 text-gray-800">Tambah Data</h1>
           </div>
-          <form action="" method="POST" enctype="multipart/form-data" oninput="password2.setCustomValidity(password2.value != password.value ? 'Password tidak sesuai.' :)">
+          <form action="" method="POST" enctype="multipart/form-data">
           <div class="row">
             <div class="col-md-3">
               <!-- Basic Card Example -->
@@ -120,7 +120,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                     </div>
-                      <input name="nama" class="form-control" placeholder="Nama Obat" type="text" required>
+                      <input name="nama_obat" class="form-control" placeholder="Nama Obat" type="text" required>
                   </div> <!-- form-group// -->
                   <div class="form-group input-group">
                      <input class="input-group-text" style="width: 100%" type="file" name="image" placeholder="Browse your image">
@@ -140,13 +140,14 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"> <i class="fas fa-book-medical"></i> </span>
                     </div>
-                      <textarea name="deskipsi" class="form-control" placeholder="Deskripsi Obat" required></textarea>
+                      <textarea name="deskripsi_obat" class="form-control" placeholder="Deskripsi Obat" required></textarea>
                   </div> <!-- form-group// -->
                   <div class="form-group input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text"> <i class="fas fa-stream"></i> </span>
                     </div>
-                    <select class="custom-select">
+                    <select class="custom-select" name="sub">
+                      <option value="" disabled selected hidden>Sub Kategori Obat</option>
                       <option value="Antiseptik dan Desinfektan Kulit">Antiseptik dan Desinfektan Kulit</option>
                     </select>
                   </div> <!-- form-group// -->
@@ -164,36 +165,66 @@
                   </div> <!-- form-group// -->
                   <div class="form-group input-group">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                      <span class="input-group-text"> <i class="fas fa-notes-medical"></i> </span>
+                    </div>
+                      <input name="dosis" class="form-control" placeholder="Dosis" type="text" required>
+                  </div> <!-- form-group// -->
+                  <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"> <i class="fas fa-notes-medical"></i> </span>
                     </div>
                       <input name="penyajian" class="form-control" placeholder="Cara Penyajian" type="text" required>
                   </div> <!-- form-group// -->
                   <div class="form-group input-group">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                      <span class="input-group-text"> <i class="fas fa-minus-square"></i> </span>
+                    </div>
+                      <input name="cara" class="form-control" placeholder="Cara Penyimpanan" type="text" required>
+                  </div> <!-- form-group// -->
+                  <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"> <i class="fas fa-minus-square"></i> </span>
                     </div>
                       <input name="perhatian" class="form-control" placeholder="Perhatian Obat" type="text" required>
                   </div> <!-- form-group// -->
                   <div class="form-group input-group">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                      <span class="input-group-text"> <i class="fas fa-minus-square"></i> </span>
+                    </div>
+                      <input name="efek" class="form-control" placeholder="Efek Samping" type="text" required>
+                  </div> <!-- form-group// -->
+                  <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"> <i class="fas fa-grip-horizontal"></i> </span>
                     </div>
                       <input name="kemasan" class="form-control" placeholder="Jumlah perkemasan" type="number" required>
                   </div> <!-- form-group// -->
                   <div class="form-group input-group">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                      <span class="input-group-text"> <i class="fas fa-hospital"></i> </span>
                     </div>
                       <input name="pabrik" class="form-control" placeholder="Pabrik Obat" type="text" required>
                   </div> <!-- form-group// -->
                   <div class="form-group input-group">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                      <span class="input-group-text"> <i class="fas fa-bookmark"></i> </span>
+                    </div>
+                      <input name="keterangan" class="form-control" placeholder="Keterangan Obat" type="text" required>
+                  </div> <!-- form-group// -->
+                  <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"> <i class="fas fa-bookmark"></i> </span>
                     </div>
                       <input name="referensi" class="form-control" placeholder="Referensi Deskripsi Obat" type="text" required>
                   </div> <!-- form-group// -->
+                  <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"> <i class="fas fa-bookmark"></i> </span>
+                    </div>
+                      <input name="harga" class="form-control" placeholder="Harga Obat" type="number" required>
+                  </div> <!-- form-group// -->
                   <div class="form-group input-group mb-0">
-                    <button type="submit" class="btn btn-success btn-block" name="register"> Buat Akun </button>
+                    <button type="submit" class="btn btn-success btn-block" name="tambah"> Buat Akun </button>
                   </div> <!-- form-group// -->
                 </div>
               </div>
