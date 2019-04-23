@@ -24,6 +24,7 @@
       move_uploaded_file( $_FILES['image'] ['tmp_name'], $path);
 
     //menyiapkan query
+    try {
     $sql = "INSERT INTO user (email,password,nama,no_hp,alamat,level,foto) VALUES (:email, :password, :nama, :no_hp, :alamat, :level, :foto)";
     $stmt = $db->prepare($sql);
 
@@ -39,13 +40,12 @@
     );
 
     //eksekusi query untuk menyimpan ke database
-    $saved = $stmt->execute($params);
-    if($saved){
-        echo "<div class='alert alert-success alert-dismissible fade show'>
-            <strong>Berhasil!</strong> Data Anda berhasil ditambahkan.</div>";
-      }else{
-        echo "<div class='alert alert-danger alert-dismissible fade show'>
-            <strong>Gagal!</strong> Data Anda gagal ditambahkan diakibatkan beberapa sebab </div>";
+    $stmt->execute($params);
+    echo "<div class='alert alert-success alert-dismissible fade show'>
+          <strong>Berhasil!</strong> Data Anda berhasil diperbaharui.</div>";
+    }catch(PDOException $e){
+    echo "<div class='alert alert-danger alert-dismissible fade show'>
+          <strong>Gagal!</strong> Data Anda gagal diperbaharui diakibatkan karena ". $e->getMessage()."</div>";
       }
     }
   }
