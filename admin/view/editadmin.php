@@ -243,7 +243,7 @@
           Anda yakin ingin menghapus data akun ini ? </div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-danger" href="../config/deleteadmin.php?email=<?php echo $data['email'] ?>" >Hapus</a>
+          <a class="btn btn-danger" href="../config/deleteadmin.php?email=<?php echo $data['email'] ?>&foto=<?php echo $data['foto'] ?>">Hapus</a>
         </div>
       </div>
     </div>

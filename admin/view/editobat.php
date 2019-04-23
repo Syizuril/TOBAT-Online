@@ -298,7 +298,7 @@
           Anda yakin ingin menghapus data akun ini ? </div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-danger" href="../config/deleteobat.php?id_obat=<?php echo $data['id_obat'] ?>" >Hapus</a>
+          <a class="btn btn-danger" href="../config/deleteobat.php?id_obat=<?php echo $data['id_obat'] ?>&foto_obat=<?php echo $data['foto_obat'] ?>">Hapus</a>
         </div>
       </div>
     </div>
