@@ -42,10 +42,10 @@
     //eksekusi query untuk menyimpan ke database
     $stmt->execute($params);
     echo "<div class='alert alert-success alert-dismissible fade show'>
-          <strong>Berhasil!</strong> Data Anda berhasil diperbaharui.</div>";
+          <strong>Berhasil!</strong> Data Anda berhasil ditambahkan.</div>";
     }catch(PDOException $e){
     echo "<div class='alert alert-danger alert-dismissible fade show'>
-          <strong>Gagal!</strong> Data Anda gagal diperbaharui diakibatkan karena ". $e->getMessage()."</div>";
+          <strong>Gagal!</strong> Data Anda gagal ditambahkan diakibatkan karena ". $e->getMessage()."</div>";
       }
     }
   }

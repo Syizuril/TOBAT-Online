@@ -14,7 +14,7 @@
     header("Location: ../view/tablesapotik.php");
     }catch(PDOException $e){
     echo "<div class='alert alert-danger alert-dismissible fade show'>
-          <strong>Gagal!</strong> Data Anda gagal diperbaharui diakibatkan karena ". $e->getMessage()."</div>";
+          <strong>Gagal!</strong> Data Anda gagal dihapus diakibatkan karena ". $e->getMessage()."</div>";
       }
   }
  ?>

@@ -34,6 +34,7 @@
       move_uploaded_file( $_FILES['image'] ['tmp_name'], $path);
 
     //menyiapkan query
+    try{
     $sql = "INSERT INTO obat (nama_obat,deskripsi_obat,foto_obat,sub,komposisi,indikasi,dosis,penyajian,cara,perhatian,efek,kemasan,pabrik,keterangan,referensi,harga) VALUES (:nama_obat,:deskripsi_obat,:foto_obat, :sub, :komposisi, :indikasi, :dosis, :penyajian, :cara, :perhatian, :efek, :kemasan, :pabrik, :keterangan, :referensi, :harga)";
     $stmt = $db->prepare($sql);
 
@@ -58,13 +59,12 @@
     );
 
     //eksekusi query untuk menyimpan ke database
-    $saved = $stmt->execute($params);
-    if($saved){
-        echo "<div class='alert alert-success alert-dismissible fade show'>
-            <strong>Berhasil!</strong> Data Anda berhasil ditambahkan.</div>";
-      }else{
-        echo "<div class='alert alert-danger alert-dismissible fade show'>
-            <strong>Gagal!</strong> Data Anda gagal ditambahkan diakibatkan beberapa sebab </div>";
+    $stmt->execute($params);
+    echo "<div class='alert alert-success alert-dismissible fade show'>
+          <strong>Berhasil!</strong> Data Anda berhasil ditambahkan.</div>";
+    }catch(PDOException $e){
+    echo "<div class='alert alert-danger alert-dismissible fade show'>
+          <strong>Gagal!</strong> Data Anda gagal ditambahkan diakibatkan karena ". $e->getMessage()."</div>";
       }
     }
   }

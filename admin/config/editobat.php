@@ -48,6 +48,7 @@
       move_uploaded_file( $_FILES['image'] ['tmp_name'], $path);
 
     //menyiapkan query
+    try{
     $sql = "UPDATE obat SET nama_obat=:nama_obat,deskripsi_obat=:deskripsi_obat,foto_obat=:foto_obat,sub=:sub,komposisi=:komposisi,indikasi=:indikasi,dosis=:dosis,penyajian=:penyajian,efek=:efek,kemasan=:kemasan,pabrik=:pabrik,keterangan=:keterangan,referensi=:referensi,harga=:harga WHERE id_obat=:id_obat";
     $stmt = $db->prepare($sql);
 
@@ -72,13 +73,12 @@
     );
 
     //eksekusi query untuk menyimpan ke database
-    $saved = $stmt->execute($params);
-    if($saved){
-        echo "<div class='alert alert-success alert-dismissible fade show'>
-            <strong>Berhasil!</strong> Data Anda berhasil diperbaharui.</div>";
-      }else{
-        echo "<div class='alert alert-danger alert-dismissible fade show'>
-            <strong>Gagal!</strong> Data Anda gagal diperbaharui diakibatkan beberapa sebab </div>";
+    $stmt->execute($params);
+    echo "<div class='alert alert-success alert-dismissible fade show'>
+          <strong>Berhasil!</strong> Data Anda berhasil diperbaharui.</div>";
+    }catch(PDOException $e){
+    echo "<div class='alert alert-danger alert-dismissible fade show'>
+          <strong>Gagal!</strong> Data Anda gagal diperbaharui diakibatkan karena ". $e->getMessage()."</div>";
       }
     }
   }
