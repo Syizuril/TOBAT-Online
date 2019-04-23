@@ -108,7 +108,7 @@
               <h1 class="h3 mb-0 text-gray-800">Edit Data</h1>
             </div>
             <div class="col-6">
-              <a href="" data-toggle="modal" data-target="#confirm-delete" class="float-right btn btn-danger m-0">Hapus Admin</a>
+              <a href="" data-toggle="modal" data-target="#confirm-delete" class="float-right btn btn-danger m-0">Hapus Apotik</a>
             </div>
           </div>
           <form action="" method="POST" enctype="multipart/form-data" oninput="password2.setCustomValidity(password2.value != password.value ? 'Password tidak sesuai.'()">

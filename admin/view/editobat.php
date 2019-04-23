@@ -107,7 +107,7 @@
               <h1 class="h3 mb-0 text-gray-800">Edit Data</h1>
             </div>
             <div class="col-6">
-              <a href="" data-toggle="modal" data-target="#confirm-delete" class="float-right btn btn-danger m-0">Hapus User</a>
+              <a href="" data-toggle="modal" data-target="#confirm-delete" class="float-right btn btn-danger m-0">Hapus Obat</a>
             </div>
           </div>
           <form action="" method="POST" enctype="multipart/form-data" oninput="password2.setCustomValidity(password2.value != password.value ? 'Password tidak sesuai.'()">
@@ -144,7 +144,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"> <i class="fas fa-book-medical"></i> </span>
                     </div>
-                      <textarea name="deskripsi_obat" class="form-control" placeholder="Deskripsi Obat" value="<?php echo $data['deskripsi_obat'] ?>" required></textarea>
+                      <textarea name="deskripsi_obat" class="form-control" placeholder="Deskripsi Obat" required><?php echo $data['deskripsi_obat'] ?></textarea>
                   </div> <!-- form-group// -->
                   <div class="form-group input-group">
                     <div class="input-group-prepend">
@@ -160,13 +160,13 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"> <i class="fas fa-bong"></i> </span>
                     </div>
-                      <textarea name="komposisi" class="form-control" placeholder="Komposisi Obat" value="<?php echo $data['komposisi'] ?>" required></textarea>
+                      <textarea name="komposisi" class="form-control" placeholder="Komposisi Obat" required><?php echo $data['komposisi'] ?></textarea>
                   </div> <!-- form-group// -->
                   <div class="form-group input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text"> <i class="fas fa-book-medical"></i> </span>
                     </div>
-                      <textarea name="indikasi" class="form-control" placeholder="Indikasi Obat" value="<?php echo $data['indikasi'] ?>" required></textarea>
+                      <textarea name="indikasi" class="form-control" placeholder="Indikasi Obat" required><?php echo $data['indikasi'] ?></textarea>
                   </div> <!-- form-group// -->
                   <div class="form-group input-group">
                     <div class="input-group-prepend">
@@ -298,7 +298,7 @@
           Anda yakin ingin menghapus data akun ini ? </div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-danger" href="../config/deleteuser.php?email=<?php echo $data['email'] ?>" >Hapus</a>
+          <a class="btn btn-danger" href="../config/deleteobat.php?id_obat=<?php echo $data['id_obat'] ?>" >Hapus</a>
         </div>
       </div>
     </div>
