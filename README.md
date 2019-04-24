@@ -10,8 +10,10 @@ Bagi kalian yang ingin mengunduhnya dapat langsung mengunduh dengan cara menampi
 3. Copy file TOBAT-online-master.zip kedalam folder tersebut
 4. Ekstrak here file zip tersebut, **pastikan** file terekstrak dalam folder itu, bukan dalam sub folder lain
 5. Aktifkan XAMPP, aktifkan mysql dan apache
-6. Klik link berikut [phpMyAdmin](http://localhost/phpmyadmin/server_import.php?db=)
-7. Perhatikan, terdapat tombol *add file* atau *pilih file* arahkan ke file **tobat.sql**
-8. Scroll kebawah lalu klik kirim
-9. Buka dalam browser ( Chrome, Mozila Firefox, dsb )
-10. Masukkan link http:localhost/(nama folder yang dibuat pada tahap 2)
+6. Klik link berikut [phpMyAdmin](http://localhost/phpmyadmin/server_databases.php?server=1)
+7. Buat database dengan nama database atau basisdata **tobat**, lalu klik buat
+6. Klik link berikut [phpMyAdmin](http://localhost/phpmyadmin/db_import.php?db=tobat)
+8. Perhatikan, terdapat tombol *add file* atau *pilih file* arahkan ke file **tobat.sql**
+9. Scroll kebawah lalu klik kirim
+10. Buka dalam browser ( Chrome, Mozila Firefox, dsb )
+11. Masukkan link http:localhost/(nama folder yang dibuat pada tahap 2)
