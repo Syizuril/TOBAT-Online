@@ -9,6 +9,7 @@
     $email = filter_input(INPUT_POST,'email',FILTER_VALIDATE_EMAIL);
 
     //menyiapkan query
+    try{
     $sql = "INSERT INTO user (email,password,nama,no_hp,alamat,level) VALUES (:email, :password, :nama, :no_hp, :alamat, :level)";
     $stmt = $db->prepare($sql);
 
@@ -23,9 +24,10 @@
     );
 
     //eksekusi query untuk menyimpan ke database
-    $saved = $stmt->execute($params);
-
-    //jika query berhasil, maka user dialihkan ke halaman lain
-    if($saved)header("Location: index.php");
+    $stmt->execute($params);
+    echo "<div class='text-success text-center small'>Pendaftaran Akun telah berhasil, Silahkan masuk melalui tombol Masuk dibawah ini</div>";
+    }catch(PDOException $e){
+    echo "<div class='text-danger text-center small'>Pendaftaran Akun Anda gagal diakibatkan karena ". $e->getMessage()."</div>";
+    }
   }
  ?>

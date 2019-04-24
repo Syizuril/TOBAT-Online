@@ -28,9 +28,10 @@
           header("Location: ../index.php");
         }
       }else{
-        $salah="Username dan Password Salah!";
-        echo "<script type='text/javascript'>alert('$salah')</script>";
+        echo "<div class='text-danger text-center small'>Password yang Anda Masukkan salah</div>";
       }
+    }else{
+      echo "<div class='text-danger text-center small'>Username belum terdaftar</div>";
     }
   }
  ?>
