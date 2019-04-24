@@ -1,7 +1,6 @@
 <?php
   require_once("../config/config.php");
-  require("../config/register.php");
-  require("../config/login.php");
+  require("../config/auth.php");
  ?>
 
 <!DOCTYPE html>
@@ -10,7 +9,7 @@
     <meta charset="utf-8">
     <title>TOBAT Online - Situs Penjualan Obat Online</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 
     <!-- jQuery -->
     <script src="../js/jquery-2.0.0.min.js" type="text/javascript"></script>
@@ -41,17 +40,24 @@
       display: block;
       margin-top: 0;
     }
+    .circle {
+      height:35px;
+      width:35px;
+      border-radius:50%;
+      background-image: url('../images/cover.jpg');
+      background-position:center; background-size:cover;
+    }
     </style>
   </head>
   <body>
-    <?php require("header.php") ?>
+    <?php require("header_login.php") ?>
     <?php require("section/main1.php") ?>
     <footer class="sticky-footer bg-white">
-      <div class="container my-auto">
-        <div class="copyright text-center my-auto">
-          <span>Copyright &copy; TOBAT Online 2019</span>
-        </div>
+    <div class="container my-auto">
+      <div class="copyright text-center my-auto">
+        <span>Copyright &copy; TOBAT Online 2019</span>
       </div>
-    </footer>
+    </div>
+  </footer>
   </body>
 </html>

@@ -1,15 +1,6 @@
-<style media="screen">
-.circle {
-  height:35px;
-  width:35px;
-  border-radius:50%;
-  background-image: url('../images/cover.jpg');
-  background-position:center; background-size:cover;
-}
-</style>
 <header class="section-header">
-  <nav class="navbar navbar-expand-sm bg-success navbar-dark fixed-top">
-    <a href="#" class="navbar-brand"> <img src="images/tobattrans.png" alt="TOBAT Online" width="100"></a>
+  <nav class="navbar navbar-expand-sm bg-success navbar-dark">
+    <a href="#" class="navbar-brand"> <img src="../images/tobattrans.png" alt="TOBAT Online" width="100"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -32,13 +23,13 @@
           </form>
       <ul class="navbar-nav">
         <li class="dropdown">
-          <img class="img img-responsive circle dropdown-toggle ml-2" width="30" data-toggle="dropdown" src="images/avatars/<?php echo $_SESSION['user']['foto']?>" /><span class="caret"></span>
+          <img class="img img-responsive circle dropdown-toggle ml-2" width="30" data-toggle="dropdown" src="../images/avatars/<?php echo $_SESSION['user']['foto']?>" /><span class="caret"></span>
           <ul class="dropdown-menu dropdown-menu-right mt-2" style="width:1000">
               <li><p class="dropdown-item my-0 text-muted">Halo!</p><li>
               <li><p class="dropdown-item my-0"><?php echo $_SESSION['user']['nama']?></p><li>
               <li><a class="dropdown-item" href="#">Link 1</a><li>
               <li><a class="dropdown-item" href="#">Link 2</a><li>
-              <li><a class="dropdown-item" href="config/logout.php">Keluar</a><li>
+              <li><a class="dropdown-item" href="../config/logout.php">Keluar</a><li>
          </ul>
         </li>
       </ul>
