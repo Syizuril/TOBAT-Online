@@ -9,7 +9,9 @@
       ":id_obat"=>$_GET['id_obat']
     );
     $foto_obat = $_GET['foto_obat'];
-    unlink("../../images/items/$foto_obat");
+    if($image!="default.svg"){
+      unlink("../../images/items/$foto_obat");
+    }
     $saved = $stmt->execute($params);
     header("Location: ../view/tablesobat.php");
     }catch(PDOException $e){

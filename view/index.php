@@ -45,7 +45,7 @@
   </head>
   <body>
     <?php require("header.php") ?>
-    <?php require("section/main1.php") ?>
+    <?php require("section/banneratas.php") ?>
     <footer class="sticky-footer bg-white">
       <div class="container my-auto">
         <div class="copyright text-center my-auto">

@@ -9,7 +9,9 @@
       ":email"=>$_GET['email']
     );
     $foto = $_GET['foto'];
-    unlink("../../images/avatars/$foto");
+    if($image!="default.svg"){
+      unlink("../../images/avatars/$foto");
+    }
     $stmt->execute($params);
     header("Location: ../view/tablesadmin.php");
     }catch(PDOException $e){

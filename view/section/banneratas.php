@@ -5,7 +5,7 @@
 	<div class="card-body">
 <div class="row row-sm">
 	<aside class="col-md-3">
-<h5 class="text-uppercase">My Markets</h5>
+<h5 class="text-uppercase">Ketegori</h5>
 	<ul class="menu-category">
 		<li> <a href="#">Food &amp Beverage </a></li>
 		<li> <a href="#">Home Equipments </a></li>
