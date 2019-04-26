@@ -14,10 +14,10 @@
   }else{
     $data = $stmt->fetch();
   }
-  if(isset($_POST['submit'])){
+  if(isset($_POST['edit'])){
     $nama_obat = filter_input(INPUT_POST,'nama_obat',FILTER_SANITIZE_STRING);
     $deskripsi_obat = filter_input(INPUT_POST,'deskripsi_obat',FILTER_SANITIZE_STRING);
-    $sub = filter_input(INPUT_POST,'sub',FILTER_SANITIZE_STRING);
+    $kategori = filter_input(INPUT_POST,'kategori',FILTER_SANITIZE_STRING);
     $komposisi = filter_input(INPUT_POST,'komposisi',FILTER_SANITIZE_STRING);
     $indikasi = filter_input(INPUT_POST,'indikasi',FILTER_SANITIZE_STRING);
     $dosis = filter_input(INPUT_POST,'dosis',FILTER_SANITIZE_STRING);
@@ -30,6 +30,7 @@
     $keterangan = filter_input(INPUT_POST,'keterangan',FILTER_SANITIZE_STRING);
     $referensi = filter_input(INPUT_POST,'referensi',FILTER_SANITIZE_STRING);
     $harga = filter_input(INPUT_POST,'harga',FILTER_SANITIZE_NUMBER_INT);
+    $id_obat=$_GET['id_obat'];
 
 
     $folder ="../../images/items/";
@@ -49,15 +50,16 @@
 
     //menyiapkan query
     try{
-    $sql = "UPDATE obat SET nama_obat=:nama_obat,deskripsi_obat=:deskripsi_obat,foto_obat=:foto_obat,sub=:sub,komposisi=:komposisi,indikasi=:indikasi,dosis=:dosis,penyajian=:penyajian,efek=:efek,kemasan=:kemasan,pabrik=:pabrik,keterangan=:keterangan,referensi=:referensi,harga=:harga WHERE id_obat=:id_obat";
+    $sql = "UPDATE obat SET nama_obat=:nama_obat,deskripsi_obat=:deskripsi_obat,foto_obat=:foto_obat,kategori=:kategori,komposisi=:komposisi,indikasi=:indikasi,dosis=:dosis,penyajian=:penyajian,cara=:cara,perhatian=:perhatian,efek=:efek,kemasan=:kemasan,pabrik=:pabrik,keterangan=:keterangan,referensi=:referensi,harga=:harga WHERE id_obat=:id_obat";
     $stmt = $db->prepare($sql);
 
     //bind parameter kequery
     $params = array (
+      "id_obat"=>$id_obat,
       ":nama_obat"=>$nama_obat,
       ":deskripsi_obat"=>$deskripsi_obat,
       ":foto_obat"=>$image,
-      ":sub"=>$sub,
+      ":kategori"=>$kategori,
       ":komposisi"=>$komposisi,
       ":indikasi"=>$indikasi,
       ":dosis"=>$dosis,

@@ -95,7 +95,7 @@
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="../index.php">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="tablesobat">Kelola Data Obat</a></li>
+                <li class="breadcrumb-item"><a href="tablesobat.php">Kelola Data Obat</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Edit Data Obat</li>
               </ol>
             </nav>
@@ -150,10 +150,9 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"> <i class="fas fa-stream"></i> </span>
                     </div>
-                    <select class="custom-select" name="sub">
-                      <option value="<?php echo $data['sub'] ?>"disabled selected hidden><?php echo $data['sub'] ?></option>
-                      <option value="Antiseptik dan Desinfektan Kulit">Antiseptik dan Desinfektan Kulit</option>
-                      <option value="Antiseptik dan Desinfektan Kulit">Antiseptik</option>
+                    <select class="custom-select" name="kategori">
+                      <option value="<?php echo $data['kategori'] ?>"disabled selected hidden><?php echo $data['kategori'] ?></option>
+                      <?php require("option_kategori.php") ?>
                     </select>
                   </div> <!-- form-group// -->
                   <div class="form-group input-group">
@@ -176,7 +175,7 @@
                   </div> <!-- form-group// -->
                   <div class="form-group input-group">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"> <i class="fas fa-notes-medical"></i> </span>
+                      <span class="input-group-text"> <i class="fas fa-clipboard-list"></i> </span>
                     </div>
                       <input name="penyajian" class="form-control" placeholder="Cara Penyajian" type="text" value="<?php echo $data['penyajian'] ?>" required>
                   </div> <!-- form-group// -->
@@ -188,13 +187,13 @@
                   </div> <!-- form-group// -->
                   <div class="form-group input-group">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"> <i class="fas fa-minus-square"></i> </span>
+                      <span class="input-group-text"> <i class="fas fa-info-circle"></i> </span>
                     </div>
                       <input name="perhatian" class="form-control" placeholder="Perhatian Obat" type="text" value="<?php echo $data['perhatian'] ?>"required>
                   </div> <!-- form-group// -->
                   <div class="form-group input-group">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"> <i class="fas fa-minus-square"></i> </span>
+                      <span class="input-group-text"> <i class="fas fa-question-circle"></i> </span>
                     </div>
                       <input name="efek" class="form-control" placeholder="Efek Samping" type="text" value="<?php echo $data['efek'] ?>" required>
                   </div> <!-- form-group// -->
@@ -218,13 +217,13 @@
                   </div> <!-- form-group// -->
                   <div class="form-group input-group">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"> <i class="fas fa-bookmark"></i> </span>
+                      <span class="input-group-text"> <i class="fas fa-calendar-check"></i> </span>
                     </div>
                       <input name="referensi" class="form-control" placeholder="Referensi Deskripsi Obat" type="text" value="<?php echo $data['referensi'] ?>" required>
                   </div> <!-- form-group// -->
                   <div class="form-group input-group">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"> <i class="fas fa-bookmark"></i> </span>
+                      <span class="input-group-text"> <i class="fas fa-receipt"></i> </span>
                     </div>
                       <input name="harga" class="form-control" placeholder="Harga Obat" type="number" value="<?php echo $data['harga'] ?>" required>
                   </div> <!-- form-group// -->

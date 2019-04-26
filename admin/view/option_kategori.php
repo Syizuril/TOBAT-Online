@@ -1,0 +1,10 @@
+<option value="Antiseptik dan Desinfektan Kulit">Antiseptik dan Desinfektan Kulit</option>
+<option value="Vitamin dan Mineral">Vitamin dan Mineral</option>
+<option value="Dekongestan Nasal dan Preparat Nasal Lain">Dekongestan Nasal dan Preparat Nasal Lain</option>
+<option value="Suplemen dan Terapi Penunjang">Suplemen dan Terapi Penunjang</option>
+<option value="Obat Batuk dan Pilek">Obat Batuk dan Pilek</option>
+<option value="Antasid, Obat Antirefluks & Antiulserasi">Antasid, Obat Antirefluks & Antiulserasi</option>
+<option value="Preparat Mulut/Tenggorokan">Preparat Mulut/Tenggorokan</option>
+<option value="Alat Kesehatan Medis">Alat Kesehatan Medis</option>
+<option value="Obat Kulit Lain">Obat Kulit Lain</option>
+<option value="Analgesik (Non Opiat) dan Antipiretik">Analgesik (Non Opiat) dan Antipiretik</option>

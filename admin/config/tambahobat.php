@@ -3,7 +3,7 @@
     //filter data yang diinputkan agar tidak terkena serangan
     $nama_obat = filter_input(INPUT_POST,'nama_obat',FILTER_SANITIZE_STRING);
     $deskripsi_obat = filter_input(INPUT_POST,'deskripsi_obat',FILTER_SANITIZE_STRING);
-    $sub = filter_input(INPUT_POST,'sub',FILTER_SANITIZE_STRING);
+    $kategori = filter_input(INPUT_POST,'kategori',FILTER_SANITIZE_STRING);
     $komposisi = filter_input(INPUT_POST,'komposisi',FILTER_SANITIZE_STRING);
     $indikasi = filter_input(INPUT_POST,'indikasi',FILTER_SANITIZE_STRING);
     $dosis = filter_input(INPUT_POST,'dosis',FILTER_SANITIZE_STRING);
@@ -35,7 +35,7 @@
 
     //menyiapkan query
     try{
-    $sql = "INSERT INTO obat (nama_obat,deskripsi_obat,foto_obat,sub,komposisi,indikasi,dosis,penyajian,cara,perhatian,efek,kemasan,pabrik,keterangan,referensi,harga) VALUES (:nama_obat,:deskripsi_obat,:foto_obat, :sub, :komposisi, :indikasi, :dosis, :penyajian, :cara, :perhatian, :efek, :kemasan, :pabrik, :keterangan, :referensi, :harga)";
+    $sql = "INSERT INTO obat (nama_obat,deskripsi_obat,foto_obat,kategori,komposisi,indikasi,dosis,penyajian,cara,perhatian,efek,kemasan,pabrik,keterangan,referensi,harga) VALUES (:nama_obat,:deskripsi_obat,:foto_obat, :kategori, :komposisi, :indikasi, :dosis, :penyajian, :cara, :perhatian, :efek, :kemasan, :pabrik, :keterangan, :referensi, :harga)";
     $stmt = $db->prepare($sql);
 
     //bind parameter kequery
@@ -43,7 +43,7 @@
       ":nama_obat"=>$nama_obat,
       ":deskripsi_obat"=>$deskripsi_obat,
       ":foto_obat"=>$image,
-      ":sub"=>$sub,
+      ":kategori"=>$kategori,
       ":komposisi"=>$komposisi,
       ":indikasi"=>$indikasi,
       ":dosis"=>$dosis,

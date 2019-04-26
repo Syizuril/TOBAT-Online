@@ -116,15 +116,15 @@
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
-                    <th>Nama Obat</th>
+                    <th width="20%">Nama Obat</th>
                     <th>Deskripsi</th>
-                    <th>Sub Kategori</th>
-                    <th>Harga</th>
+                    <th width="20%">Kategori</th>
+                    <th width="13%">Harga</th>
                   </thead>
                   <tfoot>
                     <th>Nama Obat</th>
                     <th>Deskripsi</th>
-                    <th>Sub Kategori</th>
+                    <th>Kategori</th>
                     <th>Harga</th>
                   </tfoot>
                   <tbody>
@@ -132,7 +132,7 @@
                     <tr>
                         <td><a href="editobat.php?id_obat=<?php echo $value['id_obat'] ?>"><?php echo $value['nama_obat'] ?></a></td>
                         <td><?php echo $value['deskripsi_obat'] ?></td>
-                        <td><?php echo $value['sub'] ?></td>
+                        <td><?php echo $value['kategori'] ?></td>
                         <td><?php echo rp($value['harga']) ?></td>
                     </tr>
                     <?php endforeach; ?>

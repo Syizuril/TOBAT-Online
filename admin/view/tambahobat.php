@@ -145,9 +145,9 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"> <i class="fas fa-stream"></i> </span>
                     </div>
-                    <select class="custom-select" name="sub">
-                      <option value="" disabled selected hidden>Sub Kategori Obat</option>
-                      <option value="Antiseptik dan Desinfektan Kulit">Antiseptik dan Desinfektan Kulit</option>
+                    <select class="custom-select" name="kategori">
+                      <option value="" disabled selected hidden>Kategori Obat</option>
+                      <?php require("option_kategori.php") ?>
                     </select>
                   </div> <!-- form-group// -->
                   <div class="form-group input-group">
@@ -170,7 +170,7 @@
                   </div> <!-- form-group// -->
                   <div class="form-group input-group">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"> <i class="fas fa-notes-medical"></i> </span>
+                      <span class="input-group-text"> <i class="fas fa-clipboard-list"></i> </span>
                     </div>
                       <input name="penyajian" class="form-control" placeholder="Cara Penyajian" type="text" required>
                   </div> <!-- form-group// -->
@@ -182,13 +182,13 @@
                   </div> <!-- form-group// -->
                   <div class="form-group input-group">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"> <i class="fas fa-minus-square"></i> </span>
+                      <span class="input-group-text"> <i class="fas fa-info-circle"></i> </span>
                     </div>
                       <input name="perhatian" class="form-control" placeholder="Perhatian Obat" type="text" required>
                   </div> <!-- form-group// -->
                   <div class="form-group input-group">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"> <i class="fas fa-minus-square"></i> </span>
+                      <span class="input-group-text"> <i class="fas fa-question-circle"></i> </span>
                     </div>
                       <input name="efek" class="form-control" placeholder="Efek Samping" type="text" required>
                   </div> <!-- form-group// -->
@@ -212,13 +212,13 @@
                   </div> <!-- form-group// -->
                   <div class="form-group input-group">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"> <i class="fas fa-bookmark"></i> </span>
+                      <span class="input-group-text"> <i class="fas fa-calendar-check"></i> </span>
                     </div>
                       <input name="referensi" class="form-control" placeholder="Referensi Deskripsi Obat" type="text" required>
                   </div> <!-- form-group// -->
                   <div class="form-group input-group">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"> <i class="fas fa-bookmark"></i> </span>
+                      <span class="input-group-text"> <i class="fas fa-receipt"></i> </span>
                     </div>
                       <input name="harga" class="form-control" placeholder="Harga Obat" type="number" required>
                   </div> <!-- form-group// -->
