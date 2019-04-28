@@ -9,7 +9,7 @@
       ":email"=>$_GET['email']
     );
     $foto = $_GET['foto'];
-    if($image!="default.svg"){
+    if($foto!="default.svg"){
       unlink("../../images/avatars/$foto");
     }
     $stmt->execute($params);

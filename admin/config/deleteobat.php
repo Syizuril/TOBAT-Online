@@ -9,7 +9,7 @@
       ":id_obat"=>$_GET['id_obat']
     );
     $foto_obat = $_GET['foto_obat'];
-    if($image!="default.svg"){
+    if($foto_obat!="default-obat.jpg"){
       unlink("../../images/items/$foto_obat");
     }
     $saved = $stmt->execute($params);
