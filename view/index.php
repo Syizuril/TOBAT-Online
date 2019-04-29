@@ -44,8 +44,10 @@
     </style>
   </head>
   <body>
-    <?php require("header.php") ?>
-    <?php require("section/banneratas.php") ?>
+    <?php
+    require("header.php");
+    require("section/banneratas.php");
+    require("section/sesi2.php"); ?>
     <footer class="sticky-footer bg-white">
       <div class="container my-auto">
         <div class="copyright text-center my-auto">
