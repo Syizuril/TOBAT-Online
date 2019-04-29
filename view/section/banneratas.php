@@ -30,13 +30,13 @@ $(function(){
 	}
 </style>
 <!-- ========================= SECTION MAIN ========================= -->
-<section class="section-main bg padding-y-sm">
+<section class="section-main bg padding-y-sm mt-5 pt-4">
 <div class="container">
 <div class="card">
 	<div class="card-body">
 <div class="row row-sm">
 	<aside class="col-md-3">
-<h5 class="text-uppercase">Ketegori</h5>
+<h5 class="text-uppercase">Kategori</h5>
 	<ul class="menu-category">
 		<li> <a href="#">Food &amp Beverage </a></li>
 		<li> <a href="#">Home Equipments </a></li>
