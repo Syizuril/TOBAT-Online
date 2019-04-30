@@ -44,7 +44,7 @@ $(function(){
   	<figure class="card card-product">
   		<div class="img-wrap"> <img src="../images/items/<?php echo $value['foto_obat']?>"></div>
   		<figcaption class="info-wrap">
-  			<h6 class="title judul"><a href="#" class="text-dark font-weight-normal"><?php echo $value['nama_obat'] ?></a></h6>
+  			<h6 class="title judul"><a href="detailobat.php?id_obat=<?php echo $value['id_obat'] ?>" class="text-dark font-weight-normal"><?php echo $value['nama_obat'] ?></a></h6>
 
   			<div class="price-wrap">
   				<span class="price-new font-weight-bold text-success"><?php echo rp($value['harga'])?></span>

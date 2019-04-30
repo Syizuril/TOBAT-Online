@@ -63,7 +63,7 @@ $(function(){
       $j = 0;
       foreach ($data as $value): ?>
     	<li class="col-6 col-md-3">
-        <a href="#" class="itembox">
+        <a href="detailobat.php?id_obat=<?php echo $value['id_obat'] ?>" class="itembox">
         	<div class="card-body">
         		<p class="word-limit title text-dark"><?php echo $value['nama_obat'] ?><br>
             <span class="font-weight-bold text-success"><?php echo rp($value['harga'])?></span></p>

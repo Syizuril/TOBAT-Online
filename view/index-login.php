@@ -53,13 +53,10 @@
     <?php
     require("header_login.php");
     require("section/banneratas.php");
-    require("section/sesi2.php"); ?>
-    <footer class="sticky-footer bg-white">
-    <div class="container my-auto">
-      <div class="copyright text-center my-auto">
-        <span>Copyright &copy; TOBAT Online 2019</span>
-      </div>
-    </div>
+    require("section/sesi2.php");
+    require("section/sesi3.php");
+    require("section/rekomendasi.php");
+    require("section/footer.php");?>
   </footer>
   </body>
 </html>

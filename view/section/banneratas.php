@@ -30,7 +30,7 @@ $(function(){
 	}
 </style>
 <!-- ========================= SECTION MAIN ========================= -->
-<section class="section-main bg padding-y-sm mt-5 pt-4">
+<section class="section-main bg padding-y-sm">
 <div class="container">
 <div class="card">
 	<div class="card-body">
@@ -107,7 +107,7 @@ $(function(){
 			shuffle($data);
 			$i = 0;
 			foreach ($data as $value): ?>
-			<a href="#">
+			<a href="detailobat.php?id_obat=<?php echo $value['id_obat'] ?>">
 				<figure class="itemside has-bg border-bottom" style="height: 33%;">
 					<img class="img-bg float-right fig_bawah" height="100%" src="../images/items/<?php echo $value['foto_obat']?>">
 					<figcaption class="p-2 fig_atas">
