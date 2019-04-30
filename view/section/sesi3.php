@@ -1,6 +1,6 @@
 <?php
 require_once("../config/config.php");
-require_once("../config/readobatvitamin.php");
+require_once("../config/readobatkulit.php");
 ?>
 <script type="text/javascript">// <![CDATA[
 $(function(){
@@ -34,7 +34,7 @@ $(function(){
 <div class="container">
 
 <header class="section-heading heading-line">
-	<h4 class="title-section bg">Obat Batuk dan Pilek</h4>
+	<h4 class="title-section bg">Antiseptik dan Desifektan Kulit</h4>
 </header>
 
 <div class="card">
@@ -43,13 +43,11 @@ $(function(){
 
   <article href="#" class="card-banner h-100 bg2">
   	<div class="card-body zoom-wrap">
-  		<h5 class="title">Obat Batuk dan Pilek</h5>
-  		<p class="fig_atas">Obat yang digunakan untuk mengobati <br>
-        gejala flu seperti demam, sakit kepala, <br>
-        hidung tersumbat, bersin-bersin, disertai batuk dengan dahak/mukus <br>
-        yang berlebihan.</p>
+  		<h5 class="title">Antiseptik dan Desifektan Kulit</h5>
+  		<p class="fig_atas">Obat yang digunakan untuk mengobati<br>
+        gejala penyakit kulit. Sebagai bagian terluar tubuh yang menerima berbagai paparan dari lingkungan, kulit dapat dengan mudah mengalami gangguan atau penyakit.</p>
   		<a href="#" class="btn btn-success fig_atas">Telusuri</a>
-  		<img src="../images/items/model-batuk.png" height="200" class="img-bg zoom-in">
+  		<img src="../images/items/model-kulit.png" height="200" class="img-bg zoom-in">
   	</div>
   </article>
 

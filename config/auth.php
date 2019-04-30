@@ -5,10 +5,9 @@
   }else{
         switch ($_SESSION["level"]) {
           case 0:
-
             break;
           case 1 :
-            header("Location: admin/index.php");
+            header("Location: ../admin/index.php");
             break;
         }
   }
