@@ -1,6 +1,5 @@
 <?php
   require_once("../config/config.php");
-  require("../config/auth.php");
   require_once("../config/detailobat.php");
  ?>
 <!DOCTYPE html>
@@ -50,7 +49,7 @@
     <style media="screen">
     .judul {
     	white-space: nowrap;
-    	width: 10px;
+    	width: 200px;
     	overflow: hidden;
     	text-overflow: ellipsis;
   	}
@@ -72,7 +71,13 @@
   </head>
   <body>
     <?php
-    require("header_login.php");?>
+      session_start();
+      if(!isset($_SESSION["user"])) {
+        require("header.php");
+      }else{
+        require("header_login.php");
+      }
+     ?>
     <!-- ========================= SECTION CONTENT ========================= -->
     <section class="section-content bg padding-y-sm ">
     <div class="container">
