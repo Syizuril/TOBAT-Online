@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 30 Apr 2019 pada 13.38
+-- Generation Time: 02 Mei 2019 pada 04.56
 -- Versi Server: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -92,9 +92,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `email`, `password`, `nama`, `no_hp`, `alamat`, `sia`, `foto`, `level`) VALUES
-(3, 'syihabklayan@gmail.com', '$2y$10$MK1H.gQm0bebr4uTaXwAFuwvdnHHG1N1OW9x/eciMix/NDpVzjZO.', 'Syihab', 82218424651, 'Cirebon, Klayan', '', 'default.svg', 0),
+(3, 'syihabklayan@gmail.com', '$2y$10$lhz5ji5oepxNWrHvvzDyQeSA5518Ia0TIVWyIxFhkVSpXEgNTilc2', 'Syihab', 82218424651, 'Cirebon, Klayan', '', 'muzzamil.png', 0),
 (4, 'syamfirdaus@gmail.com', '$2y$10$2vzTEtWmU2i31L21Nb7T5.NBwKrrBP0AwI3JBCkvf2a.I95PxXCVa', 'Muhammad Syam', 82218427432, 'tidaktahu', '', 'default.svg', 1),
-(6, 'admin2@admin.com', '$2y$10$0fzuS0WFgBlTn43MrHtfXe.AOdoYrjCv7Eu738fYVCO0NTRALmGOu', 'admin', 82218424650, 'Cirebon', '', 'product_DV_01.jpg', 1),
+(6, 'admin2@admin.com', '$2y$10$BLB4io4w62oSzHXhWX/JQOLfDwbvdmEuHzGiOR2HO.OErm7H12mWe', 'admin', 82218424650, 'Cirebon', '', 'bukan-antibiotik-kenali-4-jenis-obat-batuk-pilek-berdasarkan-gejala_m_-640x420.jpg', 1),
 (7, 'syamfirdaus5@gmail.com', '$2y$10$KLlSYHYNu23o1svHOm/BAO1O50AZOmlOWssT3gq0zVWkVbBKBWDea', 'Syam', 77123123, 'Purwakarta', '', 'RFactory1DS-UnusedZavier.png', 0),
 (12, 'kirito@sao.com', '$2y$10$stB.OZdqERIGhSQKEIvoGOmoduJNumhEhQZ.cL8G34TYadkjoR3Ue', 'Kirigaya Kazuto', 123, 'Aincard', '', 'default.svg', 1),
 (14, 'apotik@apotik.com', '$2y$10$MstUbkY.9n3TBVyNLxwm..Lp8H2MgwxVLFt57ag7W85YrILRbTy0W', 'Apotik Sukaharga', 123, '123', '12EDWQ/213X/12X/123', 'SI TIKA Logo.png', 2),
@@ -128,7 +128,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `obat`
 --
 ALTER TABLE `obat`
-  MODIFY `id_obat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_obat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `user`
