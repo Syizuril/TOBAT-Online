@@ -1,6 +1,6 @@
 <header class="section-header">
   <nav class="navbar navbar-expand-sm bg-success navbar-dark">
-    <a href="#" class="navbar-brand"> <img src="../images/tobattrans.png" alt="TOBAT Online" width="100"></a>
+    <a href="index.php" class="navbar-brand"> <img src="../images/tobattrans.png" alt="TOBAT Online" width="100"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -35,7 +35,7 @@
                 <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i> &nbsp; Login via facebook</a>
               </p>
               <hr>
-              <form class="form-horizontal" action="" method="POST">
+              <form class="form-horizontal" action="index.php" method="POST">
                 <div class="form-group input-icon">
                   <i class="fa fa-user"></i>
                     <input name="email" class="form-control" placeholder="Email" type="email" required>

@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <title>TOBAT Online - Situs Penjualan Obat Online</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
 
     <!-- jQuery -->
     <script src="../js/jquery-2.0.0.min.js" type="text/javascript"></script>

@@ -1,14 +1,15 @@
 <?php
+  session_start();
   require_once("../config/config.php");
   require_once("../config/detailobat.php");
  ?>
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
   <head>
     <meta charset="utf-8">
     <title><?php echo $data['nama_obat'] ?> - TOBAT Online</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
 
     <!-- jQuery -->
     <script src="../js/jquery-2.0.0.min.js" type="text/javascript"></script>
@@ -35,24 +36,7 @@
 
     <!-- custom javascript -->
     <script src="../js/script.js" type="text/javascript"></script>
-    <script type="text/javascript">
-    $(function(){
-      $(".judul").each(function(i){
-        len=$(this).text().length;
-        if(len>80)
-        {
-          $(this).text($(this).text().substr(0,80)+'...');
-        }
-      });
-    });
-    </script>
     <style media="screen">
-    .judul {
-    	white-space: nowrap;
-    	width: 200px;
-    	overflow: hidden;
-    	text-overflow: ellipsis;
-  	}
     .dropdown-toggle_a::after {
       display: none;
     }
@@ -67,11 +51,109 @@
       background-image: url('../images/cover.jpg');
       background-position:center; background-size:cover;
     }
+    .carousel {
+    	margin: 50px auto;
+    	padding: 0 70px;
+    }
+    .carousel .item {
+    	min-height: 330px;
+        text-align: center;
+    	overflow: hidden;
+    }
+    .carousel .item .img-box {
+    	height: 160px;
+    	width: 100%;
+    	position: relative;
+    }
+    .carousel .item img {
+    	max-width: 100%;
+    	max-height: 100%;
+    	display: inline-block;
+    	position: absolute;
+    	bottom: 0;
+    	margin: 0 auto;
+    	left: 0;
+    	right: 0;
+    }
+    .carousel .item h4 {
+    	font-size: 18px;
+    	margin: 10px 0;
+    }
+    .carousel .item .btn {
+    	color: #333;
+        border-radius: 0;
+        font-size: 11px;
+        text-transform: uppercase;
+        font-weight: bold;
+        background: none;
+        border: 1px solid #ccc;
+        padding: 5px 10px;
+        margin-top: 5px;
+        line-height: 16px;
+    }
+    .carousel .item .btn:hover, .carousel .item .btn:focus {
+    	color: #fff;
+    	background: #000;
+    	border-color: #000;
+    	box-shadow: none;
+    }
+    .carousel .item .btn i {
+    	font-size: 14px;
+        font-weight: bold;
+        margin-left: 5px;
+    }
+    .carousel .thumb-wrapper {
+    	text-align: center;
+    }
+    .carousel .thumb-content {
+    	padding: 15px;
+    }
+    .carousel .carousel-control {
+    	height: 100px;
+        width: 40px;
+        background: none;
+        margin: auto 0;
+        background: rgba(0, 0, 0, 0.2);
+    }
+    .carousel .carousel-control i {
+        font-size: 30px;
+        position: absolute;
+        top: 50%;
+        display: inline-block;
+        margin: -16px 0 0 0;
+        z-index: 5;
+        left: 0;
+        right: 0;
+        color: rgba(0, 0, 0, 0.8);
+        text-shadow: none;
+        font-weight: bold;
+    }
+    .carousel .carousel-control.left i {
+    	margin-left: -3px;
+    }
+    .carousel .carousel-control.left i {
+    	margin-right: -3px;
+    }
+    .carousel .carousel-indicators {
+    	bottom: -50px;
+    }
+    .carousel-indicators li, .carousel-indicators li.active {
+    	width: 10px;
+    	height: 10px;
+    	margin: 4px;
+    	border-radius: 50%;
+    	border-color: transparent;
+    }
+    .carousel-indicators li {
+    	background: rgba(0, 0, 0, 0.2);
+    }
+    .carousel-indicators li.active {
+    	background: rgba(0, 0, 0, 0.6);
+    }
     </style>
   </head>
   <body>
     <?php
-      session_start();
       if(!isset($_SESSION["user"])) {
         require("header.php");
       }else{
@@ -90,8 +172,7 @@
     </nav>
 
     <div class="row">
-    <div class="col-xl-10 col-md-9 col-sm-12">
-
+    <div class="col-xl-9 col-md-9 col-sm-12">
 
     <main class="card">
     	<div class="row no-gutters">
@@ -203,7 +284,7 @@
     <!-- PRODUCT DETAIL .// -->
 
     </div> <!-- col // -->
-    <aside class="col-xl-2 col-md-3 col-sm-12">
+    <aside class="col-xl-3 col-md-3 col-sm-12">
     <div class="card">
     	<div class="card-header">
     	    Barang Terkait
@@ -223,7 +304,7 @@
         	<figure class="item border-bottom mb-3">
         			<a href="detailobat.php?id_obat=<?php echo $value['id_obat'] ?>" class="img-wrap"> <img src="../images/items/<?php echo $value['foto_obat'] ?>" class="img-md"></a>
         			<figcaption class="info-wrap">
-        				<a href="detailobat.php?id_obat=<?php echo $value['id_obat'] ?>" class="title judul text-dark font-weight-normal"><?php echo $value['nama_obat']?></a>
+        				<a class="title text-dark" href="detailobat.php?id_obat=<?php echo $value['id_obat'] ?>"> <span><?php echo $value['nama_obat']?></span></a>
         				<div class="price-wrap mb-3">
         					<span class="price-new text-success"><?php echo rp($value['harga'])?></del>
         				</div> <!-- price-wrap.// -->
@@ -236,9 +317,102 @@
     </div> <!-- card.// -->
     </aside> <!-- col // -->
     </div> <!-- row.// -->
+    <header class="section-heading heading-line">
+    	<h4 class="title-section bg mt-3">Rekomendasi Buat Kamu</h4>
+    </header>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
+			<!-- Carousel indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>
+			<!-- Wrapper for carousel items -->
+			<div class="carousel-inner">
+				<div class="item carousel-item active">
+					<div class="row">
+            <?php
+            require_once("../config/readobat.php");
+            shuffle($data);
+            $i = 0;
+            foreach ($data as $value): ?>
+            <div class="col-md-2">
+              <figure class="card card-product">
+                <div class="img-wrap"> <img src="../images/items/<?php echo $value['foto_obat']?>"></div>
+                <figcaption class="info-wrap">
+                  <h6 class="title judul"><a href="detailobat.php?id_obat=<?php echo $value['id_obat'] ?>" class="text-dark font-weight-normal"><?php echo $value['nama_obat'] ?></a></h6>
 
+                  <div class="price-wrap">
+                    <span class="price-new font-weight-bold text-success"><?php echo rp($value['harga'])?></span>
+                  </div> <!-- price-wrap.// -->
 
+                </figcaption>
+              </figure> <!-- card // -->
+            </div> <!-- col // -->
+            <?php
+            if (++$i == 6) break;
+            endforeach; ?>
+					</div>
+				</div>
+				<div class="item carousel-item">
+					<div class="row">
+            <?php
+            require_once("../config/readobat.php");
+            shuffle($data);
+            $i = 0;
+            foreach ($data as $value): ?>
+            <div class="col-md-2">
+              <figure class="card card-product">
+                <div class="img-wrap"> <img src="../images/items/<?php echo $value['foto_obat']?>"></div>
+                <figcaption class="info-wrap">
+                  <h6 class="title judul"><a href="detailobat.php?id_obat=<?php echo $value['id_obat'] ?>" class="text-dark font-weight-normal"><?php echo $value['nama_obat'] ?></a></h6>
 
+                  <div class="price-wrap">
+                    <span class="price-new font-weight-bold text-success"><?php echo rp($value['harga'])?></span>
+                  </div> <!-- price-wrap.// -->
+
+                </figcaption>
+              </figure> <!-- card // -->
+            </div> <!-- col // -->
+            <?php
+            if (++$i == 6) break;
+            endforeach; ?>
+					</div>
+				</div>
+				<div class="item carousel-item">
+					<div class="row">
+            <?php
+            require_once("../config/readobat.php");
+            shuffle($data);
+            $i = 0;
+            foreach ($data as $value): ?>
+            <div class="col-md-2">
+              <figure class="card card-product">
+                <div class="img-wrap"> <img src="../images/items/<?php echo $value['foto_obat']?>"></div>
+                <figcaption class="info-wrap">
+                  <h6 class="title judul"><a href="detailobat.php?id_obat=<?php echo $value['id_obat'] ?>" class="text-dark font-weight-normal"><?php echo $value['nama_obat'] ?></a></h6>
+
+                  <div class="price-wrap">
+                    <span class="price-new font-weight-bold text-success"><?php echo rp($value['harga'])?></span>
+                  </div> <!-- price-wrap.// -->
+
+                </figcaption>
+              </figure> <!-- card // -->
+            </div> <!-- col // -->
+            <?php
+            if (++$i == 6) break;
+            endforeach; ?>
+					</div>
+				</div>
+			</div>
+			<!-- Carousel controls -->
+			<a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
+				<i class="fa fa-angle-left"></i>
+			</a>
+			<a class="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next">
+				<i class="fa fa-angle-right"></i>
+			</a>
+		</div>
     </div><!-- container // -->
     </section>
     <!-- ========================= SECTION CONTENT .END// ========================= -->
