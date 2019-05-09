@@ -15,11 +15,11 @@ $(function(){
 // ]]></script>
 <style media="screen">
 	.judul {
-	white-space: nowrap;
-	width: 200px;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	}
+  	white-space: nowrap;
+  	width: 200px;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+  	}
 	.fig_atas {
 		z-index: 1;
 		position: relative;
@@ -68,7 +68,7 @@ $(function(){
 				<h5>First slide label</h5>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 			tempor incididunt.</p>
-			</article> <!-- carousel-caption .// -->
+			 </article> <!-- carousel-caption .// -->
 			</div>
 			<div class="carousel-item">
 				<img class="d-block w-100" src="../images/banners/slide2.jpg" alt="Second slide">
@@ -76,7 +76,7 @@ $(function(){
 				<h5>Second slide label</h5>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 			tempor incididunt.</p>
-			</article> <!-- carousel-caption .// -->
+			 </article> <!-- carousel-caption .// -->
 			</div>
 			<div class="carousel-item">
 				<img class="d-block w-100" src="../images/banners/slide3.jpg" alt="Third slide">
@@ -84,7 +84,7 @@ $(function(){
 				<h5>Third slide label</h5>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 			tempor incididunt</p>
-			</article> <!-- carousel-caption .// -->
+			 </article> <!-- carousel-caption .// -->
 			</div>
 		</div>
 		<a class="carousel-control-prev" href="#carousel2_indicator" role="button" data-slide="prev">

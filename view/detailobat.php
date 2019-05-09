@@ -2,6 +2,8 @@
   session_start();
   require_once("../config/config.php");
   require_once("../config/detailobat.php");
+  $modal=false;
+  require("../config/keranjang.php");
  ?>
 <!DOCTYPE html>
 <html>
@@ -164,7 +166,7 @@
     <section class="section-content bg padding-y-sm ">
     <div class="container">
     <nav class="mb-3">
-    <ol class="breadcrumb">
+      <ol class="breadcrumb">
         <li class="breadcrumb-item text-uppercase"><a href="#">Home</a></li>
         <li class="breadcrumb-item text-uppercase"><a href="#"><?php echo $data['kategori'] ?></a></li>
         <li class="breadcrumb-item text-uppercase active text-success" aria-current="page"><?php echo $data['nama_obat'] ?></li>
@@ -177,59 +179,59 @@
     <main class="card">
     	<div class="row no-gutters">
     		<aside class="col-sm-6 border-right">
-    <article class="gallery-wrap">
-    <div class="img-big-wrap">
-      <div> <a href="../images/items/<?php echo $data['foto_obat'] ?>" data-fancybox=""><img src="../images/items/<?php echo $data['foto_obat'] ?>"></a></div>
-    </div> <!-- slider-product.// -->
-    </article> <!-- gallery-wrap .end// -->
+          <article class="gallery-wrap">
+          <div class="img-big-wrap">
+            <div> <a href="../images/items/<?php echo $data['foto_obat'] ?>" data-fancybox=""><img src="../images/items/<?php echo $data['foto_obat'] ?>"></a></div>
+          </div> <!-- slider-product.// -->
+          </article> <!-- gallery-wrap .end// -->
     		</aside>
     		<aside class="col-sm-6">
-    <article class="card-body">
-    <!-- short-info-wrap -->
-    	<h3 class="title mb-3"><?php echo $data['nama_obat'] ?></h3>
+        <article class="card-body">
+        <!-- short-info-wrap -->
+        	<h3 class="title mb-3"><?php echo $data['nama_obat'] ?></h3>
+        <div class="mb-3">
+        	<var class="price h3 text-warning">
+        		<span class="currency text-success"><?php echo rp($data['harga']) ?></span>
+        	</var>
+        	<span>/per barang</span>
+        </div> <!-- price-detail-wrap .// -->
+        <dl>
+          <dt>Desksripsi</dt>
+          <dd><p><?php echo $data['deskripsi_obat'] ?></p></dd>
+        </dl>
+        <dl class="row">
+          <dt class="col-sm-3">Kategori</dt>
+          <dd class="col-sm-9"><?php echo $data['kategori'] ?></dd>
 
-    <div class="mb-3">
-    	<var class="price h3 text-warning">
-    		<span class="currency text-success"><?php echo rp($data['harga']) ?></span>
-    	</var>
-    	<span>/per barang</span>
-    </div> <!-- price-detail-wrap .// -->
-    <dl>
-      <dt>Desksripsi</dt>
-      <dd><p><?php echo $data['deskripsi_obat'] ?></p></dd>
-    </dl>
-    <dl class="row">
-      <dt class="col-sm-3">Kategori</dt>
-      <dd class="col-sm-9"><?php echo $data['kategori'] ?></dd>
+          <dt class="col-sm-3">Indikasi</dt>
+          <dd class="col-sm-9"><?php echo $data['indikasi'] ?></dd>
 
-      <dt class="col-sm-3">Indikasi</dt>
-      <dd class="col-sm-9"><?php echo $data['indikasi'] ?></dd>
-
-      <dt class="col-sm-3">Perhatian</dt>
-      <dd class="col-sm-9"><?php echo $data['perhatian'] ?></dd>
-    </dl>
-
-    <hr>
-    	<div class="row">
-    		<div class="col-sm-12">
-    			<dl class="dlist-inline">
-    			  <dt>Quantity: </dt>
-    			  <dd>
-    			  	<select class="form-control form-control-sm" style="width:70px;">
-                <?php
-                for($i=1;$i<100;$i++){?>
-                <option><?php echo $i ?></option>
-                <?php } ?>
-    			  	</select>
-    			  </dd>
-    			</dl>  <!-- item-property .// -->
-    		</div> <!-- col.// -->
-    	</div> <!-- row.// -->
-    	<hr>
-    	<a href="#" class="btn  btn-outline-success"> <i class="fa fa-envelope"></i> Tanyakan Produk Ini </a>
-    	<a href="#" class="btn  btn-success"> Beli Obat </a>
-    <!-- short-info-wrap .// -->
-    </article> <!-- card-body.// -->
+          <dt class="col-sm-3">Perhatian</dt>
+          <dd class="col-sm-9"><?php echo $data['perhatian'] ?></dd>
+        </dl>
+        <hr>
+        	<div class="row">
+            <form method="POST" action="detailobat.php?id_obat=<?php echo $data['id_obat'] ?>&beli=tambah">
+        		<div class="col-sm-12">
+        			<dl class="dlist-inline">
+        			  <dt>Jumlah: </dt>
+        			  <dd>
+        			  	<select class="form-control form-control-sm" style="width:70px;" name="jumlah">
+                    <option value="1">1</option>
+        			  	</select>
+        			  </dd>
+        			</dl>  <!-- item-property .// -->
+        		</div> <!-- col.// -->
+        	</div> <!-- row.// -->
+        	<hr>
+          <input type="hidden" name="hidden_nama_obat" value="<?php echo $data["nama_obat"]; ?>" />
+          <input type="hidden" name="hidden_harga" value="<?php echo $data["harga"]; ?>" />
+          <input type="hidden" name="hidden_foto_obat" value="<?php echo $data["foto_obat"]; ?>" />
+        	<a href="#" class="btn btn-outline-success"> <i class="fa fa-envelope"></i> Tanyakan Produk Ini </a>
+        	<button class="btn btn-success" name="beli" type="submit" > Beli Obat </button>
+          </form>
+        <!-- short-info-wrap .// -->
+        </article> <!-- card-body.// -->
     		</aside> <!-- col.// -->
     	</div> <!-- row.// -->
     </main> <!-- card.// -->
@@ -285,47 +287,47 @@
 
     </div> <!-- col // -->
     <aside class="col-xl-3 col-md-3 col-sm-12">
-    <div class="card">
-    	<div class="card-header">
-    	    Barang Terkait
-    	</div>
-    	<div class="card-body row">
-        <?php
-          $kategori=$data['kategori'];
-          $stmt = $db->prepare("SELECT * FROM obat WHERE kategori='$kategori'");
-          $stmt->execute();
-          $data = $stmt->fetchAll();
+      <div class="card">
+      	<div class="card-header">
+      	    Barang Terkait
+      	</div>
+      	<div class="card-body row">
+          <?php
+            $kategori=$data['kategori'];
+            $stmt = $db->prepare("SELECT * FROM obat WHERE kategori='$kategori'");
+            $stmt->execute();
+            $data = $stmt->fetchAll();
 
-          shuffle($data);
-          $i = 0;
-          foreach ($data as $value):
-         ?>
-        <div class="col-md-12 col-sm-3">
-        	<figure class="item border-bottom mb-3">
-        			<a href="detailobat.php?id_obat=<?php echo $value['id_obat'] ?>" class="img-wrap"> <img src="../images/items/<?php echo $value['foto_obat'] ?>" class="img-md"></a>
-        			<figcaption class="info-wrap">
-        				<a class="title text-dark" href="detailobat.php?id_obat=<?php echo $value['id_obat'] ?>"> <span><?php echo $value['nama_obat']?></span></a>
-        				<div class="price-wrap mb-3">
-        					<span class="price-new text-success"><?php echo rp($value['harga'])?></del>
-        				</div> <!-- price-wrap.// -->
-        			</figcaption>
-        	</figure> <!-- card-product // -->
-        </div> <!-- col.// -->
-        <?php
-  			if (++$i == 5) break;
-  			endforeach; ?>
-    </div> <!-- card.// -->
+            shuffle($data);
+            $i = 0;
+            foreach ($data as $value):
+           ?>
+          <div class="col-md-12 col-sm-3">
+          	<figure class="item border-bottom mb-3">
+          			<a href="detailobat.php?id_obat=<?php echo $value['id_obat'] ?>" class="img-wrap"> <img src="../images/items/<?php echo $value['foto_obat'] ?>" class="img-md"></a>
+          			<figcaption class="info-wrap">
+          				<a class="title text-dark" href="detailobat.php?id_obat=<?php echo $value['id_obat'] ?>"> <span><?php echo $value['nama_obat']?></span></a>
+          				<div class="price-wrap mb-3">
+          					<span class="price-new text-success"><?php echo rp($value['harga'])?></del>
+          				</div> <!-- price-wrap.// -->
+          			</figcaption>
+          	</figure> <!-- card-product // -->
+          </div> <!-- col.// -->
+          <?php
+    			if (++$i == 5) break;
+    			endforeach; ?>
+      </div> <!-- card.// -->
     </aside> <!-- col // -->
     </div> <!-- row.// -->
     <header class="section-heading heading-line">
     	<h4 class="title-section bg mt-3">Rekomendasi Buat Kamu</h4>
     </header>
-    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
+    <div id="ObatCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
 			<!-- Carousel indicators -->
 			<ol class="carousel-indicators">
-				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-				<li data-target="#myCarousel" data-slide-to="1"></li>
-				<li data-target="#myCarousel" data-slide-to="2"></li>
+				<li data-target="#ObatCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#ObatCarousel" data-slide-to="1"></li>
+				<li data-target="#ObatCarousel" data-slide-to="2"></li>
 			</ol>
 			<!-- Wrapper for carousel items -->
 			<div class="carousel-inner">
@@ -406,19 +408,120 @@
 				</div>
 			</div>
 			<!-- Carousel controls -->
-			<a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
+			<a class="carousel-control left carousel-control-prev" href="#ObatCarousel" data-slide="prev">
 				<i class="fa fa-angle-left"></i>
 			</a>
-			<a class="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next">
+			<a class="carousel-control right carousel-control-next" href="#ObatCarousel" data-slide="next">
 				<i class="fa fa-angle-right"></i>
 			</a>
 		</div>
     </div><!-- container // -->
     </section>
     <!-- ========================= SECTION CONTENT .END// ========================= -->
-
     <?php
     require("section/footer.php");?>
-  </footer>
+    <?php if ($modal==true) { ?>
+      <script>
+      $(function() {
+        $("#beli").modal();//if you want you can have a timeout to hide the window after x seconds
+      });
+      </script>
+    <!-- ============================ MODAL ========================= -->
+    <div class="modal fade" id="beli" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Keranjang Belanja</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row center">
+            <div class="col">
+              <div class="card">
+                <table class="table table-hover shopping-cart-wrap">
+                  <thead class="text-muted">
+                    <tr class="text-center">
+                      <th width="40%">Nama Obat</th>
+                      <th width="10%">Jumlah</th>
+                      <th width="20%">Harga Obat</th>
+                      <th width="20%" class="text-right">Harga</th>
+                      <th width="10%" class="text-right">Hapus</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php
+                    if(!empty($_SESSION["keranjang"])){
+                      $total = 0;
+                      foreach($_SESSION["keranjang"] as $keys => $values){
+                    ?>
+                    <tr>
+                      <td>
+                        <figure class="media">
+                          <div class="img-wrap"><img src="../images/items/<?php echo $values["foto_obat"] ?>" class="img-thumbnail img-sm"></div>
+                          <figcaption class="media-body my-auto">
+                            <h6><?php echo $values["nama_obat"] ?></h6>
+                          </figcaption>
+                        </figure>
+                      </td>
+                      <td>
+                        <select class="form-control mt-4">
+                          <option><?php echo $values["jumlah"] ?></option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                        </select>
+                      </td>
+                      <td>
+                          <p class="text-success text-right mt-4 pt-2"><?php echo rp($values["harga"]) ?></p>
+                      </td>
+                      <td>
+                          <p class="text-success text-right mt-4 pt-2"><?php echo rp($values["jumlah"] * $values["harga"]) ?></p>
+                      </td>
+                      <td class="text-right">
+                        <a href="detailobat.php?id_obat=<?php echo $values["id_obat"] ?>&beli=hapus" class="btn btn-outline-danger mt-4"> <i class="fas fa-times-circle"></i> </a>
+                      </td>
+                      <?php
+                      $total = $total + ($values["jumlah"] * $values["harga"]);
+                      }
+                      ?>
+                    </tr>
+                    <tr>
+                      <td align="right" colspan="2">Total:</td>
+                      <td class="text-right text-success" colspan="2"><strong><?php echo rp($total) ?></strong></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div> <!-- card.// -->
+            </div>
+          </div>
+        <div class="modal-footer">
+          <div class="center">
+            <a href="index.php" class="btn btn-success btn-block"> Ayo Mulai Belanja </a>
+          </div>
+        </div>
+        </div>
+        <?php
+        }
+        else { ?>
+          <div class="modal-body">
+            <div class="text-center">
+              <img src="../images/icons/belanja.svg" alt="Daftar Belanja" width="70%">
+              <h5 class="mt-3">Belum ada obat di dalam keranjang belanja kamu</h5>
+              <p class="small text-secondary mt-2 mb-0">Ayo mulai belanja di TOBAT Online dan nikmati kemudahannya</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="center">
+              <a href="index.php" class="btn btn-success btn-block"> Ayo Mulai Belanja </a>
+            </div>
+          </div>
+          </div>
+        <?php
+          }
+        } ?>
   </body>
 </html>
