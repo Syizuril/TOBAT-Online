@@ -17,8 +17,7 @@
     		}
     		else
     		{
-    			echo '<div class="alert">("Item Already Added")</div>';
-          $modal=true;
+    			echo "<div class='text-warning text-center small'>Mohon maaf, obat tersebut sudah masuk dalam keranjang</div>";
     		}
     	}
     	else
@@ -45,6 +44,7 @@
     			{
     				unset($_SESSION["keranjang"][$keys]);
     				echo '<script>window.location="detailobat.php?id_obat='.$values["id_obat"].'"</script>';
+            echo "<div class='text-success text-center small'>Obat telah dihapus dari daftar keranjang</div>";
     			}
     		}
     	}
