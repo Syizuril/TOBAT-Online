@@ -44,7 +44,8 @@
 
     if(!in_array($ext,$allowed))
     {
-      echo "Terdapat kesalahan dalam mengupload gambar, silahkan periksa ekstensi file dan keberadaan foto tersebut.";
+      echo "<div class='alert alert-danger alert-dismissible fade show'>
+            <strong>Terdapat kesalahan dalam mengupload gambar,</strong> silahkan periksa ekstensi file dan keberadaan foto tersebut.</div>";
     }else{
       move_uploaded_file( $_FILES['image'] ['tmp_name'], $path);
 
