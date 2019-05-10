@@ -43,7 +43,7 @@
     			if($values["id_obat"] == $_GET["id_obat"])
     			{
     				unset($_SESSION["keranjang"][$keys]);
-    				echo '<script>window.location="detailobat.php?id_obat='.$values["id_obat"].'"</script>';
+    				echo '<script>window.location="keranjangbelanja.php"</script>';
             echo "<div class='text-success text-center small'>Obat telah dihapus dari daftar keranjang</div>";
     			}
     		}

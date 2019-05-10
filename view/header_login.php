@@ -17,10 +17,15 @@
           </div>
         </li>
       </ul>
-          <form class="navbar-form form-inline" action="/action_page.php">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search">
-            <button class="btn btn-outline-light" type="submit"><i class="fa fa-search"></i></button>
-          </form>
+      <ul class="navbar-nav">
+        <form class="navbar-form form-inline" action="/action_page.php">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search">
+          <button class="btn btn-outline-light" type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </ul>
+      <ul class="navbar-nav mx-2">
+        <a href="keranjangbelanja.php" class="btn btn-outline-light"><i class="fas fa-cart-plus"></i></a>
+      </ul>
       <ul class="navbar-nav">
         <li class="dropdown">
           <img class="img img-responsive circle dropdown-toggle ml-2" width="30" data-toggle="dropdown" src="../images/avatars/<?php echo $_SESSION['user']['foto']?>" /><span class="caret"></span>

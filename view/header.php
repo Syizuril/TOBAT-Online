@@ -17,11 +17,14 @@
           </div>
         </li>
       </ul>
-      <ul class="navbar-nav mx-1 py-1">
-        <form class="form-inline navbar-nav" action="/action_page.php">
-          <input class="form-control" type="search" placeholder="Search">
+      <ul class="navbar-nav">
+        <form class="navbar-form form-inline" action="/action_page.php">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search">
           <button class="btn btn-outline-light" type="submit"><i class="fa fa-search"></i></button>
         </form>
+      </ul>
+      <ul class="navbar-nav mx-2">
+        <a href="keranjangbelanja.php" class="btn btn-outline-light"><i class="fas fa-cart-plus"></i></a>
       </ul>
       <ul class="navbar-nav mx-1 py-1">
         <li class="dropdown">

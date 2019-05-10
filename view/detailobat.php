@@ -2,8 +2,11 @@
   session_start();
   require_once("../config/config.php");
   require_once("../config/detailobat.php");
+  require_once("../config/rp.php");
   $modal=false;
   require("../config/keranjang.php");
+  require("../config/register.php");
+  require("../config/login.php");
  ?>
 <!DOCTYPE html>
 <html>
@@ -500,7 +503,14 @@
           </div>
         <div class="modal-footer">
           <div class="center">
-            <a href="index.php" class="btn btn-success btn-block"> Ayo Mulai Belanja </a>
+            <div class="row">
+              <div class="col-6">
+                <a href="keranjangbelanja.php" class="btn btn-info float-left"> Lihat Keranjang </a>
+              </div>
+              <div class="col-6">
+                <a href="index.php" class="btn btn-success float-right"> Lanjut Ke Pesanan </a>
+              </div>
+            </div>
           </div>
         </div>
         </div>

@@ -14,8 +14,4 @@
   }else{
     $data = $stmt->fetch();
   }
-  function rp($angka){
-	    $format_rupiah = "Rp " . number_format($angka,2,',','.');
-	    return $format_rupiah;
-   }
  ?>
