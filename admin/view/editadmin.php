@@ -127,7 +127,8 @@
                       <input name="nama" class="form-control" placeholder="Nama Panjang" type="text" value="<?php echo $data['nama'] ?>" required>
                   </div> <!-- form-group// -->
                   <div class="form-group input-group">
-                     <input class="input-group-text" style="width: 100%" type="file" name="image" placeholder="Browse your image">
+                     <input class="input-group-text custom-file-input" style="width: 100%" type="file" name="image">
+                     <label class="custom-file-label text-secondary" for="customFile">Unggah Foto</label>
                   </div> <!-- form-group// -->
                 </div>
               </div>
