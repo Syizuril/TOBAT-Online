@@ -1,8 +1,6 @@
 <?php
   session_start();
   require_once("../config/config.php");
-  require("../config/register.php");
-  require("../config/login.php");
   require_once("../config/rp.php");
  ?>
 
@@ -43,13 +41,6 @@
       display: block;
       margin-top: 0;
     }
-    .circle {
-      height:35px;
-      width:35px;
-      border-radius:50%;
-      background-image: url('../images/cover.jpg');
-      background-position:center; background-size:cover;
-    }
     </style>
   </head>
   <body>
@@ -69,9 +60,9 @@
            <li class="breadcrumb-item text-uppercase active text-success" aria-current="page">Keranjang Belanja</li>
        </ol>
        </nav>
-       <div class="card mb-5">
+       <div class="card">
          <div class="card-header">
-             <h5>Keranjang Belanja</h5>
+             <h5>Detail Pemesanan</h5>
          </div>
          <div class="card-body">
            <?php
@@ -87,13 +78,9 @@
                    <th width="10%">Jumlah</th>
                    <th width="20%" class="text-right">Harga Obat</th>
                    <th width="20%" class="text-right">Harga</th>
-                   <th width="10%" class="text-right">Hapus</th>
                  </tr>
                </thead>
-               <tbody><?php
-                  $total = 0;
-                  foreach($_SESSION["keranjang"] as $keys => $values){
-                    ?>
+               <tbody>
                     <tr>
                       <td>
                         <figure class="media">
@@ -115,31 +102,17 @@
                       <td>
                         <p class="text-success text-right mt-4 pt-2"><?php echo rp($values["jumlah"] * $values["harga"]) ?></p>
                       </td>
-                      <td class="text-right">
-                        <a name="id_obat" href="detailobat.php?id_obat=<?php echo $values["id_obat"] ?>&beli=hapus" class="btn btn-outline-danger mt-4"> <i class="fas fa-times-circle"></i> </a>
-                        <input type="hidden" name="id_obat" value="<?php echo $values["id_obat"] ?>">
-                      </td>
                       <?php
                       $total = $total + ($values["jumlah"] * $values["harga"]);
-                      require("../config/pesanan.php");
-                    }
-                    ?>
+                      ?>
                   </tr>
                   <tr>
-                    <td align="right" colspan="3">Total:</td>
-                    <td class="text-right text-success"><strong><?php echo rp($total) ?></strong></td>
+                    <td align="right" colspan="2">Total:</td>
+                    <td class="text-right text-success" colspan="2"><strong><?php echo rp($total) ?></strong></td>
                     <td></td>
                   </tr>
                 </tbody>
               </table>
-              <div class="form-control">
-                <?php
-                if(isset($_SESSION["user"])){?>
-                <textarea class="form-control d-block" name="alamat" value="<?php echo $_SESSION["user"]["alamat"] ?>" required></textarea>
-                <?php }else{ ?>
-                <textarea class="form-control d-block" name="alamat" placeholder="Masukkan Alamat Lengkap Pengiriman Anda" required></textarea>
-                <?php } ?>
-              </div>
             </div>
           </div>
           <div class="row mt-3 d-flex justify-content-center">
@@ -148,13 +121,12 @@
             </div>
             <div class="col-3">
               <?php
-              if(!isset($_SESSION["user"])) {?>
-                <a href="#" data-toggle="modal" data-target="#masuk2" class="btn btn-success float-right masuk" > Lanjut Ke Pesanan </a>
+              if(isset($_SESSION['user'])) {?>
+              <button type="submit" href="index.php" class="btn btn-success float-right" name="pesan"> Lanjut Ke Pesanan </button>
               <?php
               }else{
               ?>
-                <button type="submit" href="index.php" class="btn btn-success float-right" name="pesan"> Lanjut Ke Pesanan </button>
-              <?php } ?>
+              <button type="button" class="btn btn-info float-right" name="button" ></button>
             </div>
           </div>
         </form>
@@ -164,7 +136,7 @@
         <?php
         }
         else { ?>
-          <div class="card mb-5">
+          <div class="card">
             <div class="card-body">
               <div class="col-5 mx-auto mt-5">
                 <div class="text-center">
@@ -176,56 +148,15 @@
                   <a href="index.php" class="btn btn-success btn-block mb-5"> Ayo Mulai Belanja </a>
                 </div>
               </div>
+              <?php
+            } ?>
           </div>
          </div>
-       </div>
-     </div>
-   </div>
-   <?php
-       }
+        </div>
+      </div>
+    </div>
+    <?php
     require("section/footer.php");
     ?>
   </body>
-  <div class="modal fade" id="masuk2" role="dialog">
-  <div class="modal-dialog modal-dialog-centered">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Silahkan Login untuk Melanjutkan</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="card">
-          <div class="card-body">
-            <div class="col-7 mx-auto mt-5">
-              <div class="text-center">
-                <img src="../images/icons/login.svg" alt="Daftar Belanja" width="70%">
-                <h5 class="small text-secondary mt-4">Yuk segera login, obatmu sudah menunggumu lho.. !</h5>
-              </div>
-                <form class="form-horizontal" action="index.php" method="POST">
-                  <div class="form-group input-icon">
-                    <i class="fa fa-user"></i>
-                      <input name="email" class="form-control" placeholder="Email" type="email" required>
-                  </div> <!-- form-group// -->
-                  <div class="form-group input-icon">
-                    <i class="fa fa-lock"></i>
-                    <input name="password" class="form-control" placeholder="******" type="password" required>
-                  </div> <!-- form-group// -->
-            </div>
-        </div>
-       </div>
-    </div>
-    <div class="modal-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col text-center">
-              <button name="login" type="submit" class="btn btn-success btn-block"> Masuk </button>
-              </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </html>

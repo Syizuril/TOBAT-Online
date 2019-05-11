@@ -4,7 +4,7 @@
   if(isset($_POST["pesan"])){
     try{
     //menyiapkan query
-    $sql = "INSERT INTO transaksi (nomor_transaksi,id_obat,id_user,jumlah,harga,tanggal,jam,status) VALUES (:nomor_transaksi, :id_obat, :id_user, :jumlah, :harga, :tanggal, :jam, :status)";
+    $sql = "INSERT INTO transaksi (nomor_transaksi,id_obat,id_user,jumlah,harga,tanggal,jam,alamat,status) VALUES (:nomor_transaksi, :id_obat, :id_user, :jumlah, :harga, :tanggal, :jam, :alamat, :status)";
     $stmt = $db->prepare($sql);
 
     //bind parameter kequery
@@ -16,6 +16,7 @@
       ":harga" => $values["harga"],
       ":tanggal" => date("Ymd"),
       ":jam" => date('H:i:s a'),
+      ":alamat" => $_POST["alamat"],
       ":status" => "Menunggu Konfirmasi Admin"
     );
 

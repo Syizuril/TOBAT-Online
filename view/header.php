@@ -28,7 +28,7 @@
       </ul>
       <ul class="navbar-nav mx-1 py-1">
         <li class="dropdown">
-          <button type="button" name="login" class="btn btn-outline-light dropdown-toggle btn-block" data-toggle="dropdown">Masuk</button>
+          <button type="button" name="login" id="masuk" class="btn btn-outline-light dropdown-toggle btn-block" data-toggle="dropdown">Masuk</button>
           <ul class="dropdown-menu dropdown-menu-right mt-2 shadow">
             <li class="px-4 py-2">
               <a href="" class="float-right btn btn-outline-primary" data-toggle="modal" data-target="#daftar">Daftar</a>
