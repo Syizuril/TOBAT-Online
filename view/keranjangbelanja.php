@@ -71,6 +71,8 @@
            if(!empty($_SESSION["keranjang"])){ ?>
          <div class="card">
            <div class="card-body">
+             <?php require("../config/preparepesanan.php"); ?>
+             <form action="" method="post">
              <table class="table table-hover shopping-cart-wrap">
                <thead class="text-muted">
                  <tr class="text-center">
@@ -90,29 +92,29 @@
                         <figure class="media">
                           <div class="img-wrap"><img src="../images/items/<?php echo $values["foto_obat"] ?>" class="img-thumbnail img-sm"></div>
                           <figcaption class="media-body my-auto">
-                            <h6><?php echo $values["nama_obat"] ?></h6>
+                            <a class="text-dark" href="detailobat.php?id_obat=<?php echo $values["id_obat"] ?>"><h6><?php echo $values["nama_obat"] ?></h6></a>
                           </figcaption>
                         </figure>
                       </td>
                       <td>
-                        <select class="form-control mt-4">
+                        <select class="form-control mt-4" name="jumlah" disabled>
                           <option><?php echo $values["jumlah"] ?></option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
                         </select>
                       </td>
                       <td>
                         <p class="text-success text-right mt-4 pt-2"><?php echo rp($values["harga"]) ?></p>
+                        <input type="hidden" name="harga" value="<?php echo rp($values["harga"]) ?>">
                       </td>
                       <td>
                         <p class="text-success text-right mt-4 pt-2"><?php echo rp($values["jumlah"] * $values["harga"]) ?></p>
                       </td>
                       <td class="text-right">
-                        <a href="detailobat.php?id_obat=<?php echo $values["id_obat"] ?>&beli=hapus" class="btn btn-outline-danger mt-4"> <i class="fas fa-times-circle"></i> </a>
+                        <a name="id_obat" href="detailobat.php?id_obat=<?php echo $values["id_obat"] ?>&beli=hapus" class="btn btn-outline-danger mt-4"> <i class="fas fa-times-circle"></i> </a>
+                        <input type="hidden" name="id_obat" value="<?php echo $values["id_obat"] ?>">
                       </td>
                       <?php
                       $total = $total + ($values["jumlah"] * $values["harga"]);
+                      require("../config/pesanan.php");
                     }
                     ?>
                   </tr>
@@ -130,9 +132,10 @@
               <a href="index.php" class="btn btn-info float-left"> Kembali Berbelanja </a>
             </div>
             <div class="col-3">
-              <a href="index.php" class="btn btn-success float-right"> Lanjut Ke Pesanan </a>
+              <button type="submit" href="index.php" class="btn btn-success float-right" name="pesan"> Lanjut Ke Pesanan </button>
             </div>
           </div>
+        </form>
         </div>
         </div>
         </div>

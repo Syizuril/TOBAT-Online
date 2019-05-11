@@ -17,7 +17,7 @@
     		}
     		else
     		{
-    			echo "<div class='text-warning text-center small'>Mohon maaf, obat tersebut sudah masuk dalam keranjang</div>";
+    			echo "<div class='bg-warning text-light text-center small'>Mohon maaf, obat tersebut sudah masuk dalam keranjang. Silahkan cek keranjang untuk menghapus obat yang dimasukkan</div>";
     		}
     	}
     	else

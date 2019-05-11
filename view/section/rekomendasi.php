@@ -25,7 +25,7 @@ $(function(){
 		position: relative;
 	}
 	.fig_bawah {
-		z-index: -1;
+		z-index: -99;
 		position: relative;
 	}
 </style>
@@ -42,12 +42,12 @@ $(function(){
   foreach ($data as $value): ?>
   <div class="col-md-2">
   	<figure class="card card-product">
-  		<div class="img-wrap"> <img src="../images/items/<?php echo $value['foto_obat']?>"></div>
+  		<div class="img-wrap fig_bawah"> <img src="../images/items/<?php echo $value['foto_obat']?>"></div>
   		<figcaption class="info-wrap">
-  			<h6 class="title judul"><a href="detailobat.php?id_obat=<?php echo $value['id_obat'] ?>" class="text-dark font-weight-normal"><?php echo $value['nama_obat'] ?></a></h6>
+  			<h6 class="judul fig_atas"><a href="detailobat.php?id_obat=<?php echo $value['id_obat'] ?>" class="text-dark font-weight-normal"><?php echo $value['nama_obat'] ?></a></h6>
 
   			<div class="price-wrap">
-  				<span class="price-new font-weight-bold text-success"><?php echo rp($value['harga'])?></span>
+  				<span class="price-new font-weight-bold text-success fig_atas"><?php echo rp($value['harga'])?></span>
   			</div> <!-- price-wrap.// -->
 
   		</figcaption>

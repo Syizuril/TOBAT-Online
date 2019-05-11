@@ -17,8 +17,8 @@
           </div>
         </li>
       </ul>
-      <ul class="navbar-nav">
-        <form class="navbar-form form-inline" action="/action_page.php">
+      <ul class="navbar-nav mx-1 py-1">
+        <form class="form-inline navbar-nav" action="/action_page.php">
           <input class="form-control mr-sm-2" type="search" placeholder="Search">
           <button class="btn btn-outline-light" type="submit"><i class="fa fa-search"></i></button>
         </form>

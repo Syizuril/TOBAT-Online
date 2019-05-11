@@ -221,6 +221,14 @@
         			  <dd>
         			  	<select class="form-control form-control-sm" style="width:70px;" name="jumlah">
                     <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
         			  	</select>
         			  </dd>
         			</dl>  <!-- item-property .// -->
@@ -447,8 +455,8 @@
                 <table class="table table-hover shopping-cart-wrap">
                   <thead class="text-muted">
                     <tr class="text-center">
-                      <th width="40%">Nama Obat</th>
-                      <th width="10%">Jumlah</th>
+                      <th width="37%">Nama Obat</th>
+                      <th width="13%">Jumlah</th>
                       <th width="20%">Harga Obat</th>
                       <th width="20%" class="text-right">Harga</th>
                       <th width="10%" class="text-right">Hapus</th>
@@ -470,11 +478,8 @@
                         </figure>
                       </td>
                       <td>
-                        <select class="form-control mt-4">
+                        <select class="form-control mt-4" disabled>
                           <option><?php echo $values["jumlah"] ?></option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
                         </select>
                       </td>
                       <td>
@@ -508,7 +513,7 @@
                 <a href="keranjangbelanja.php" class="btn btn-info float-left"> Lihat Keranjang </a>
               </div>
               <div class="col-6">
-                <a href="index.php" class="btn btn-success float-right"> Lanjut Ke Pesanan </a>
+                <a href="detailobat.php?id_obat=<?php echo $values['id_obat'] ?>" class="btn btn-success float-right"> Lanjut Berbelanja </a>
               </div>
             </div>
           </div>
