@@ -22,6 +22,7 @@
 
     //eksekusi query untuk menyimpan ke database
     $stmt->execute($params);
+    echo "<script>window.location.replace('pemesanan.php');</script>";
     }catch(PDOException $e){
     echo "<div class='text-danger text-center small'>Pesanan gagal diakibatkan karena ". $e->getMessage()."</div>";
     }

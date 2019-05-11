@@ -79,7 +79,7 @@
          <div class="card">
            <div class="card-body">
              <?php require("../config/preparepesanan.php"); ?>
-             <form action="" method="post">
+             <form method="post">
              <table class="table table-hover shopping-cart-wrap">
                <thead class="text-muted">
                  <tr class="text-center">
@@ -153,7 +153,7 @@
               <?php
               }else{
               ?>
-                <a href="pemesanan.php" class="btn btn-success float-right" name="pesan"> Lanjut Ke Pesanan </a>
+                <button type="submit" class="btn btn-success float-right" name="pesan"> Lanjut Ke Pesanan </button>
               <?php } ?>
             </div>
           </div>
