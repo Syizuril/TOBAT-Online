@@ -1,7 +1,9 @@
 <?php
-  session_start();
+  require_once("../config/auth.php");
   require_once("../config/config.php");
+  require("../config/readriwayatno.php");
   require_once("../config/rp.php");
+  require_once("../config/tgl_indo.php");
  ?>
 
 <!DOCTYPE html>
@@ -41,6 +43,13 @@
       display: block;
       margin-top: 0;
     }
+    .circle {
+      height:35px;
+      width:35px;
+      border-radius:50%;
+      background-image: url('../images/cover.jpg');
+      background-position:center; background-size:cover;
+    }
     </style>
   </head>
   <body>
@@ -57,103 +66,105 @@
        <nav class="mb-3">
          <ol class="breadcrumb">
            <li class="breadcrumb-item text-uppercase"><a href="#">Home</a></li>
-           <li class="breadcrumb-item text-uppercase active text-success" aria-current="page">Keranjang Belanja</li>
+           <li class="breadcrumb-item text-uppercase active text-success" aria-current="page">Riwayat Belanja</li>
        </ol>
        </nav>
-       <div class="card">
+       <div class="card mb-5">
          <div class="card-header">
-             <h5>Detail Pemesanan</h5>
+             <h5>Riwayat Belanja</h5>
          </div>
+         <?php foreach ($data as $value): ?>
          <div class="card-body">
-           <?php
-           if(!empty($_SESSION["keranjang"])){ ?>
-         <div class="card">
-           <div class="card-body">
-             <?php require("../config/preparepesanan.php"); ?>
-             <form action="" method="post">
-             <table class="table table-hover shopping-cart-wrap">
-               <thead class="text-muted">
-                 <tr class="text-center">
-                   <th width="40%">Nama Obat</th>
-                   <th width="10%">Jumlah</th>
-                   <th width="20%" class="text-right">Harga Obat</th>
-                   <th width="20%" class="text-right">Harga</th>
-                 </tr>
-               </thead>
-               <tbody>
-                    <tr>
-                      <td>
-                        <figure class="media">
-                          <div class="img-wrap"><img src="../images/items/<?php echo $values["foto_obat"] ?>" class="img-thumbnail img-sm"></div>
-                          <figcaption class="media-body my-auto">
-                            <a class="text-dark" href="detailobat.php?id_obat=<?php echo $values["id_obat"] ?>"><h6><?php echo $values["nama_obat"] ?></h6></a>
-                          </figcaption>
-                        </figure>
-                      </td>
-                      <td>
-                        <select class="form-control mt-4" name="jumlah" disabled>
-                          <option><?php echo $values["jumlah"] ?></option>
-                        </select>
-                      </td>
-                      <td>
-                        <p class="text-success text-right mt-4 pt-2"><?php echo rp($values["harga"]) ?></p>
-                        <input type="hidden" name="harga" value="<?php echo rp($values["harga"]) ?>">
-                      </td>
-                      <td>
-                        <p class="text-success text-right mt-4 pt-2"><?php echo rp($values["jumlah"] * $values["harga"]) ?></p>
-                      </td>
-                      <?php
-                      $total = $total + ($values["jumlah"] * $values["harga"]);
-                      ?>
-                  </tr>
-                  <tr>
-                    <td align="right" colspan="2">Total:</td>
-                    <td class="text-right text-success" colspan="2"><strong><?php echo rp($total) ?></strong></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="row mt-3 d-flex justify-content-center">
-            <div class="col-3">
-              <a href="index.php" class="btn btn-info float-left"> Kembali Berbelanja </a>
-            </div>
-            <div class="col-3">
-              <?php
-              if(isset($_SESSION['user'])) {?>
-              <button type="submit" href="index.php" class="btn btn-success float-right" name="pesan"> Lanjut Ke Pesanan </button>
-              <?php
-              }else{
-              ?>
-              <button type="button" class="btn btn-info float-right" name="button" ></button>
-            </div>
-          </div>
-        </form>
-        </div>
-        </div>
-        </div>
-        <?php
-        }
-        else { ?>
-          <div class="card">
-            <div class="card-body">
-              <div class="col-5 mx-auto mt-5">
-                <div class="text-center">
-                  <img src="../images/icons/belanja.svg" alt="Daftar Belanja" width="70%">
-                  <h5 class="mt-3">Belum ada obat di dalam keranjang belanja kamu</h5>
-                  <p class="small text-secondary mt-4">Ayo mulai belanja di TOBAT Online dan nikmati kemudahannya</p>
-                </div>
-                <div class="center">
-                  <a href="index.php" class="btn btn-success btn-block mb-5"> Ayo Mulai Belanja </a>
-                </div>
-              </div>
-              <?php
-            } ?>
-          </div>
+           <div class="card">
+             <?php require("../config/readriwayatdatano.php");
+                $total=0;
+               foreach ($data2 as $key) {
+                 $total = $total + ($key["jumlah"] * $key["harga"]);
+               }?>
+             <div class="card-header">
+               <div class="row">
+                 <div class="col-4">
+                   <div class="row">
+                    <div class="col-12 mb-0">
+                      <label class="small text-secondary mt-0 mb-0">No.Tagihan</label>
+                    </div>
+                    <div class="col-12 mt-0 mb-0">
+                      <label class="mt-0 mb-0">IVC/TBT/<?php echo $value["nomor_transaksi"] ?></label>
+                    </div>
+                    <div class="col-12 mt-0">
+                      <label class="small text-secondary mt-0 mb-0"><?php echo tgl_indo($value["tanggal"]) ." ". $value["jam"] ?></label>
+                    </div>
+                   </div>
+                 </div>
+                 <div class="col-2">
+                   <div class="row">
+                    <div class="col-12 mb-0">
+                       <label class="small text-secondary mt-0 mb-0">Total Tagihan</label>
+                    </div>
+                    <div class="col-12 mt-0">
+                      <label class="mt-0"><?php echo rp($total) ?></label>
+                    </div>
+                   </div>
+                 </div>
+                 <div class="col-3">
+                   <div class="row">
+                    <div class="col-12 mb-0">
+                      <label class="small text-secondary mt-0 mb-0">Status Tagihan</label>
+                    </div>
+                    <div class="col-12 mt-0 mb-0">
+                      <a href="" class="btn btn-info mt-0 mb-0"><?php echo $value["status_bayar"] ?></a>
+                    </div>
+                   </div>
+                 </div>
+                 <div class="col-3 d-flex justify-content-end">
+                   <div class="row my-auto">
+                     <div class="col-12">
+                       <a class="btn btn-outline-success mt-0 mb-0" href="">Lihat Detail</a>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+             <div class="card-body">
+               <?php
+               foreach ($data2 as $key) { ?>
+               <div class="row">
+                 <div class="col-4">
+                   <figure class="media">
+                     <div class="img-wrap"><img src="../images/items/<?php echo $key["foto_obat"] ?>" class="img-thumbnail img-sm"></div>
+                     <figcaption class="media-body my-auto">
+                       <a class="text-dark" href="detailobat.php?id_obat="><h6><?php echo $key["nama_obat"] ?></h6></a>
+                     </figcaption>
+                   </figure>
+                 </div>
+                 <div class="col-2 my-auto">
+                   <div class="row">
+                     <div class="col-12 mb-0">
+                       <label class="small text-secondary mt-0 mb-0">Harga</label>
+                     </div>
+                     <div class="col-12 mt-0 mb-0">
+                       <label class="mt-0 mb-0"><?php echo rp($key["jumlah"]*$key["harga"]) ?></label>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-4 my-auto">
+                   <div class="row">
+                    <div class="col-12 mb-0">
+                      <label class="small text-secondary mt-0 mb-0">Status Pembelian</label>
+                    </div>
+                    <div class="col-12 mt-0 mb-0">
+                      <a href="" class="btn btn-info mt-0 mb-0"><?php echo $key["status_beli"] ?></a>
+                    </div>
+                   </div>
+                 </div>
+               </div>
+             <?php } ?>
+             </div>
+           </div>
          </div>
-        </div>
-      </div>
+         <?php endforeach; ?>
+       </div>
+     </div>
     </div>
     <?php
     require("section/footer.php");

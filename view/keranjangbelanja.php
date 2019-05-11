@@ -135,7 +135,7 @@
               <div class="form-control">
                 <?php
                 if(isset($_SESSION["user"])){?>
-                <textarea class="form-control d-block" name="alamat" value="<?php echo $_SESSION["user"]["alamat"] ?>" required></textarea>
+                <textarea class="form-control d-block" name="alamat" required><?php echo $_SESSION["user"]["alamat"] ?></textarea>
                 <?php }else{ ?>
                 <textarea class="form-control d-block" name="alamat" placeholder="Masukkan Alamat Lengkap Pengiriman Anda" required></textarea>
                 <?php } ?>
@@ -153,7 +153,7 @@
               <?php
               }else{
               ?>
-                <button type="submit" href="index.php" class="btn btn-success float-right" name="pesan"> Lanjut Ke Pesanan </button>
+                <a href="pemesanan.php" class="btn btn-success float-right" name="pesan"> Lanjut Ke Pesanan </a>
               <?php } ?>
             </div>
           </div>
