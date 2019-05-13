@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 09 Mei 2019 pada 07.25
+-- Generation Time: 13 Mei 2019 pada 17.21
 -- Versi Server: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -130,6 +130,39 @@ INSERT INTO `obat` (`id_obat`, `nama_obat`, `deskripsi_obat`, `foto_obat`, `kate
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `transaksi`
+--
+
+CREATE TABLE `transaksi` (
+  `id_transaksi` int(100) NOT NULL,
+  `nomor_transaksi` varchar(225) NOT NULL,
+  `id_obat` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_admin` int(11) NOT NULL,
+  `id_apotek` int(11) NOT NULL,
+  `jumlah` int(30) NOT NULL,
+  `harga` varchar(255) NOT NULL,
+  `tanggal` date NOT NULL,
+  `jam` varchar(255) NOT NULL,
+  `alamat` varchar(255) NOT NULL,
+  `status_bayar` varchar(255) NOT NULL,
+  `status_beli` varchar(255) NOT NULL,
+  `tgl_bayar` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `transaksi`
+--
+
+INSERT INTO `transaksi` (`id_transaksi`, `nomor_transaksi`, `id_obat`, `id_user`, `id_admin`, `id_apotek`, `jumlah`, `harga`, `tanggal`, `jam`, `alamat`, `status_bayar`, `status_beli`, `tgl_bayar`) VALUES
+(1, '201905130001', 16, 3, 0, 0, 8, '360030', '2019-05-13', '20:37:26 pm', 'Cirebon, Klayan', 'Menunggu Konfirmasi Admin', 'menunggu_konfirmasi.png', '0000-00-00'),
+(2, '201905130001', 52, 3, 0, 0, 6, '54351', '2019-05-13', '20:37:26 pm', 'Cirebon, Klayan', 'Menunggu Konfirmasi Admin', 'menunggu_konfirmasi.png', '0000-00-00'),
+(3, '201905130002', 35, 3, 0, 0, 1, '32340', '2019-05-13', '21:05:00 pm', 'Cirebon, Klayan', 'Menunggu Konfirmasi Admin', 'menunggu_konfirmasi.png', '0000-00-00'),
+(4, '201905130002', 30, 3, 0, 0, 1, '445000', '2019-05-13', '21:05:00 pm', 'Cirebon, Klayan', 'Menunggu Konfirmasi Admin', 'menunggu_konfirmasi.png', '0000-00-00');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `user`
 --
 
@@ -159,7 +192,11 @@ INSERT INTO `user` (`id`, `email`, `password`, `nama`, `no_hp`, `alamat`, `sia`,
 (33, 'admin@admin.com', '$2y$10$GlKoiYZOggugizVFEqJICeaq8J8UZMll3Bno.K9oSo8dbOddwoWau', 'admin', 82218424650, '123', '', 'unsika.png', 1),
 (35, 'syekh.syihabuddin17023@student.unsika.ac.id', '$2y$10$fNPiOsZBwsyl55L2DAbU4.OrBssj1d6JMQOAx5mgMM5JYzoDQvTAq', 'Syekh Syihabuddin Azmil Umri', 82218424650, 'Cirebon', '', 'maxresdefault.jpg', 0),
 (36, 'apotik2@apotik.com', '$2y$10$ohq7bVGGnGwUJVWeu.b9.OFpeI1WvczLA8D51s/RF05zCLEC3hpau', 'APOTIK', 82218424650, '123', '12EDWQ/213X/12X/123', 'pray.png', 2),
-(37, 'dummy@akun.com', '$2y$10$RN4PnhNyV9o9VIuB8TKEBOg3lQpYuxXrTiEpt7jJrBjFHmYxQU3XG', 'Dummy1', 82218424650, 'Cirebon', '', 'Oprec Panitia Diesnatalis.png', 0);
+(37, 'dummy@akun.com', '$2y$10$RN4PnhNyV9o9VIuB8TKEBOg3lQpYuxXrTiEpt7jJrBjFHmYxQU3XG', 'Dummy1', 82218424650, 'Cirebon', '', 'Oprec Panitia Diesnatalis.png', 0),
+(38, 'asep@gmail.com', '$2y$10$8pbSmmH5IMZDnnzK/fKiJOEuiZU9C4zHKtibDocuVhrbd2ouPe7b.', 'Asep', 8221842444, 'Karawang', '', 'default.svg', 0),
+(39, 'soniyazulfa@gmail.com', '$2y$10$Fe.f35QgWbTi6EVYajqCveFM1Nn8SAEF9Ma8Mx68qJEn8IbpWYjAi', 'Soniya', 82218424650, 'Cirebon', '', 'default.svg', 0),
+(40, 'nama@nama.com', '$2y$10$5EjmnnlnCBtdu12UQkEqOOhxOYvm/IPThz9Vg7FREf3H67NJ9Blui', 'Nama', 1, '1', '', 'default.svg', 0),
+(41, 'aditya.iriawan@gmail.com', '$2y$10$QSX0keozxDcAJrhZ3qYXfey8Eiv06jhkp4.NJ4rNXMIMAZ9b4Yv2y', '<script>Nama</script>', 89898989, '1', '', 'default.svg', 0);
 
 --
 -- Indexes for dumped tables
@@ -170,6 +207,12 @@ INSERT INTO `user` (`id`, `email`, `password`, `nama`, `no_hp`, `alamat`, `sia`,
 --
 ALTER TABLE `obat`
   ADD PRIMARY KEY (`id_obat`);
+
+--
+-- Indexes for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  ADD PRIMARY KEY (`id_transaksi`);
 
 --
 -- Indexes for table `user`
@@ -183,10 +226,16 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  MODIFY `id_transaksi` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
