@@ -16,13 +16,14 @@
       ":tanggal" => date("Ymd"),
       ":jam" => date('H:i:s a'),
       ":alamat" => $_POST["alamat"],
-      ":status_beli" => "Menunggu Konfirmasi Admin",
+      ":status_beli" => "menunggu_konfirmasi.png",
       ":status_bayar" => "Menunggu Konfirmasi Admin"
     );
 
     //eksekusi query untuk menyimpan ke database
     $stmt->execute($params);
     echo "<script>window.location.replace('pemesanan.php');</script>";
+    unset($_SESSION["keranjang"]);
     }catch(PDOException $e){
     echo "<div class='text-danger text-center small'>Pesanan gagal diakibatkan karena ". $e->getMessage()."</div>";
     }

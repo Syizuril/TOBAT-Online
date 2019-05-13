@@ -41,7 +41,24 @@
 
     <!-- custom javascript -->
     <script src="../js/script.js" type="text/javascript"></script>
+    <script type="text/javascript">// <![CDATA[
+    $(function(){
+      $(".judul").each(function(i){
+        len=$(this).text().length;
+        if(len>80)
+        {
+          $(this).text($(this).text().substr(0,80)+'...');
+        }
+      });
+    });
+    // ]]></script>
     <style media="screen">
+    .judul {
+    	white-space: nowrap;
+    	width: 120px;
+    	overflow: hidden;
+    	text-overflow: ellipsis;
+    	}
     .dropdown-toggle_a::after {
       display: none;
     }
@@ -354,11 +371,9 @@
                 <div class="img-wrap"> <img src="../images/items/<?php echo $value['foto_obat']?>"></div>
                 <figcaption class="info-wrap">
                   <h6 class="title judul"><a href="detailobat.php?id_obat=<?php echo $value['id_obat'] ?>" class="text-dark font-weight-normal"><?php echo $value['nama_obat'] ?></a></h6>
-
                   <div class="price-wrap">
                     <span class="price-new font-weight-bold text-success"><?php echo rp($value['harga'])?></span>
                   </div> <!-- price-wrap.// -->
-
                 </figcaption>
               </figure> <!-- card // -->
             </div> <!-- col // -->
@@ -379,11 +394,9 @@
                 <div class="img-wrap"> <img src="../images/items/<?php echo $value['foto_obat']?>"></div>
                 <figcaption class="info-wrap">
                   <h6 class="title judul"><a href="detailobat.php?id_obat=<?php echo $value['id_obat'] ?>" class="text-dark font-weight-normal"><?php echo $value['nama_obat'] ?></a></h6>
-
                   <div class="price-wrap">
                     <span class="price-new font-weight-bold text-success"><?php echo rp($value['harga'])?></span>
                   </div> <!-- price-wrap.// -->
-
                 </figcaption>
               </figure> <!-- card // -->
             </div> <!-- col // -->
@@ -404,11 +417,9 @@
                 <div class="img-wrap"> <img src="../images/items/<?php echo $value['foto_obat']?>"></div>
                 <figcaption class="info-wrap">
                   <h6 class="title judul"><a href="detailobat.php?id_obat=<?php echo $value['id_obat'] ?>" class="text-dark font-weight-normal"><?php echo $value['nama_obat'] ?></a></h6>
-
                   <div class="price-wrap">
                     <span class="price-new font-weight-bold text-success"><?php echo rp($value['harga'])?></span>
                   </div> <!-- price-wrap.// -->
-
                 </figcaption>
               </figure> <!-- card // -->
             </div> <!-- col // -->
@@ -478,15 +489,13 @@
                         </figure>
                       </td>
                       <td>
-                        <select class="form-control mt-4" disabled>
-                          <option><?php echo $values["jumlah"] ?></option>
-                        </select>
+                          <p class="text-center mt-4 pt-1"><?php echo $values["jumlah"] ?></p>
                       </td>
                       <td>
-                          <p class="text-success text-right mt-4 pt-2"><?php echo rp($values["harga"]) ?></p>
+                          <p class="text-success text-right mt-4 pt-1"><?php echo rp($values["harga"]) ?></p>
                       </td>
                       <td>
-                          <p class="text-success text-right mt-4 pt-2"><?php echo rp($values["jumlah"] * $values["harga"]) ?></p>
+                          <p class="text-success text-right mt-4 pt-1"><?php echo rp($values["jumlah"] * $values["harga"]) ?></p>
                       </td>
                       <td class="text-right">
                         <a href="detailobat.php?id_obat=<?php echo $values["id_obat"] ?>&beli=hapus" class="btn btn-outline-danger mt-4"> <i class="fas fa-times-circle"></i> </a>

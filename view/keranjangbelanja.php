@@ -104,16 +104,14 @@
                         </figure>
                       </td>
                       <td>
-                        <select class="form-control mt-4" name="jumlah" disabled>
-                          <option><?php echo $values["jumlah"] ?></option>
-                        </select>
+                          <p class="text-center mt-4 pt-1"><?php echo $values["jumlah"] ?></p>
                       </td>
                       <td>
-                        <p class="text-success text-right mt-4 pt-2"><?php echo rp($values["harga"]) ?></p>
+                        <p class="text-success text-right mt-4 pt-1"><?php echo rp($values["harga"]) ?></p>
                         <input type="hidden" name="harga" value="<?php echo rp($values["harga"]) ?>">
                       </td>
                       <td>
-                        <p class="text-success text-right mt-4 pt-2"><?php echo rp($values["jumlah"] * $values["harga"]) ?></p>
+                        <p class="text-success text-right mt-4 pt-1"><?php echo rp($values["jumlah"] * $values["harga"]) ?></p>
                       </td>
                       <td class="text-right">
                         <a name="id_obat" href="detailobat.php?id_obat=<?php echo $values["id_obat"] ?>&beli=hapus" class="btn btn-outline-danger mt-4"> <i class="fas fa-times-circle"></i> </a>
@@ -173,7 +171,7 @@
                   <p class="small text-secondary mt-4">Ayo mulai belanja di TOBAT Online dan nikmati kemudahannya</p>
                 </div>
                 <div class="center">
-                  <a href="index.php" class="btn btn-success btn-block mb-5"> Ayo Mulai Belanja </a>
+                  <a href="index-login.php" class="btn btn-success btn-block mb-5"> Ayo Mulai Belanja </a>
                 </div>
               </div>
           </div>

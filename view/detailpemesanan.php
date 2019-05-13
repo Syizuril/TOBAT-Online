@@ -71,11 +71,9 @@
        </nav>
        <div class="card mb-5">
          <div class="card-header">
-             <h5>Riwayat Belanja</h5>
+             <h5>Detail Belanja Obat</h5>
          </div>
-         <?php
-         if($data){
-         foreach ($data as $value):?>
+         <?php foreach ($data as $value): ?>
          <div class="card-body">
            <div class="card">
              <?php require("../config/readriwayatdatano.php");
@@ -135,7 +133,7 @@
                    <figure class="media">
                      <div class="img-wrap"><img src="../images/items/<?php echo $key["foto_obat"] ?>" class="img-thumbnail img-sm"></div>
                      <figcaption class="media-body my-auto">
-                       <a class="text-dark" href="detailobat.php?id_obat=<?php echo $key["id_obat"] ?>"><h6><?php echo $key["nama_obat"] ?></h6></a>
+                       <a class="text-dark" href="detailobat.php?id_obat="><h6><?php echo $key["nama_obat"] ?></h6></a>
                      </figcaption>
                    </figure>
                  </div>
@@ -155,9 +153,7 @@
                       <label class="small text-secondary mt-0 mb-0">Status Pembelian</label>
                     </div>
                     <div class="col-12 mt-0 mb-0">
-                      <div class="img-warp">
-                        <img width="75%" src="../images/status/<?php echo $key['status_beli'] ?>">
-                      </div>
+                      <a href="" class="btn btn-info mt-0 mb-0"><?php echo $key["status_beli"] ?></a>
                     </div>
                    </div>
                  </div>
@@ -166,22 +162,7 @@
              </div>
            </div>
          </div>
-         <?php
-        endforeach;
-        }else{ ?>
-            <div class="card-body">
-              <div class="col-5 mx-auto mt-5">
-                <div class="text-center">
-                  <img src="../images/icons/empty.svg" alt="Kosong" width="70%">
-                  <h5 class="mt-3">Belum ada riwayat apapun dalam daftar belanja obat kamu</h5>
-                  <p class="small text-secondary mt-4">Ayo mulai belanja di TOBAT Online dan nikmati kemudahannya</p>
-                </div>
-                <div class="center">
-                  <a href="index-login.php" class="btn btn-success btn-block mb-5"> Ayo Mulai Belanja </a>
-                </div>
-              </div>
-          </div>
-        <?php } ?>
+         <?php endforeach; ?>
        </div>
      </div>
     </div>

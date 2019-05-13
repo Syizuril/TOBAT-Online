@@ -29,14 +29,10 @@
       <ul class="navbar-nav mx-1 py-1">
         <li class="dropdown">
           <button type="button" name="login" id="masuk" class="btn btn-outline-light dropdown-toggle btn-block" data-toggle="dropdown">Masuk</button>
-          <ul class="dropdown-menu dropdown-menu-right mt-2 shadow">
+          <ul class="dropdown-menu dropdown-menu-right mt-2 shadow" style="width:225px">
             <li class="px-4 py-2">
               <a href="" class="float-right btn btn-outline-primary" data-toggle="modal" data-target="#daftar">Daftar</a>
               <h4 class="mb-4 mt-1">Masuk</h4>
-              <p>
-                <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i> &nbsp; Login via Twitter</a>
-                <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i> &nbsp; Login via facebook</a>
-              </p>
               <hr>
               <form class="form-horizontal" action="index.php" method="POST">
                 <div class="form-group input-icon">
@@ -75,13 +71,6 @@
       <button type="button" class="close" data-dismiss="modal">&times;</button>
     </div>
     <div class="modal-body">
-      <p>
-        <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i> &nbsp; Login via Twitter</a>
-        <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i> &nbsp; Login via facebook</a>
-      </p>
-      <p class="divider-text">
-            <span>ATAU</span>
-      </p>
       <form action="" method="post" oninput='password2.setCustomValidity(password2.value != password.value ? "Password tidak sesuai." : "")'>
         <div class="form-group input-group">
         <div class="input-group-prepend">
