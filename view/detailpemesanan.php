@@ -1,7 +1,7 @@
 <?php
   require_once("../config/auth.php");
   require_once("../config/config.php");
-  require("../config/readriwayatno.php");
+  require("../config/detailbelanja.php");
   require_once("../config/rp.php");
   require_once("../config/tgl_indo.php");
  ?>
@@ -10,7 +10,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>TOBAT Online - Situs Penjualan Obat Online</title>
+    <title>Detail Belanja - TOBAT Online</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
 
@@ -65,104 +65,154 @@
        <div class="container">
        <nav class="mb-3">
          <ol class="breadcrumb">
-           <li class="breadcrumb-item text-uppercase"><a href="#">Home</a></li>
-           <li class="breadcrumb-item text-uppercase active text-success" aria-current="page">Riwayat Belanja</li>
+           <li class="breadcrumb-item text-uppercase"><a href="index.php">Home</a></li>
+           <li class="breadcrumb-item text-uppercase"><a href="pemesanan.php">Riwayat Belanja</a></li>
+           <li class="breadcrumb-item text-uppercase active text-success" aria-current="page">IVC-TBT-<?php echo $_GET["nomor_transaksi"] ?></li>
        </ol>
        </nav>
-       <div class="card mb-5">
-         <div class="card-header">
-             <h5>Detail Belanja Obat</h5>
-         </div>
-         <?php foreach ($data as $value): ?>
-         <div class="card-body">
+       <div class="row">
+         <div class="col-md-4">
            <div class="card">
-             <?php require("../config/readriwayatdatano.php");
-                $total=0;
-               foreach ($data2 as $key) {
-                 $total = $total + ($key["jumlah"] * $key["harga"]);
-               }?>
+             <div class="card-body">
+               <div class="row">
+                 <div class="col-12 mb-0">
+                   <label class="small text-secondary mt-0 mb-0">No.Tagihan</label>
+                 </div>
+                 <div class="col-12 mt-0 mb-0">
+                   <label class="mt-0 mb-0">IVC-TBT-<?php echo $data["nomor_transaksi"] ?></label>
+                   <hr>
+                 </div>
+                 <div class="col-12 mb-0">
+                   <label class="small text-secondary mt-0 mb-0">Status Tagihan</label>
+                 </div>
+                 <div class="col-12 mt-0 mb-0">
+                   <label class="mt-0 mb-0"><?php echo $data["status_bayar"] ?></label>
+                   <hr>
+                 </div>
+                 <?php
+                 if($data["status_bayar"]!=(("Menunggu Konfirmasi Admin")&&("Menunggu Konfirmasi Pembatalan"))){?>
+                   <div class="col-12 mb-0">
+                     <label class="small text-secondary mt-0 mb-0">Metode Pembayaran</label>
+                   </div>
+                   <div class="col-12 mt-0 mb-0">
+                     <label class="mt-0 mb-0">Cara Membayar</label>
+                     <hr>
+                   </div>
+                 <?php }
+                 $no_transaksi=$data["nomor_transaksi"];
+                 require("../config/readriwayatdatano.php");
+                 $total=0;
+                 foreach ($data2 as $key) {
+                  $total = $total + ($key["jumlah"] * $key["harga"]);
+                 }
+                  ?>
+                  <div class="col-12 mb-0">
+                    <label class="small text-secondary mt-0 mb-0">Total Pembayaran</label>
+                  </div>
+                  <div class="col-12 mt-0 mb-0">
+                    <label class="mt-0 mb-0"><?php echo rp($total) ?></label>
+                    <hr>
+                  </div>
+                  <div class="col-12 mb-0">
+                    <label class="small text-secondary mt-0 mb-0">Alamat Pengiriman</label>
+                  </div>
+                  <div class="col-12 mt-0 mb-0">
+                    <label class="mt-0 mb-0 font-weight-bold"><?php echo $data['nama']?></label><br>
+                    <label class="mt-0 mb-0"><?php echo $data['alamat']?></label><br>
+                    <label class="mt-0 mb-0">Telephone/Handphone: +62<?php echo $data['no_hp']?></label>
+                  </div>
+               </div>
+             </div>
+           </div>
+         </div>
+         <div class="col-md-8">
+           <div class="card mb-4">
              <div class="card-header">
                <div class="row">
-                 <div class="col-4">
-                   <div class="row">
-                    <div class="col-12 mb-0">
-                      <label class="small text-secondary mt-0 mb-0">No.Tagihan</label>
-                    </div>
-                    <div class="col-12 mt-0 mb-0">
-                      <label class="mt-0 mb-0">IVC/TBT/<?php echo $value["nomor_transaksi"] ?></label>
-                    </div>
-                    <div class="col-12 mt-0">
-                      <label class="small text-secondary mt-0 mb-0"><?php echo tgl_indo($value["tanggal"]) ." ". $value["jam"] ?></label>
-                    </div>
-                   </div>
+                 <div class="col-6 my-auto">
+                  <h5>Detail Belanja Obat</h5>
                  </div>
-                 <div class="col-2">
-                   <div class="row">
-                    <div class="col-12 mb-0">
-                       <label class="small text-secondary mt-0 mb-0">Total Tagihan</label>
-                    </div>
-                    <div class="col-12 mt-0">
-                      <label class="mt-0"><?php echo rp($total) ?></label>
-                    </div>
-                   </div>
-                 </div>
-                 <div class="col-3">
-                   <div class="row">
-                    <div class="col-12 mb-0">
-                      <label class="small text-secondary mt-0 mb-0">Status Tagihan</label>
-                    </div>
-                    <div class="col-12 mt-0 mb-0">
-                      <a href="" class="btn btn-info mt-0 mb-0"><?php echo $value["status_bayar"] ?></a>
-                    </div>
-                   </div>
-                 </div>
-                 <div class="col-3 d-flex justify-content-end">
-                   <div class="row my-auto">
-                     <div class="col-12">
-                       <a class="btn btn-outline-success mt-0 mb-0" href="">Lihat Detail</a>
-                     </div>
-                   </div>
+                 <div class="col-6 d-flex justify-content-end">
+                   <?php
+                   if($data["status_bayar"]=="Menunggu Konfirmasi Pembatalan"){?>
+                     <button class="btn btn-warning mt-0 mb-0 text-light" disabled>Pesanan Akan Dibatalkan</button>
+                   <?php }else{?>
+                     <a href="detailpemesanan.php?nomor_transaksi=<?php echo $key["nomor_transaksi"]."&batalkan" ?>" class="btn btn-danger mt-0 mb-0">Batalkan Pesanan</a>
+                   <?php } ?>
                  </div>
                </div>
              </div>
              <div class="card-body">
-               <?php
-               foreach ($data2 as $key) { ?>
-               <div class="row">
-                 <div class="col-4">
-                   <figure class="media">
-                     <div class="img-wrap"><img src="../images/items/<?php echo $key["foto_obat"] ?>" class="img-thumbnail img-sm"></div>
-                     <figcaption class="media-body my-auto">
-                       <a class="text-dark" href="detailobat.php?id_obat="><h6><?php echo $key["nama_obat"] ?></h6></a>
-                     </figcaption>
-                   </figure>
-                 </div>
-                 <div class="col-2 my-auto">
+               <div class="card">
+                 <?php require("../config/readriwayatdatano.php");
+                   $total=0;
+                   foreach ($data2 as $key) {
+                   $total = $key["jumlah"] * $key["harga"];?>
+                 <div class="card-header">
                    <div class="row">
-                     <div class="col-12 mb-0">
-                       <label class="small text-secondary mt-0 mb-0">Harga</label>
+                     <div class="col-6">
+                       <div class="row">
+                         <figure class="media">
+                           <div class="img-wrap"><img src="../images/items/<?php echo $key["foto_obat"] ?>" class="img-thumbnail img-sm"></div>
+                           <figcaption class="media-body my-auto">
+                             <a class="text-dark mt-0 mb-0" href="detailobat.php?id_obat="><h6><?php echo $key["nama_obat"] ?></h6></a>
+                             <label class="small text-secondary mt-0 mb-0">Jumlah : <?php echo $data["jumlah"]?></label>
+                           </figcaption>
+                         </figure>
+                       </div>
                      </div>
-                     <div class="col-12 mt-0 mb-0">
-                       <label class="mt-0 mb-0"><?php echo rp($key["jumlah"]*$key["harga"]) ?></label>
+                     <div class="col-3">
+                       <div class="row">
+                         <div class="col-12 mt-3">
+                           <label class="small text-secondary mt-0 mb-0">Harga Satuan</label>
+                         </div>
+                         <div class="col-12 mt-0 mb-0">
+                           <label class="mt-0 mb-0"><?php echo rp($key["harga"]) ?></label>
+                         </div>
+                       </div>
+                     </div>
+                     <div class="col-3">
+                       <div class="row">
+                        <div class="col-12 mt-3">
+                           <label class="small text-secondary mt-0 mb-0">Harga Total</label>
+                        </div>
+                        <div class="col-12 mt-0">
+                          <label class="mt-0"><?php echo rp($total) ?></label>
+                        </div>
+                       </div>
                      </div>
                    </div>
                  </div>
-                 <div class="col-4 my-auto">
+                 <div class="card-body">
                    <div class="row">
-                    <div class="col-12 mb-0">
-                      <label class="small text-secondary mt-0 mb-0">Status Pembelian</label>
-                    </div>
-                    <div class="col-12 mt-0 mb-0">
-                      <a href="" class="btn btn-info mt-0 mb-0"><?php echo $key["status_beli"] ?></a>
-                    </div>
+                     <div class="col-6">
+                       <div class="row">
+                        <div class="col-12 mb-0">
+                          <label class="small text-secondary mt-0 mb-0">Status Pembelian</label>
+                        </div>
+                        <div class="col-12 mt-0 mb-0">
+                          <?php if ($key['status_beli']=="menunggu_konfirmasi.png"){?>
+                            <img width="100%" src="../images/status/menunggu_konfirmasi_lg.png">
+                          <?php }elseif ($key['status_beli']=="diproses_apotek.png"){ ?>
+                            <img width="100%" src="../images/status/diproses_apotek_lg.png">
+                          <?php }?>
+                        </div>
+                       </div>
+                     </div>
+                     <div class="col-6">
+                       <div class="col-12 d-flex justify-content-end mt-4">
+                         <a href="detailobat.php?id_obat=<?php echo $key["id_obat"] ?>" class="btn btn-secondary mt-0 mb-0">Beli Lagi</a>
+                       </div>
+                     </div>
+                     <div class="col-4 my-auto">
+                     </div>
                    </div>
                  </div>
+                <?php } ?>
                </div>
-             <?php } ?>
              </div>
            </div>
          </div>
-         <?php endforeach; ?>
        </div>
      </div>
     </div>

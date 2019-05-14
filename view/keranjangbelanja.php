@@ -10,7 +10,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>TOBAT Online - Situs Penjualan Obat Online</title>
+    <title>Keranjang Belanja - TOBAT Online</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
 

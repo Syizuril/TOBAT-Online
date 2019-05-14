@@ -10,7 +10,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>TOBAT Online - Situs Penjualan Obat Online</title>
+    <title>Pemesanan - TOBAT Online</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
 
@@ -78,11 +78,13 @@
          foreach ($data as $value):?>
          <div class="card-body">
            <div class="card">
-             <?php require("../config/readriwayatdatano.php");
-                $total=0;
-               foreach ($data2 as $key) {
-                 $total = $total + ($key["jumlah"] * $key["harga"]);
-               }?>
+             <?php
+             $no_transaksi=$value["nomor_transaksi"];
+             require("../config/readriwayatdatano.php");
+             $total=0;
+             foreach ($data2 as $key) {
+              $total = $total + ($key["jumlah"] * $key["harga"]);
+             }?>
              <div class="card-header">
                <div class="row">
                  <div class="col-4">
@@ -91,7 +93,7 @@
                       <label class="small text-secondary mt-0 mb-0">No.Tagihan</label>
                     </div>
                     <div class="col-12 mt-0 mb-0">
-                      <label class="mt-0 mb-0">IVC/TBT/<?php echo $value["nomor_transaksi"] ?></label>
+                      <label class="mt-0 mb-0">IVC-TBT-<?php echo $value["nomor_transaksi"] ?></label>
                     </div>
                     <div class="col-12 mt-0">
                       <label class="small text-secondary mt-0 mb-0"><?php echo tgl_indo($value["tanggal"]) ." ". $value["jam"] ?></label>
@@ -113,15 +115,22 @@
                     <div class="col-12 mb-0">
                       <label class="small text-secondary mt-0 mb-0">Status Tagihan</label>
                     </div>
-                    <div class="col-12 mt-0 mb-0">
-                      <a href="" class="btn btn-info mt-0 mb-0"><?php echo $value["status_bayar"] ?></a>
-                    </div>
+                    <?php
+                    if($value["status_bayar"]=="Menunggu Konfirmasi Pembatalan"){?>
+                      <div class="col-12 mt-0 mb-0">
+                        <a href="" class="btn btn-warning mt-0 mb-0 text-light"><?php echo $value["status_bayar"] ?></a>
+                      </div>
+                    <?php }else{?>
+                      <div class="col-12 mt-0 mb-0">
+                        <a href="" class="btn btn-info mt-0 mb-0"><?php echo $value["status_bayar"] ?></a>
+                      </div>
+                    <?php } ?>
                    </div>
                  </div>
                  <div class="col-3 d-flex justify-content-end">
                    <div class="row my-auto">
                      <div class="col-12">
-                       <a class="btn btn-outline-success mt-0 mb-0" href="">Lihat Detail</a>
+                       <a href="detailpemesanan.php?nomor_transaksi=<?php echo $value["nomor_transaksi"] ?>" class="btn btn-outline-success mt-0 mb-0" href="">Lihat Detail</a>
                      </div>
                    </div>
                  </div>
@@ -155,9 +164,7 @@
                       <label class="small text-secondary mt-0 mb-0">Status Pembelian</label>
                     </div>
                     <div class="col-12 mt-0 mb-0">
-                      <div class="img-warp">
-                        <img width="75%" src="../images/status/<?php echo $key['status_beli'] ?>">
-                      </div>
+                      <img width="75%" src="../images/status/<?php echo $key['status_beli'] ?>">
                     </div>
                    </div>
                  </div>
