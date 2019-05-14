@@ -195,7 +195,22 @@
                             <img width="100%" src="../images/status/menunggu_konfirmasi_lg.png">
                           <?php }elseif ($key['status_beli']=="diproses_apotek.png"){ ?>
                             <img width="100%" src="../images/status/diproses_apotek_lg.png">
+                          <?php }elseif ($key['status_beli']=="batal.png"){ ?>
+                            <img width="100%" src="../../images/status/batal_lg.png">
                           <?php }?>
+                          <hr>
+                        </div>
+                        <div class="col-12 mb-0">
+                          <?php if(!empty($data['id_apotek'])){ ?>
+                          <label class="small text-secondary mt-0 mb-0">Apotek</label><br>
+                          <?php
+                          $id_apotek=$data['id_apotek'];
+                          $stmt = $db->prepare("SELECT * FROM user WHERE level=2 AND id=$id_apotek");
+                          $stmt->execute();
+                          $data3 = $stmt->fetch();?>
+                          <label class="text-success font-weight-bold mt-0 mb-0 h5"><?php echo $data3['nama'] ?></label>
+                          <?php
+                           }?>
                         </div>
                        </div>
                      </div>

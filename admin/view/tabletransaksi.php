@@ -135,8 +135,12 @@
                         <td>
                           <?php
                           if ($value['status_beli']=="menunggu_konfirmasi.png") {?>
-                            <a href="editstatuspemesanan.php?nomor_transaksi=<?php echo $value['nomor_transaksi'] ?>" class="btn btn-info text-light" name="button">Menunggu Konfirmasi Admin</button>
-                          <?php }?>
+                            <a href="editstatuspemesanan.php?nomor_transaksi=<?php echo $value['nomor_transaksi'] ?>" class="btn btn-info text-light d-block" name="button">Menunggu Konfirmasi Admin</button>
+                          <?php }elseif ($value['status_beli']=="diproses_apotek.png") {?>
+                            <a href="editstatuspemesanan.php?nomor_transaksi=<?php echo $value['nomor_transaksi'] ?>" class="btn btn-info text-light d-block" name="button">Menunggu Apotek Memproses</button>
+                          <?php }elseif ($value['status_beli']=="batal.png") {?>
+                            <a href="editstatuspemesanan.php?nomor_transaksi=<?php echo $value['nomor_transaksi'] ?>" class="btn btn-danger text-light d-block" name="button">Pesanan Dibatalkan</button>
+                          <?php } ?>
                         </td>
                     </tr>
                     <?php endforeach; ?>

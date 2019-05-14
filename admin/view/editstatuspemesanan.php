@@ -137,11 +137,15 @@
                           <label class="small text-secondary mt-0 mb-0">Status Tagihan</label>
                         </div>
                         <div class="col-12 mt-0 mb-0">
-                          <label class="btn btn-info text-light mt-0 mb-0"><?php echo $data["status_bayar"] ?></label>
+                          <?php if ($data["status_bayar"]=="Pesanan telah Dibatalkan"){ ?>
+                            <button class="btn btn-danger text-light btn-block" disabled><?php echo $data["status_bayar"] ?></button>
+                          <?php }else{ ?>
+                          <button class="btn btn-info text-light btn-block" disabled><?php echo $data["status_bayar"] ?></button>
+                          <?php }?>
                           <hr>
                         </div>
                         <?php
-                        if($data["status_bayar"]!=(("Menunggu Konfirmasi Admin")&&("Menunggu Konfirmasi Pembatalan"))){?>
+                        if($data["status_bayar"]!=(("Menunggu Konfirmasi Admin")&&("Menunggu Konfirmasi Pembatalan")&&("Pesanan telah Dibatalkan"))){?>
                           <div class="col-12 mb-0">
                             <label class="small text-secondary mt-0 mb-0">Metode Pembayaran</label>
                           </div>
@@ -149,13 +153,13 @@
                             <label class="mt-0 mb-0">Cara Membayar</label>
                             <hr>
                           </div>
-                        <?php }
-                        $no_transaksi=$data["nomor_transaksi"];
-                        require("../config/readtransaksidata.php");
-                        $total=0;
-                        foreach ($data2 as $key) {
-                         $total = $total + ($key["jumlah"] * $key["harga"]);
-                        }
+                          <?php }
+                          $no_transaksi=$data["nomor_transaksi"];
+                          require("../config/readtransaksidata.php");
+                          $total=0;
+                          foreach ($data2 as $key) {
+                           $total = $total + ($key["jumlah"] * $key["harga"]);
+                          }
                          ?>
                          <div class="col-12 mb-0">
                            <label class="small text-secondary mt-0 mb-0">Total Pembayaran</label>
@@ -183,6 +187,7 @@
                     </div>
                     <div class="card-body">
                       <div class="row">
+                        <?php if($data["status_bayar"]==("Menunggu Konfirmasi Admin")&&("Menunggu Konfirmasi Pembatalan")){ ?>
                         <div class="col-12">
                           <form action="#" method="post">
                           <label class="small text-secondary mt-0 mb-0">Pilih Apotek yang Dituju</label>
@@ -208,6 +213,24 @@
                           </div> <!-- form-group// -->
                           </form>
                         </div>
+                        <?php }else{ ?>
+                          <?php if ($data["status_bayar"]=="Pesanan telah Dibatalkan"){ ?>
+                              <button class="btn btn-danger text-light btn-block" disabled><?php echo $data["status_bayar"] ?></button>
+                              <button data-toggle="modal" data-target="#confirm-delete" type="submit" class="btn btn-danger btn-block" name="batalkan"> Hapus Pesanan </button>
+                              <?php }else{ ?>
+                              <button class="btn btn-info text-light btn-block" disabled><?php echo $data["status_bayar"] ?></button>
+                              <button data-toggle="modal" data-target="#confirm-cancel" type="submit" class="btn btn-danger btn-block" name="batalkan"> Batalkan Pesanan </button>
+                          <?php }?>
+                          <div class="text-center">
+                            <?php
+                            $id_admin=$data['id_admin'];
+                            $stmt = $db->prepare("SELECT * FROM user WHERE level=1 AND id=$id_admin");
+                            $stmt->execute();
+                            $data4 = $stmt->fetch();
+                             ?>
+                            <label class="small text-secondary mt-0 mb-0 font-italic">Terakhir kali diubah oleh : <?php echo $data4['nama'] ?></label>
+                          </div>
+                        <?php } ?>
                       </div>
                     </div>
                   </div>
@@ -272,23 +295,32 @@
                     </div>
                     <div class="card-body">
                       <div class="row">
-                        <div class="col-6">
+                        <div class="col-12">
                           <div class="row">
                            <div class="col-12 mb-0">
                              <label class="small text-secondary mt-0 mb-0">Status Pembelian</label>
                            </div>
                            <div class="col-12 mt-0 mb-0">
-                             <?php if ($key['status_beli']=="menunggu_konfirmasi.png"):?>
-                               <img width="100%" src="../../images/status/menunggu_konfirmasi_lg.png">
-                             <?php endif; ?>
+                             <?php if ($key['status_beli']=="menunggu_konfirmasi.png"){?>
+                               <img width="60%" src="../../images/status/menunggu_konfirmasi_lg.png">
+                             <?php }elseif ($key['status_beli']=="diproses_apotek.png"){ ?>
+                               <img width="60%" src="../../images/status/diproses_apotek_lg.png">
+                             <?php }elseif ($key['status_beli']=="batal.png"){ ?>
+                               <img width="60%" src="../../images/status/batal_lg.png">
+                             <?php }?>
+                             <hr>
                            </div>
                            <div class="col-12 mb-0">
+                             <?php if(!empty($data['id_apotek'])){ ?>
                              <label class="small text-secondary mt-0 mb-0">Apotek</label><br>
                              <?php
-                             if (empty($data["id_apotek"])) {?>
-                               <label class="text-warning mt-0 mb-0">Apotek Belum Dipilih</label>
-                             <?php }
-                              ?>
+                             $id_apotek=$data['id_apotek'];
+                             $stmt = $db->prepare("SELECT * FROM user WHERE level=2 AND id=$id_apotek");
+                             $stmt->execute();
+                             $data3 = $stmt->fetch();?>
+                             <label class="text-success font-weight-bold mt-0 mb-0 h5"><?php echo $data3['nama'] ?></label>
+                             <?php
+                              }?>
                            </div>
                           </div>
                         </div>
@@ -326,10 +358,48 @@
   <a class="scroll-to-top rounded" href="../#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-
   <?php require("logoutmodal.php") ?>
-
-
+  <!-- Cancel Modal -->
+  <div class="modal fade" id="confirm-cancel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Cancel Pesanan</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <form class="" method="post">
+        <input type="hidden" name="nomor_transaksi" value="<?php echo $data['nomor_transaksi'] ?>">
+        <div class="modal-body">Pesanan ini akan dibatalkan<br>
+          Anda yakin ingin membatalkan pesanan ini ? </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Kembali</button>
+          <button class="btn btn-danger" type="submit" name="cancel">Cancel Pesanan</a>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Delete Modal -->
+  <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Hapus Pesanan</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Data pemesanan ini akan dihapus. Perlu diingat, tindakan ini tidak dapat dikembalikan.<br><br>
+          Anda yakin ingin menghapus data pemesanan ini ? </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-danger" href="../config/deletepesanan.php?nomor_transaksi=<?php echo $data['nomor_transaksi'] ?>">Hapus</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

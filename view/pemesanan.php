@@ -120,11 +120,15 @@
                       <div class="col-12 mt-0 mb-0">
                         <a href="" class="btn btn-warning mt-0 mb-0 text-light"><?php echo $value["status_bayar"] ?></a>
                       </div>
+                    <?php }elseif($value["status_bayar"]=="Pesanan telah Dibatalkan"){?>
+                      <div class="col-12 mt-0 mb-0">
+                        <a href="" class="btn btn-danger mt-0 mb-0"><?php echo $value["status_bayar"] ?></a>
+                      </div>
                     <?php }else{?>
                       <div class="col-12 mt-0 mb-0">
                         <a href="" class="btn btn-info mt-0 mb-0"><?php echo $value["status_bayar"] ?></a>
                       </div>
-                    <?php } ?>
+                    <?php }?>
                    </div>
                  </div>
                  <div class="col-3 d-flex justify-content-end">
