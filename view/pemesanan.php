@@ -124,6 +124,10 @@
                       <div class="col-12 mt-0 mb-0">
                         <a href="" class="btn btn-danger mt-0 mb-0"><?php echo $value["status_bayar"] ?></a>
                       </div>
+                    <?php }elseif($value["status_bayar"]=="Apotek Akan Memproses Pesanan"||$value["status_bayar"]=="Pesanan Sedang Dikirim"||$value["status_bayar"]=="Pesanan Telah Disampaikan"||$value["status_bayar"]=="Selesai"){?>
+                      <div class="col-12 mt-0 mb-0">
+                        <label class="mt-0 mb-0">Dibayar (<?php echo tgl_indo($value['tgl_bayar']) ?>)</label>
+                      </div>
                     <?php }else{?>
                       <div class="col-12 mt-0 mb-0">
                         <a href="" class="btn btn-info mt-0 mb-0"><?php echo $value["status_bayar"] ?></a>

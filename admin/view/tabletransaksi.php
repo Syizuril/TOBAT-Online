@@ -56,7 +56,7 @@
         <div id="collapseUtilities" class="collapse show"  aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Pemesanan:</h6>
-            <a class="collapse-item active" href="tabletransaksi">Pesanan Masuk</a>
+            <a class="collapse-item active" href="tabletransaksi.php">Pesanan Masuk</a>
           </div>
         </div>
       </li>
@@ -104,10 +104,7 @@
             <div class="card-header py-3">
               <div class="row">
                 <div class="col-6">
-                  <h6 class="m-0 mt-2 font-weight-bold text-primary">Akun User</h6>
-                </div>
-                <div class="col-6">
-                  <a href="tambahuser.php" class="float-right btn btn-info m-0">Tambah User</a>
+                  <h6 class="m-0 mt-2 font-weight-bold text-primary">Data Pemesanan</h6>
                 </div>
               </div>
             </div>
@@ -135,11 +132,21 @@
                         <td>
                           <?php
                           if ($value['status_beli']=="menunggu_konfirmasi.png") {?>
-                            <a href="editstatuspemesanan.php?nomor_transaksi=<?php echo $value['nomor_transaksi'] ?>" class="btn btn-info text-light d-block" name="button">Menunggu Konfirmasi Admin</button>
+                            <a href="editstatuspemesanan.php?nomor_transaksi=<?php echo $value['nomor_transaksi'] ?>" class="btn btn-info text-light d-block" name="button"><?php echo $value['status_bayar'] ?></button>
                           <?php }elseif ($value['status_beli']=="diproses_apotek.png") {?>
-                            <a href="editstatuspemesanan.php?nomor_transaksi=<?php echo $value['nomor_transaksi'] ?>" class="btn btn-info text-light d-block" name="button">Menunggu Apotek Memproses</button>
+                            <a href="editstatuspemesanan.php?nomor_transaksi=<?php echo $value['nomor_transaksi'] ?>" class="btn btn-info text-light d-block" name="button"><?php echo $value['status_bayar'] ?></button>
                           <?php }elseif ($value['status_beli']=="batal.png") {?>
-                            <a href="editstatuspemesanan.php?nomor_transaksi=<?php echo $value['nomor_transaksi'] ?>" class="btn btn-danger text-light d-block" name="button">Pesanan Dibatalkan</button>
+                            <a href="editstatuspemesanan.php?nomor_transaksi=<?php echo $value['nomor_transaksi'] ?>" class="btn btn-danger text-light d-block" name="button"><?php echo $value['status_bayar'] ?></button>
+                          <?php }elseif ($value['status_beli']=="pembayaran.png") {?>
+                            <a href="editstatuspemesanan.php?nomor_transaksi=<?php echo $value['nomor_transaksi'] ?>" class="btn btn-warning text-light d-block" name="button"><?php echo $value['status_bayar'] ?></button>
+                          <?php }elseif ($value['status_beli']=="diproses_apotek_second.png") {?>
+                            <a href="editstatuspemesanan.php?nomor_transaksi=<?php echo $value['nomor_transaksi'] ?>" class="btn btn-success text-light d-block" name="button"><?php echo $value['status_bayar'] ?></button>
+                          <?php }elseif ($value['status_beli']=="pengiriman.png") {?>
+                            <a href="editstatuspemesanan.php?nomor_transaksi=<?php echo $value['nomor_transaksi'] ?>" class="btn btn-success text-light d-block" name="button"><?php echo $value['status_bayar'] ?></button>
+                          <?php }elseif ($value['status_beli']=="sampai.png") {?>
+                            <a href="editstatuspemesanan.php?nomor_transaksi=<?php echo $value['nomor_transaksi'] ?>" class="btn btn-primary text-light d-block" name="button"><?php echo $value['status_bayar'] ?></button>
+                          <?php }elseif ($value['status_beli']=="selesai.png") {?>
+                            <a href="editstatuspemesanan.php?nomor_transaksi=<?php echo $value['nomor_transaksi'] ?>" class="btn btn-secondary text-light d-block" name="button"><?php echo $value['status_bayar'] ?></button>
                           <?php } ?>
                         </td>
                     </tr>

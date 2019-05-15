@@ -122,8 +122,8 @@
                       <input name="nama_obat" class="form-control" placeholder="Nama Obat" type="text" required>
                   </div> <!-- form-group// -->
                   <div class="form-group input-group">
-                     <input class="input-group-text custom-file-input" style="width: 100%" type="file" name="image">
-                     <label class="custom-file-label text-secondary" for="customFile">Unggah Foto</label>
+                    <input class="input-group-text custom-file-input" style="width: 100%" type="file" name="image" onchange='$("#upload-file-info").html($(this).val());'>
+                    <label class="custom-file-label text-secondary" for="customFile" id="upload-file-info">Unggah Foto</label>
                   </div> <!-- form-group// -->
                 </div>
               </div>

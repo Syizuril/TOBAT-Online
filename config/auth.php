@@ -9,6 +9,9 @@
           case 1 :
             header("Location: ../admin/index.php");
             break;
+          case 2 :
+            header("Location: ../apotek/index.php");
+            break;
         }
   }
  ?>

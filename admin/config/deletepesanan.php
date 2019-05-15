@@ -8,6 +8,9 @@
     $params = array (
       ":nomor_transaksi"=>$_GET['nomor_transaksi']
     );
+    $bukti = $_GET['bukti'];
+    unlink("../../images/items/$bukti");
+
     $saved = $stmt->execute($params);
     header("Location: ../view/tabletransaksi.php");
     }catch(PDOException $e){

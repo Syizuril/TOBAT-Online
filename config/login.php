@@ -23,6 +23,9 @@
         $_SESSION["level"]=$level;
         if ($level==1) {
           header("Location: ../admin/index.php");
+        }elseif($level==2){
+          //login sukses, alihkan ke halaman timeline
+          header("Location: ../apotek/index.php");
         }elseif($level==0){
           //login sukses, alihkan ke halaman timeline
           header("Location: ../index.php");

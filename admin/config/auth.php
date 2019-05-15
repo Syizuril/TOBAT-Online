@@ -7,6 +7,9 @@
           case 0:
             header("Location: ../view/index.php");
             break;
+          case 2:
+            header("Location: ../apotek/index.php");
+            break;
           case 1:
             break;
           default:

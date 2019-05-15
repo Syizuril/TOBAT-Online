@@ -40,9 +40,10 @@
       }
     }
     if(isset($_POST['cancel'])){
+      $alasan = filter_input(INPUT_POST,'alasan',FILTER_SANITIZE_STRING);
       try{
       //menyiapkan query
-      $sql = "UPDATE transaksi SET id_admin=:id_admin,status_beli=:status_beli,status_bayar=:status_bayar WHERE nomor_transaksi=:nomor_transaksi ";
+      $sql = "UPDATE transaksi SET id_admin=:id_admin,status_beli=:status_beli,status_bayar=:status_bayar,alasan=:alasan WHERE nomor_transaksi=:nomor_transaksi ";
       $stmt = $db->prepare($sql);
 
       //bind parameter kequery
@@ -50,7 +51,8 @@
         ":nomor_transaksi"=>$_POST['nomor_transaksi'],
         ":id_admin" => $_SESSION['user']['id'],
         ":status_beli" => "batal.png",
-        ":status_bayar" => "Pesanan telah Dibatalkan"
+        ":status_bayar" => "Pesanan telah Dibatalkan",
+        ":alasan" => $alasan
       );
 
       //eksekusi query untuk menyimpan ke database
@@ -60,6 +62,28 @@
       }catch(PDOException $e){
       echo "<div class='alert alert-danger alert-dismissible fade show'>
             <strong>Gagal!</strong> Pemesanan ini gagal diproses dibatalkan diakibatkan karena ". $e->getMessage()."</div>";
+      }
+    }
+    if(isset($_POST['verifikasi'])){
+      try{
+      //menyiapkan query
+      $sql = "UPDATE transaksi SET id_admin=:id_admin,status_bayar=:status_bayar WHERE nomor_transaksi=:nomor_transaksi ";
+      $stmt = $db->prepare($sql);
+
+      //bind parameter kequery
+      $params = array (
+        ":nomor_transaksi"=>$_POST['nomor_transaksi'],
+        ":id_admin"=>$_SESSION['user']['id'],
+        ":status_bayar" => "Apotek Akan Memproses Pesanan",
+      );
+
+      //eksekusi query untuk menyimpan ke database
+      $stmt->execute($params);
+      echo "<div class='alert alert-success alert-dismissible fade show'>
+            <strong>Berhasil!</strong> Pemesanan ini berhasil diverifikasi.</div>";
+      }catch(PDOException $e){
+      echo "<div class='alert alert-danger alert-dismissible fade show'>
+            <strong>Gagal!</strong> Pemesanan ini gagal diproses diverifikasi diakibatkan karena ". $e->getMessage()."</div>";
       }
     }
  ?>

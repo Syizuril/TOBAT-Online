@@ -11,7 +11,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
-  <title>Kelola Data User - Admin TOBAT Online</title>
+  <title>Kelola Status Pemesanan - Admin TOBAT Online</title>
 
   <!-- Custom fonts for this template -->
   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -19,6 +19,7 @@
 
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="../../css/bootstrap-select.min.css">
+
   <!-- Bootstrap core JavaScript-->
   <script src="../vendor/jquery/jquery.min.js"></script>
   <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -41,6 +42,10 @@
 
   <!-- Custom styles for this template -->
   <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+
+  <!-- plugin: fancybox  -->
+  <script src="../../plugins/fancybox/fancybox.min.js" type="text/javascript"></script>
+  <link href="../../plugins/fancybox/fancybox.min.css" type="text/css" rel="stylesheet">
 
   <!-- Custom styles for this page -->
   <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -77,7 +82,7 @@
         <div id="collapseUtilities" class="collapse show"  aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Pemesanan:</h6>
-            <a class="collapse-item active" href="tabletransaksi">Pesanan Masuk</a>
+            <a class="collapse-item active" href="tabletransaksi.php">Pesanan Masuk</a>
           </div>
         </div>
       </li>
@@ -134,26 +139,77 @@
                           <hr>
                         </div>
                         <div class="col-12 mb-0">
+                          <label class="small text-secondary mt-0 mb-0">Tanggal Pemesanan</label>
+                        </div>
+                        <div class="col-12 mt-0 mb-0">
+                          <label class="mt-0 mb-0"><?php echo tgl_indo($data["tanggal"])." ".$data["jam"]?></label>
+                          <hr>
+                        </div>
+                        <div class="col-12 mb-0">
                           <label class="small text-secondary mt-0 mb-0">Status Tagihan</label>
                         </div>
                         <div class="col-12 mt-0 mb-0">
                           <?php if ($data["status_bayar"]=="Pesanan telah Dibatalkan"){ ?>
                             <button class="btn btn-danger text-light btn-block" disabled><?php echo $data["status_bayar"] ?></button>
+                            <label class="small text-secondary mt-4 mb-0">Alasan Pembatalan:</label><br>
+                            <label class="text-weight-bold mt-0"><?php echo $data["alasan"] ?></label>
                           <?php }else{ ?>
                           <button class="btn btn-info text-light btn-block" disabled><?php echo $data["status_bayar"] ?></button>
                           <?php }?>
                           <hr>
                         </div>
                         <?php
-                        if($data["status_bayar"]!=(("Menunggu Konfirmasi Admin")&&("Menunggu Konfirmasi Pembatalan")&&("Pesanan telah Dibatalkan"))){?>
-                          <div class="col-12 mb-0">
-                            <label class="small text-secondary mt-0 mb-0">Metode Pembayaran</label>
-                          </div>
-                          <div class="col-12 mt-0 mb-0">
-                            <label class="mt-0 mb-0">Cara Membayar</label>
-                            <hr>
-                          </div>
-                          <?php }
+                        switch ($data["status_beli"]) {
+                          case "diproses_apotek_second.png":?>
+                              <div class="col-12 mb-0">
+                                <label class="small text-secondary mt-0 mb-0">Metode Pembayaran</label><br>
+                                <label class="font-weight-bold mt-0 mb-0">Transfer Bank</label>
+                                <hr>
+                              </div>
+                              <div class="col-12 mb-0">
+                                <label class="small text-secondary mt-0 mb-0">Tanggal Pembayaran</label><br>
+                                <label class="mt-0 mb-0"><?php echo tgl_indo($data["tgl_bayar"])?></label>
+                                <hr>
+                              </div>
+                              <?php break; ?>
+                          <?php case "pengiriman.png":?>
+                              <div class="col-12 mb-0">
+                                <label class="small text-secondary mt-0 mb-0">Metode Pembayaran</label><br>
+                                <label class="font-weight-bold mt-0 mb-0">Transfer Bank</label>
+                                <hr>
+                              </div>
+                              <div class="col-12 mb-0">
+                                <label class="small text-secondary mt-0 mb-0">Tanggal Pembayaran</label><br>
+                                <label class="mt-0 mb-0"><?php echo tgl_indo($data["tgl_bayar"])?></label>
+                                <hr>
+                              </div>
+                              <?php break; ?>
+                          <?php case "sampai.png":?>
+                              <div class="col-12 mb-0">
+                                <label class="small text-secondary mt-0 mb-0">Metode Pembayaran</label><br>
+                                <label class="font-weight-bold mt-0 mb-0">Transfer Bank</label>
+                                <hr>
+                              </div>
+                              <div class="col-12 mb-0">
+                                <label class="small text-secondary mt-0 mb-0">Tanggal Pembayaran</label><br>
+                                <label class="mt-0 mb-0"><?php echo tgl_indo($data["tgl_bayar"])?></label>
+                                <hr>
+                              </div>
+                              <?php break; ?>
+                          <?php case "selesai.png":?>
+                              <div class="col-12 mb-0">
+                                <label class="small text-secondary mt-0 mb-0">Metode Pembayaran</label><br>
+                                <label class="font-weight-bold mt-0 mb-0">Transfer Bank</label>
+                                <hr>
+                              </div>
+                              <div class="col-12 mb-0">
+                                <label class="small text-secondary mt-0 mb-0">Tanggal Pembayaran</label><br>
+                                <label class="mt-0 mb-0"><?php echo tgl_indo($data["tgl_bayar"])?></label>
+                                <hr>
+                              </div>
+                              <?php break; ?>
+                          <?php default: ?>
+                        <?php }
                           $no_transaksi=$data["nomor_transaksi"];
                           require("../config/readtransaksidata.php");
                           $total=0;
@@ -187,8 +243,8 @@
                     </div>
                     <div class="card-body">
                       <div class="row">
-                        <?php if($data["status_bayar"]==("Menunggu Konfirmasi Admin")&&("Menunggu Konfirmasi Pembatalan")){ ?>
                         <div class="col-12">
+                        <?php if($data["status_bayar"]=="Menunggu Konfirmasi Admin"||$data["status_bayar"]=="Menunggu Konfirmasi Pembatalan"){ ?>
                           <form action="#" method="post">
                           <label class="small text-secondary mt-0 mb-0">Pilih Apotek yang Dituju</label>
                           <div class="form-group input-group">
@@ -216,11 +272,48 @@
                         <?php }else{ ?>
                           <?php if ($data["status_bayar"]=="Pesanan telah Dibatalkan"){ ?>
                               <button class="btn btn-danger text-light btn-block" disabled><?php echo $data["status_bayar"] ?></button>
-                              <button data-toggle="modal" data-target="#confirm-delete" type="submit" class="btn btn-danger btn-block" name="batalkan"> Hapus Pesanan </button>
-                              <?php }else{ ?>
-                              <button class="btn btn-info text-light btn-block" disabled><?php echo $data["status_bayar"] ?></button>
-                              <button data-toggle="modal" data-target="#confirm-cancel" type="submit" class="btn btn-danger btn-block" name="batalkan"> Batalkan Pesanan </button>
-                          <?php }?>
+                              <button data-toggle="modal" data-target="#confirm-delete" type="submit" class="btn btn-danger btn-block" name="hapus"> Hapus Pesanan </button>
+                            <?php }elseif($data["status_bayar"]=="Verifikasi Pembayaran"){ ?>
+                              <label class="small text-secondary mt-0 mb-0 text-center">Berikut adalah foto bukti pembayaran yang dikirimkan user, silahkan klik untuk memperbesar foto:</label>
+                              <div class="text-center mt-3">
+                                <div> <a href="../../images/bukti/<?php echo $data['bukti'] ?>" data-fancybox=""><img src="../../images/bukti/<?php echo $data['bukti'] ?>" alt="Bukti Pembayaran" width="70%"></a></div>
+                              </div>
+                              <div class="text-center">
+                              <form action="#" method="post">
+                                <label class="small text-warning mt-3 mb-0">Verifikasikan bukti pembayaran tersebut dengan harga yang sebenarnya, setelah itu melanjutkan proses dibawah ini:</label><br>
+                                <input type="hidden" name="nomor_transaksi" value="<?php echo $data['nomor_transaksi'] ?>">
+                                <button type="submit" class="btn btn-success btn-block" name="verifikasi"> Verifikasikan Pesanan </button>
+                                <button data-toggle="modal" data-target="#confirm-cancel" type="submit" class="btn btn-danger btn-block"> Batalkan Pesanan </button>
+                              </form>
+                              </div>
+                            <?php }elseif($data["status_bayar"]=="Pesanan Sedang Dikirim"){ ?>
+                              <label class="small text-secondary mt-0 mb-0 text-center">Berikut adalah foto bukti pembayaran yang dikirimkan user, silahkan klik untuk memperbesar foto:</label>
+                              <div class="text-center mt-3">
+                                <div> <a href="../../images/bukti/<?php echo $data['bukti'] ?>" data-fancybox=""><img src="../../images/bukti/<?php echo $data['bukti'] ?>" alt="Bukti Pembayaran" width="70%"></a></div>
+                              </div>
+                              <div class="text-center">
+                              <form action="#" method="post">
+                                <label class="small text-info mt-3 mb-0">Mohon tunggu proses ini selesai</label><br>
+                                <button class="btn btn-info text-light btn-block" disabled><?php echo $data["status_bayar"] ?></button>
+                                <button data-toggle="modal" data-target="#confirm-cancel" type="submit" class="btn btn-danger btn-block"> Batalkan Pesanan </button>
+                              </form>
+                              </div>
+                            <?php }elseif($data["status_bayar"]=="Pesanan Telah Disampaikan"){ ?>
+                              <label class="small text-secondary mt-0 mb-0 text-center">Berikut adalah foto bukti pembayaran yang dikirimkan user, silahkan klik untuk memperbesar foto:</label>
+                              <div class="text-center mt-3">
+                                <div> <a href="../../images/bukti/<?php echo $data['bukti'] ?>" data-fancybox=""><img src="../../images/bukti/<?php echo $data['bukti'] ?>" alt="Bukti Pembayaran" width="70%"></a></div>
+                              </div>
+                              <div class="text-center">
+                              <form action="#" method="post">
+                                <label class="small text-info mt-3 mb-0">Mohon tunggu proses pengiriman selesai</label><br>
+                                <button class="btn btn-info text-light btn-block" disabled><?php echo $data["status_bayar"] ?></button>
+                                <button data-toggle="modal" data-target="#confirm-cancel" type="submit" class="btn btn-danger btn-block"> Batalkan Pesanan </button>
+                              </form>
+                              </div>
+                            <?php }else{ ?>
+                                <button class="btn btn-info text-light btn-block" disabled><?php echo $data["status_bayar"] ?></button>
+                                <button data-toggle="modal" data-target="#confirm-delete" type="submit" class="btn btn-danger btn-block"> Hapus Pesanan </button>
+                            <?php }?>
                           <div class="text-center">
                             <?php
                             $id_admin=$data['id_admin'];
@@ -230,6 +323,7 @@
                              ?>
                             <label class="small text-secondary mt-0 mb-0 font-italic">Terakhir kali diubah oleh : <?php echo $data4['nama'] ?></label>
                           </div>
+                        </div>
                         <?php } ?>
                       </div>
                     </div>
@@ -307,6 +401,14 @@
                                <img width="60%" src="../../images/status/diproses_apotek_lg.png">
                              <?php }elseif ($key['status_beli']=="batal.png"){ ?>
                                <img width="60%" src="../../images/status/batal_lg.png">
+                             <?php }elseif ($key['status_beli']=="pembayaran.png"){ ?>
+                               <img width="60%" src="../../images/status/pembayaran_lg.png">
+                             <?php }elseif ($key['status_beli']=="pengiriman.png"){ ?>
+                               <img width="60%" src="../../images/status/pengiriman_lg.png">
+                             <?php }elseif ($key['status_beli']=="sampai.png"){ ?>
+                               <img width="60%" src="../../images/status/sampai_lg.png">
+                             <?php }elseif ($key['status_beli']=="selesai.png"){ ?>
+                               <img width="60%" src="../../images/status/selesai_lg.png">
                              <?php }?>
                              <hr>
                            </div>
@@ -371,8 +473,14 @@
         </div>
         <form class="" method="post">
         <input type="hidden" name="nomor_transaksi" value="<?php echo $data['nomor_transaksi'] ?>">
-        <div class="modal-body">Pesanan ini akan dibatalkan<br>
-          Anda yakin ingin membatalkan pesanan ini ? </div>
+        <div class="modal-body">
+          Pesanan ini akan dibatalkan<br>
+          Anda yakin ingin membatalkan pesanan ini ?
+          <div class="form-group">
+            <label for="comment" class="mt-3 h6">Alasan:</label>
+            <textarea class="form-control" rows="5" name="alasan" placeholder="Mohon untuk mengisi alasan Anda membatalkan pesanan ini." required></textarea>
+          </div>
+        </div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Kembali</button>
           <button class="btn btn-danger" type="submit" name="cancel">Cancel Pesanan</a>
@@ -395,7 +503,7 @@
           Anda yakin ingin menghapus data pemesanan ini ? </div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-danger" href="../config/deletepesanan.php?nomor_transaksi=<?php echo $data['nomor_transaksi'] ?>">Hapus</a>
+          <a class="btn btn-danger" href="../config/deletepesanan.php?nomor_transaksi=<?php echo $data['nomor_transaksi'] ?>&bukti=<?php echo $data['bukti'] ?>">Hapus</a>
         </div>
       </div>
     </div>
