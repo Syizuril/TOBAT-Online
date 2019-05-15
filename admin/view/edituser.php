@@ -111,7 +111,7 @@
               <a href="" data-toggle="modal" data-target="#confirm-delete" class="float-right btn btn-danger m-0">Hapus User</a>
             </div>
           </div>
-          <form action="" method="POST" enctype="multipart/form-data" oninput="password2.setCustomValidity(password2.value != password.value ? 'Password tidak sesuai.'()">
+          <form action="" method="POST" enctype="multipart/form-data" oninput='password2.setCustomValidity(password2.value != password.value ? "Password tidak sesuai." : "")'>
           <div class="row">
             <div class="col-md-3">
               <!-- Basic Card Example -->

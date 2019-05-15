@@ -38,7 +38,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-danger sidebar sidebar-dark accordion" id="accordionSidebar">
       <?php
       require("navbar/sidebrand.php");
       require("navbar/navitem1.php");
@@ -95,9 +95,7 @@
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="../index.php">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="dataakun.php">Kelola Data</a></li>
-                <li class="breadcrumb-item"><a href="tablesapotik.php">Kelola Data Apotik</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Edit Data</li>
+                <li class="breadcrumb-item active" aria-current="page">Profile</li>
               </ol>
             </nav>
             <?php
@@ -105,13 +103,10 @@
             ?>
           <div class="d-sm-flex align-items-center justify-content-between mb-3">
             <div class="col-6">
-              <h1 class="h3 mb-0 text-gray-800">Edit Data</h1>
-            </div>
-            <div class="col-6">
-              <a href="" data-toggle="modal" data-target="#confirm-delete" class="float-right btn btn-danger m-0">Hapus Apotik</a>
+              <h1 class="h3 mb-0 text-gray-800">Profile</h1>
             </div>
           </div>
-          <form action="" method="POST" enctype="multipart/form-data" oninput="password2.setCustomValidity(password2.value != password.value ? 'Password tidak sesuai.'()">
+          <form action="" method="POST" enctype="multipart/form-data" oninput='password2.setCustomValidity(password2.value != password.value ? "Password tidak sesuai." : "")'>
           <div class="row">
             <div class="col-md-3">
               <!-- Basic Card Example -->
@@ -119,8 +114,8 @@
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary">Foto</h6>
                 </div>
-                <div class="card-body">
-                  <img class="mx-auto d-block circle"src="../../images/avatars/<?php echo $data['foto'] ?>">
+                <div class="card-body h-100">
+                  <img class="mx-auto d-block circle" src="../../images/avatars/<?php echo $data['foto'] ?>">
                   <div class="form-group input-group my-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"> <i class="fa fa-user"></i> </span>
@@ -128,7 +123,7 @@
                       <input name="nama" class="form-control" placeholder="Nama Panjang" type="text" value="<?php echo $data['nama'] ?>" required>
                   </div> <!-- form-group// -->
                   <div class="form-group input-group">
-                     <input class="input-group-text custom-file-input" style="width: 100%" type="file" name="image">
+                     <input class="input-group-text custom-file-input" style="width: 100%" type="file" name="image" required>
                      <label class="custom-file-label text-secondary" for="customFile">Unggah Foto</label>
                   </div> <!-- form-group// -->
                 </div>
@@ -139,7 +134,7 @@
               <!-- Basic Card Example -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Data Admin</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Data Apotek</h6>
                 </div>
                 <div class="card-body">
                   <div class="form-group input-group">
@@ -169,6 +164,13 @@
                     </div>
                     <input name="alamat" class="form-control" placeholder="Alamat" type="text" value="<?php echo $data['alamat'] ?>" required>
                   </div> <!-- form-group end.// -->
+                  <label class="font-weight-bold text-primary">Ganti Password</label>
+                  <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                    </div>
+                      <input name="passwordsebelumnya" class="form-control" placeholder="Password Sebelumnya" type="password" required>
+                  </div> <!-- form-group// -->
                   <div class="form-group input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text"> <i class="fa fa-lock"></i> </span>

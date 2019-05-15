@@ -111,7 +111,7 @@
               <a href="" data-toggle="modal" data-target="#confirm-delete" class="float-right btn btn-danger m-0">Hapus Apotik</a>
             </div>
           </div>
-          <form action="" method="POST" enctype="multipart/form-data" oninput="password2.setCustomValidity(password2.value != password.value ? 'Password tidak sesuai.'()">
+          <form action="" method="POST" enctype="multipart/form-data" oninput='password2.setCustomValidity(password2.value != password.value ? "Password tidak sesuai." : "")'>
           <div class="row">
             <div class="col-md-3">
               <!-- Basic Card Example -->
@@ -139,7 +139,7 @@
               <!-- Basic Card Example -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Data Admin</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Data Apotek</h6>
                 </div>
                 <div class="card-body">
                   <div class="form-group input-group">

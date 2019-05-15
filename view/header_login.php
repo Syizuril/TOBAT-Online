@@ -31,7 +31,7 @@
           <img class="img img-responsive circle dropdown-toggle ml-2" width="30" data-toggle="dropdown" src="../images/avatars/<?php echo $_SESSION['user']['foto']?>" /><span class="caret"></span>
           <ul class="dropdown-menu dropdown-menu-right mt-2" style="width:1000">
               <li><p class="dropdown-item my-0 text-muted">Halo!</p><li>
-              <li><p class="dropdown-item my-0"><?php echo $_SESSION['user']['nama']?></p><li>
+              <li><a href="profile.php?email=<?php echo $_SESSION['user']['email'] ?>"class="dropdown-item"><?php echo $_SESSION['user']['nama']?></a><li>
               <li><a class="dropdown-item" href="pemesanan.php">Riwayat Belanja</a><li>
               <li><a class="dropdown-item" href="#">Link 2</a><li>
               <li><a class="dropdown-item" href="../config/logout.php">Keluar</a><li>

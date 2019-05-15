@@ -40,6 +40,7 @@
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
       <?php
+      if ($_SESSION['user']['email']!=$_GET['email']){
       require("navbar/sidebrand.php");
       require("navbar/navitem1.php");
       ?>
@@ -72,8 +73,22 @@
       require("navbar/navitem4.php");
       require("navbar/navitem5.php");
       require("navbar/navitem6.php");
-      require("navbar/toggle.php")
-      ?>
+      require("navbar/toggle.php");
+      }else{
+      require("navbar/sidebrand.php");
+      require("navbar/navitem1.php");
+      require("navbar/navitem2.php");
+      require("navbar/navitem3.php");?>
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Addons
+      </div>
+      <?php
+      require("navbar/navitem4.php");
+      require("navbar/navitem5.php");
+      require("navbar/navitem6.php");
+      require("navbar/toggle.php");}?>
     </ul>
     <!-- End of Sidebar -->
 
@@ -90,6 +105,7 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
+          <?php if ($_SESSION['user']['email']!=$_GET['email']){ ?>
           <!-- Page Heading -->
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
@@ -100,17 +116,27 @@
               </ol>
             </nav>
             <?php
+            }else{?>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="../index.php">Dashboard</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Profile</li>
+                </ol>
+              </nav>
+            <?php }
               require("../config/edituser.php");
             ?>
           <div class="d-sm-flex align-items-center justify-content-between mb-3">
             <div class="col-6">
               <h1 class="h3 mb-0 text-gray-800">Edit Data</h1>
             </div>
+            <?php if ($_SESSION['user']['email']!=$_GET['email']): ?>
             <div class="col-6">
               <a href="" data-toggle="modal" data-target="#confirm-delete" class="float-right btn btn-danger m-0">Hapus Admin</a>
             </div>
+            <?php endif; ?>
           </div>
-          <form action="" method="POST" enctype="multipart/form-data" oninput="password2.setCustomValidity(password2.value != password.value ? 'Password tidak sesuai.'()">
+          <form action="" method="POST" enctype="multipart/form-data" oninput='password2.setCustomValidity(password2.value != password.value ? "Password tidak sesuai." : "")'>
           <div class="row">
             <div class="col-md-3">
               <!-- Basic Card Example -->
