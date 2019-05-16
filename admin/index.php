@@ -95,8 +95,13 @@
         Tambahan
       </div>
 
+      <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link" href="view/tablebantuan.php">
+          <i class="fas fa-envelope fa-fw"></i>
+          <span>Bantuan Pelayanan</span></a>
+      </li>
       <?php
-      require("view/navbar/navitem5.php");
       require("view/navbar/toggle.php")
       ?>
     </ul>

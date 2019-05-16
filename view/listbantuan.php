@@ -87,7 +87,10 @@
         </div>
         <div class="card-body">
           <div class="row">
-            <?php foreach ($data as $value): ?>
+            <?php
+            if($data){
+            foreach ($data as $value):
+            ?>
             <div class="col-12">
               <div class="card my-2">
                 <div class="card-body">
@@ -132,7 +135,24 @@
                 </div>
               </div>
             </div>
-          <?php endforeach; ?>
+          <?php endforeach;
+          }else{ ?>
+            <div class="col-12">
+              <div class="card-body">
+                <div class="col-5 mx-auto mt-5">
+                  <div class="text-center">
+                    <img src="../images/icons/empty2.svg" alt="Daftar Belanja" width="70%">
+                    <h5 class="mt-3">Hebat ! Kamu sama sekali belum mengirimkan pertanyaan apapun. Jika ada masalah dengan senang hati kami membantu Anda.</h5>
+                    <p class="small text-secondary mt-4">Ayo mulai belanja di TOBAT Online dan nikmati kemudahannya</p>
+                  </div>
+                  <div class="center">
+                    <a href="index-login.php" class="btn btn-success btn-block mb-5"> Ayo Mulai Belanja </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <?php }
+          ?>
           </div>
         </div>
        </div>

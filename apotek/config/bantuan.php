@@ -20,14 +20,14 @@
 
     //eksekusi query untuk menyimpan ke database
     $stmt->execute($params);
-    echo "<div class='text-success text-center small'>
+    echo "<div class='alert alert-success alert-dismissible fade show'>
           <strong>Berhasil!</strong> Pesan Bantuan Anda berhasil dikirim.</div>";
     }catch(PDOException $e){
-    echo "<div class='text-danger text-center small'>
+    echo "<div class='alert alert-danger alert-dismissible fade show'>
           <strong>Gagal!</strong> Pesan Bantuan Anda gagal dikirim diakibatkan karena ". $e->getMessage()."</div>";
       }
     }else{
-    echo "<div class='text-danger text-center small'>
+    echo "<div class='alert alert-danger alert-dismissible fade show'>
           <strong>Gagal!</strong>Tidak bisa input isi permasalahan lebih dari 255 karakter.</div>";
   }
 }

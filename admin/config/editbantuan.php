@@ -2,11 +2,13 @@
   if(!isset($_GET['id_bantuan'])){
     die("Error: Id_bantuan Tidak Dimasukkan");
   }
-  $stmt = $db->prepare("SELECT bantuan.*,user.* FROM bantuan,user WHERE bantuan.id_bantuan=:id_bantuan AND user.id=:id_user");
-
+  if(isset($_GET['id_user'])){
+  $stmt = $db->prepare("SELECT bantuan.*,user.* FROM bantuan,user WHERE bantuan.id_bantuan=:id_bantuan AND bantuan.id_user=user.id");
+  }elseif(isset($_GET['id_apotek'])){
+  $stmt = $db->prepare("SELECT bantuan.*,user.* FROM bantuan,user WHERE bantuan.id_bantuan=:id_bantuan AND bantuan.id_apotek=user.id");
+  }
   $params = array (
-    ":id_bantuan"=>$_GET['id_bantuan'],
-    ":id_user"=>$_GET['id_user']
+    ":id_bantuan"=>$_GET['id_bantuan']
   );
 
   $stmt->execute($params);
@@ -45,5 +47,6 @@
     echo "<div class='alert alert-danger alert-dismissible fade show'>
           <strong>Gagal!</strong>Tidak bisa input isi permasalahan lebih dari 255 karakter.</div>";
         }
+
   }
  ?>

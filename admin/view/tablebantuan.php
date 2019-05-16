@@ -10,14 +10,13 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="shortcut icon" type="image/x-icon" href="../../../images/favicon.ico">
   <title>Kelola Data Bantuan - Admin TOBAT Online</title>
-
-  <!-- Custom fonts for this template -->
+  <link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+  <!-- Custom fonts-->
   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-  <!-- Custom styles for this template -->
+  <!-- Custom styles-->
   <link href="../css/sb-admin-2.min.css" rel="stylesheet">
 
   <!-- Custom styles for this page -->
@@ -47,29 +46,21 @@
       <div class="sidebar-heading">
         Kelola
       </div>
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item active">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Kelola Data</span>
-        </a>
-        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Kelola Data:</h6>
-            <a class="collapse-item active" href="dataakun.php">Akun</a>
-            <a class="collapse-item" href="tablesobat.php">Obat</a>
-          </div>
-        </div>
-      </li>
-      <?php require("navbar/navitem3.php") ?>
+      <?php
+      require("navbar/navitem2.php");
+      require("navbar/navitem3.php") ?>
 
       <!-- Heading -->
       <div class="sidebar-heading">
         Tambahan
       </div>
-
+      <!-- Nav Item - Charts -->
+      <li class="nav-item active">
+        <a class="nav-link" href="tablebantuan.php">
+          <i class="fas fa-envelope fa-fw"></i>
+          <span>Bantuan Pelayanan</span></a>
+      </li>
       <?php
-      require("navbar/navitem5.php");
       require("navbar/toggle.php")
       ?>
     </ul>
@@ -126,7 +117,12 @@
                   <tbody>
                     <?php foreach ($data as $value): ?>
                     <tr>
+                        <?php
+                        if(!empty($value['id_user'])){?>
                         <td><a href="jawabbantuan.php?id_bantuan=<?php echo $value['id_bantuan']?>&id_user=<?php echo $value['id_user'] ?>"><?php echo $value['nama'] ?></a></td>
+                        <?php }else{ ?>
+                        <td><a href="jawabbantuan.php?id_bantuan=<?php echo $value['id_bantuan']?>&id_apotek=<?php echo $value['id_apotek'] ?>"><?php echo $value['nama'] ?></a></td>
+                        <?php }?>
                         <td><?php echo tgl_indo($value['tanggal']) ?></td>
                         <td><?php echo $value['judul'] ?></td>
                         <?php if($value['status']!='Sudah Terjawab'){ ?>

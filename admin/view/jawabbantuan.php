@@ -11,12 +11,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Jawab Bantuan - TOBAT Online</title>
-
-  <!-- Custom fonts for this template-->
+  <link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+  <!-- Custom fonts-->
   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-  <!-- Custom styles for this template-->
+  <!-- Custom styles-->
   <link href="../css/sb-admin-2.min.css" rel="stylesheet">
   <script type="text/javascript">
     function numberOfCharacters(textbox,limit,indicator) {
@@ -51,29 +51,21 @@
       <div class="sidebar-heading">
         Kelola
       </div>
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item active">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Kelola Data</span>
-        </a>
-        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Kelola Data:</h6>
-            <a class="collapse-item active" href="dataakun.php">Akun</a>
-            <a class="collapse-item" href="tablesobat.php">Obat</a>
-          </div>
-        </div>
-      </li>
-      <?php require("navbar/navitem3.php") ?>
+      <?php
+      require("navbar/navitem2.php");
+      require("navbar/navitem3.php") ?>
 
       <!-- Heading -->
       <div class="sidebar-heading">
         Tambahan
       </div>
-
+      <!-- Nav Item - Charts -->
+      <li class="nav-item active">
+        <a class="nav-link" href="tablebantuan.php">
+          <i class="fas fa-envelope fa-fw"></i>
+          <span>Bantuan Pelayanan</span></a>
+      </li>
       <?php
-      require("navbar/navitem5.php");
       require("navbar/toggle.php")
       ?>
     </ul>
@@ -168,8 +160,8 @@
                   </div>
                   <div class="form-group input-group mb-0">
                     <input type="hidden" name="id_bantuan" value="<?php echo $data['id_bantuan'] ?>">
-                    <button type="button" class="btn btn-info btn-block" name="button"><?php echo $data['status'] ?></button>
-                    <button data-toggle="modal" data-target="#confirm-delete" type="button" class="btn btn-danger btn-block"> Hapus Pesanan </button>
+                    <button type="button" class="btn btn-info btn-block" name="button" disabled><?php echo $data['status'] ?></button>
+                    <button data-toggle="modal" data-target="#confirm-delete" type="button" class="btn btn-danger btn-block"> Hapus Pertanyaan </button>
                   </div> <!-- form-group// -->
                 <?php } ?>
                 </div>
@@ -211,7 +203,7 @@
           Anda yakin ingin menghapus data bantuan ini ? </div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-danger" href="../config/deleteuser.php?email=<?php echo $data['email'] ?>&foto=<?php echo $data['foto'] ?>">Hapus</a>
+          <a class="btn btn-danger" href="../config/deletebantuan.php?id_bantuan=<?php echo $data['id_bantuan'] ?>">Hapus</a>
         </div>
       </div>
     </div>

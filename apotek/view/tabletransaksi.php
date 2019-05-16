@@ -11,14 +11,13 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
   <title>Kelola Transaksi - Admin TOBAT Online</title>
-
-  <!-- Custom fonts for this template -->
+  <link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+  <!-- Custom fonts-->
   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-  <!-- Custom styles for this template -->
+  <!-- Custom styles-->
   <link href="../css/sb-admin-2.min.css" rel="stylesheet">
 
   <!-- Custom styles for this page -->
@@ -41,8 +40,7 @@
     <ul class="navbar-nav bg-gradient-danger sidebar sidebar-dark accordion" id="accordionSidebar">
       <?php
       require("navbar/sidebrand.php");
-      require("navbar/navitem1.php");
-      require("navbar/navitem2.php"); ?>
+      require("navbar/navitem1.php"); ?>
       <!-- Heading -->
       <div class="sidebar-heading">
         Pemesanan
@@ -61,17 +59,19 @@
         </div>
       </li>
 
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
       <!-- Heading -->
       <div class="sidebar-heading">
-        Addons
+        Tambahan
       </div>
 
       <?php
-      require("navbar/navitem4.php");
       require("navbar/navitem5.php");
-      require("navbar/navitem6.php");
       require("navbar/toggle.php")
       ?>
+    </ul>
     </ul>
     <!-- End of Sidebar -->
 

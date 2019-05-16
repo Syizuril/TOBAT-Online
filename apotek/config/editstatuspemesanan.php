@@ -123,10 +123,10 @@
 
       //eksekusi query untuk menyimpan ke database
       $stmt->execute($params);
-      echo "<div class='text-success text-center small'>
+      echo "<div class='alert alert-success alert-dismissible fade show'>
             <strong>Berhasil!</strong> Pesanan telah diselesaikan.</div>";
       }catch(PDOException $e){
-      echo "<div class='text-success text-center small'>
+      echo "<div class='alert alert-danger alert-dismissible fade show'>
             <strong>Gagal!</strong> Pesanan gagal diselesaikan diakibatkan karena ". $e->getMessage()."</div>";
         }
       }
