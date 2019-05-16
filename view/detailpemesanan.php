@@ -102,7 +102,7 @@
                        <?php if ($data["status_bayar"]=="Pesanan telah Dibatalkan"){ ?>
                          <button class="btn btn-danger text-light btn-block" disabled><?php echo $data["status_bayar"] ?></button>
                          <label class="small text-secondary mt-4 mb-0">Alasan Pembatalan:</label><br>
-                         <label class="text-weight-bold mt-0"><?php echo $data["alasan"] ?></label>
+                         <label class="h6 text-danger text-weight-bold mt-0"><?php echo $data["alasan"] ?></label>
                        <?php }else{ ?>
                        <button class="btn btn-info text-light btn-block" disabled><?php echo $data["status_bayar"] ?></button>
                        <?php }?>

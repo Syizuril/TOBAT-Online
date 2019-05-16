@@ -300,6 +300,8 @@
                                 <button data-toggle="modal" data-target="#confirm-cancel" type="submit" class="btn btn-danger btn-block"> Batalkan Pesanan </button>
                               </form>
                               </div>
+                          <?php }elseif($data["status_bayar"]=="Verifikasi Pembayaran"||$data["status_bayar"]=="Proses Pembayaran"){ ?>
+                              <button class="btn btn-info text-light btn-block" disabled><?php echo $data["status_bayar"] ?></button>
                           <?php }elseif($data["status_bayar"]=="Selesai"){ ?>
                               <button class="btn btn-info text-light btn-block" disabled><?php echo $data["status_bayar"] ?></button>
                           <?php }?>
