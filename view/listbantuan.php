@@ -76,7 +76,14 @@
        </nav>
        <div class="card mb-4">
         <div class="card-header">
-             <h1 class="h3 mb-0 text-gray-800">Daftar Permasalahan</h1>
+          <div class="row">
+            <div class="col-6">
+              <h1 class="h5 mt-1 text-gray-800">Daftar Permasalahan</h1>
+            </div>
+            <div class="col-6 d-flex justify-content-end">
+                <a href="bantuan.php" class="btn btn-success">Buat Pertanyaan</a>
+            </div>
+          </div>
         </div>
         <div class="card-body">
           <div class="row">
@@ -96,7 +103,7 @@
                          <label class="small text-secondary mt-0 mb-0"><?php echo tgl_indo($value["tanggal"]) ?></label>
                        </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-4">
                          <div class="col-12 mb-0">
                            <label class="small text-secondary mt-0 mb-0">Judul Permasalahan</label>
                          </div>
@@ -108,9 +115,18 @@
                        <div class="col-12 mb-0">
                          <label class="small text-secondary mt-0 mb-0">Status</label>
                        </div>
+                       <?php if($value['status']!='Sudah Terjawab'){ ?>
                        <div class="col-12 mt-0 mb-0">
                          <a href="lihatbantuan.php?id_bantuan=<?php echo $value['id_bantuan'] ?>" class="btn btn-info mt-0 mb-0"><?php echo $value["status"] ?></a>
                        </div>
+                     <?php }else{ ?>
+                       <div class="col-12 mt-0 mb-0">
+                         <a href="lihatbantuan.php?id_bantuan=<?php echo $value['id_bantuan'] ?>" class="btn btn-secondary mt-0 mb-0"><?php echo $value["status"] ?></a>
+                       </div>
+                     <?php } ?>
+                    </div>
+                    <div class="col-2 my-auto d-flex justify-content-end">
+                         <a href="lihatbantuan.php?id_bantuan=<?php echo $value['id_bantuan'] ?>" class="btn btn-outline-success mt-0 mb-0"> Lihat Data </a>
                     </div>
                   </div>
                 </div>

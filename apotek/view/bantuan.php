@@ -1,7 +1,7 @@
 <?php
   require_once("../../config/config.php");
   require("../config/auth.php");
-  require("../config/readobat.php");
+  require_once("../../config/tgl_indo.php");
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,8 +9,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="shortcut icon" type="image/x-icon" href="../../../images/favicon.ico">
-  <title>Kelola Data User - Admin TOBAT Online</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+  <title>Kelola Transaksi - Admin TOBAT Online</title>
 
   <!-- Custom fonts for this template -->
   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -21,6 +21,12 @@
 
   <!-- Custom styles for this page -->
   <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <script type="text/javascript">
+    function numberOfCharacters(textbox,limit,indicator) {
+      chars = document.getElementById(textbox).value.length;
+      document.getElementById(indicator).innerHTML = limit-chars;
+    }
+  </script>
   <style media="screen">
     .circle {
       height:200px;
@@ -36,31 +42,30 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-danger sidebar sidebar-dark accordion" id="accordionSidebar">
       <?php
       require("navbar/sidebrand.php");
-      require("navbar/navitem1.php");
-      ?>
-
+      require("navbar/navitem1.php"); ?>
       <!-- Heading -->
       <div class="sidebar-heading">
-        Kelola
+        Pemesanan
       </div>
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item active">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Kelola Data</span>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+          <i class="fas fa-cash-register"></i>
+          <span>Pemesanan</span>
         </a>
-        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseUtilities" class="collapse show"  aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Kelola Data:</h6>
-            <a class="collapse-item" href="dataakun.php">Akun</a>
-            <a class="collapse-item active" href="tablesobat.html">Obat</a>
+            <h6 class="collapse-header">Pemesanan:</h6>
+            <a class="collapse-item active" href="tabletransaksi">Pesanan Masuk</a>
           </div>
         </div>
       </li>
-      <?php require("navbar/navitem3.php") ?>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
 
       <!-- Heading -->
       <div class="sidebar-heading">
@@ -86,60 +91,47 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
+          <?php require("../config/bantuan.php"); ?>
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="../index.php">Dashboard</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Kelola Data Obat</a></li>
+              <li class="breadcrumb-item"><a href="tablebantuan.php">Daftar Pertanyaan</a></li>
+              <li class="breadcrumb-item active">Pertanyaan</li>
             </ol>
           </nav>
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Kelola Data Obat</h1>
-          <p class="mb-4">Berikut adalah tampilan data dari obat yang ditampilkan, Anda dapat mengaturnya seperti menambahkan, mengedit, hingga menghapus data obat tersebut.</p>
+          <h1 class="h3 mb-2 text-gray-800">Buat Formulir Permasalahan</h1>
+          <p class="mb-4">Terdapat masalah dalam memesan ? Silahkan kirim pertanyaanmu kepada Administrator. Pertanyaan Anda akan dijawab dalam beberapa saat kemudian.</p>
 
-          <!-- DataTales Example -->
-          <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <div class="row">
-                <div class="col-6">
-                  <h6 class="m-0 mt-2 font-weight-bold text-primary">Data Obat</h6>
-                </div>
-                <div class="col-6">
-                  <a href="tambahobat.php" class="float-right btn btn-info m-0">Tambah Obat</a>
-                </div>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <th width="20%">Nama Obat</th>
-                    <th>Deskripsi</th>
-                    <th width="20%">Kategori</th>
-                    <th width="13%">Harga</th>
-                  </thead>
-                  <tfoot>
-                    <th>Nama Obat</th>
-                    <th>Deskripsi</th>
-                    <th>Kategori</th>
-                    <th>Harga</th>
-                  </tfoot>
-                  <tbody>
-                    <?php foreach ($data as $value): ?>
-                    <tr>
-                        <td><a href="editobat.php?id_obat=<?php echo $value['id_obat'] ?>"><?php echo $value['nama_obat'] ?></a></td>
-                        <td><?php echo $value['deskripsi_obat'] ?></td>
-                        <td><?php echo $value['kategori'] ?></td>
-                        <td><?php echo rp($value['harga']) ?></td>
-                    </tr>
-                    <?php endforeach; ?>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+          <div class="card mb-4">
+           <div class="card-header">
+                <h1 class="h6 mb-0 text-gray-800">Buat Formulir Permasalahan</h1>
+           </div>
+           <div class="card-body">
+             <div class="row">
+               <div class="col-12">
+                 <form action="#" method="get">
+                 <div class="form-group">
+                   <label>Judul Permasalahan</label>
+                   <input class="form-control" type="text" name="judul" value="" required>
+                 </div>
+                 <div class="form-group">
+                   <label for="mytextbox">
+                       Isi Permasalahan (Maks 255 karakter.)
+                       <span class="text-muted" id="characterlimit">255</span><span class="text-muted"> karakter tersisa</span>
+                   </label>
+                   <br/>
+                   <textarea name="isipermasalahan" class="form-control" id="mytextbox" rows="5" cols="40" onkeyup="numberOfCharacters('mytextbox',255,'characterlimit');"></textarea>
+                 </div>
+                 <div class="Form-group">
+                     <button type="submit" class="btn btn-success btn-block" name="bantuan"> Kirim Bantuan </button>
+                 </div>
+               </form>
+               </div>
+             </div>
+           </div>
           </div>
-
         </div>
         <!-- /.container-fluid -->
 

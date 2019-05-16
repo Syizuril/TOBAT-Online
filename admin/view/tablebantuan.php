@@ -65,13 +65,11 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Addons
+        Tambahan
       </div>
 
       <?php
-      require("navbar/navitem4.php");
       require("navbar/navitem5.php");
-      require("navbar/navitem6.php");
       require("navbar/toggle.php")
       ?>
     </ul>
@@ -131,7 +129,11 @@
                         <td><a href="jawabbantuan.php?id_bantuan=<?php echo $value['id_bantuan']?>&id_user=<?php echo $value['id_user'] ?>"><?php echo $value['nama'] ?></a></td>
                         <td><?php echo tgl_indo($value['tanggal']) ?></td>
                         <td><?php echo $value['judul'] ?></td>
+                        <?php if($value['status']!='Sudah Terjawab'){ ?>
                         <td> <button type="button" class="btn btn-info btn-block"><?php echo $value['status'] ?></button></td>
+                        <?php }else{ ?>
+                        <td> <button type="button" class="btn btn-secondary btn-block"><?php echo $value['status'] ?></button></td>
+                        <?php } ?>
                     </tr>
                     <?php endforeach; ?>
                   </tbody>
@@ -146,15 +148,7 @@
       </div>
       <!-- End of Main Content -->
 
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
-          </div>
-        </div>
-      </footer>
-      <!-- End of Footer -->
+    <?php require("navbar/footer.php"); ?>
 
     </div>
     <!-- End of Content Wrapper -->

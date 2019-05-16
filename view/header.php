@@ -11,9 +11,16 @@
             Kategori <i class="fas fa-chevron-circle-down"></i>
           </a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Link 1</a>
-            <a class="dropdown-item" href="#">Link 2</a>
-            <a class="dropdown-item" href="#">Link 3</a>
+            <a class="dropdown-item" href="#">Antiseptik dan Desinfektan Kulit</a>
+            <a class="dropdown-item" href="#">Vitamin dan Mineral</a>
+            <a class="dropdown-item" href="#">Dekongestan Nasal dan Preparat Nasal Lain</a>
+            <a class="dropdown-item" href="#">Suplemen dan Terapi Penunjang</a>
+            <a class="dropdown-item" href="#">Obat Batuk dan Pilek</a>
+            <a class="dropdown-item" href="#">Antasid, Obat Antirefluks & Antiulserasi</a>
+            <a class="dropdown-item" href="#">Preparat Mulut/Tenggorokan</a>
+            <a class="dropdown-item" href="#">Alat Kesehatan Medis</a>
+            <a class="dropdown-item" href="#">Obat Kulit Lain</a>
+            <a class="dropdown-item" href="#">Analgesik (Non Opiat) dan Antipiretik</a>
           </div>
         </li>
       </ul>

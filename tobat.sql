@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 15 Mei 2019 pada 19.23
+-- Generation Time: 16 Mei 2019 pada 10.39
 -- Versi Server: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -21,6 +21,39 @@ SET time_zone = "+00:00";
 --
 -- Database: `tobat`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `bantuan`
+--
+
+CREATE TABLE `bantuan` (
+  `id_bantuan` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_admin` int(11) NOT NULL,
+  `id_apotek` int(11) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `isi` varchar(255) NOT NULL,
+  `tanggal` date NOT NULL,
+  `jawaban` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `bantuan`
+--
+
+INSERT INTO `bantuan` (`id_bantuan`, `id_user`, `id_admin`, `id_apotek`, `judul`, `isi`, `tanggal`, `jawaban`, `status`) VALUES
+(1, 44, 12, 0, 'Saya mau testing', 'Jadi gini, saya mau ujicoba field ini. Terima kasih', '2019-05-16', 'ya', 'Sudah Terjawab'),
+(2, 44, 0, 0, 'Saya mau testing', '122222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222212222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222221222222222222222222222222222222222222', '2019-05-16', '', 'Belum Terjawab'),
+(3, 44, 0, 0, 'Saya mau testing', '122222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222212222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222221222222222222222222222222222222222222', '2019-05-16', '', 'Belum Terjawab'),
+(5, 43, 0, 0, 'testing apotek', 'ini lagi coba tsting untuk apotek', '2019-05-16', '', 'Belum Terjawab'),
+(6, 43, 0, 0, 'testing apotek', 'ini lagi coba tsting untuk apotek', '2019-05-16', '', 'Belum Terjawab'),
+(7, 43, 0, 0, '111', '1', '2019-05-16', '', 'Belum Terjawab'),
+(8, 43, 0, 0, '111', '1', '2019-05-16', '', 'Belum Terjawab'),
+(9, 0, 0, 43, '123', 'test', '2019-05-16', '', 'Belum Terjawab'),
+(10, 0, 0, 43, '123', '1', '2019-05-16', '', 'Belum Terjawab');
 
 -- --------------------------------------------------------
 
@@ -197,12 +230,18 @@ INSERT INTO `user` (`id`, `email`, `password`, `nama`, `no_hp`, `alamat`, `sia`,
 (39, 'soniyazulfa@gmail.com', '$2y$10$Fe.f35QgWbTi6EVYajqCveFM1Nn8SAEF9Ma8Mx68qJEn8IbpWYjAi', 'Soniya', 82218424650, 'Cirebon', '', 'default.svg', 0),
 (40, 'nama@nama.com', '$2y$10$5EjmnnlnCBtdu12UQkEqOOhxOYvm/IPThz9Vg7FREf3H67NJ9Blui', 'Nama', 1, '1', '', 'default.svg', 0),
 (42, 'syihabklayan2@gmail.com', '$2y$10$sZ5j./NH.OSGMJqlNqq3eu3p8jSun2Arm/vuEm0bszJQ57ISUjdXq', 'Syekh Syihabuddin Azmil Umri', 1, '1', '', '2r8o10rebir21.jpg', 0),
-(43, 'k-24@25.com', '$2y$10$t7G1cQ/CQ5c89U9Jqf7PaO5j1DBJboPjJwqhPJozZ21rHG1j2eyXy', 'K-24 Karawang', 8458099, 'Jl. Bharata Raya No.5, Sukaharja, Kec. Telukjambe Tim., Kabupaten Karawang, Jawa Barat 41361', '445/46-SIA/YANPRIMER/I/2018/B', 'lowongan-kerja-apotek-k24.jpg', 2),
-(44, 'opi@dicopy.id', '$2y$10$WktOGzshZ.PMLUNGpH82MOuDfV7ReMJ97zrnmIA7Yt9dl.nqgbhnK', 'Opi', 8127312365, 'Perumahan Mahkota Regency Block C3 No.1 A, Telukjambe Timur, Desa Sirnabaya, Blok C3 No.1A  Kab. Karawang, Jawa Barat', '', 'default.svg', 0);
+(43, 'k-24@25.com', '$2y$10$8exxL87Sb1Htj9S9wWakK.rdnRvNmrVBj2PPGrohXbToGmXKhwVYq', 'K-24 Karawang', 8458099, 'Jl. Bharata Raya No.5, Sukaharja, Kec. Telukjambe Tim., Kabupaten Karawang, Jawa Barat 41361', '445/46-SIA/YANPRIMER/I/2018/B', 'lowongan-kerja-apotek-k24.jpg', 2),
+(44, 'opi@dicopy.id', '$2y$10$RrFFaj9yJRDbRnvyLRWOq.R3./L256adoBBq5e9BY5yi4n2yOagiy', 'Opi', 8127312365, 'Perumahan Mahkota Regency Block C3 No.1 A, Telukjambe Timur, Desa Sirnabaya, Blok C3 No.1A  Kab. Karawang, Jawa Barat', '', 'images.png', 0);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `bantuan`
+--
+ALTER TABLE `bantuan`
+  ADD PRIMARY KEY (`id_bantuan`);
 
 --
 -- Indexes for table `obat`
@@ -226,6 +265,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `bantuan`
+--
+ALTER TABLE `bantuan`
+  MODIFY `id_bantuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `transaksi`

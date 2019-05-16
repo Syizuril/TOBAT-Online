@@ -11,9 +11,16 @@
             Kategori <i class="fas fa-chevron-circle-down"></i>
           </a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Link 1</a>
-            <a class="dropdown-item" href="#">Link 2</a>
-            <a class="dropdown-item" href="#">Link 3</a>
+            <a class="dropdown-item" href="#">Antiseptik dan Desinfektan Kulit</a>
+            <a class="dropdown-item" href="#">Vitamin dan Mineral</a>
+            <a class="dropdown-item" href="#">Dekongestan Nasal dan Preparat Nasal Lain</a>
+            <a class="dropdown-item" href="#">Suplemen dan Terapi Penunjang</a>
+            <a class="dropdown-item" href="#">Obat Batuk dan Pilek</a>
+            <a class="dropdown-item" href="#">Antasid, Obat Antirefluks & Antiulserasi</a>
+            <a class="dropdown-item" href="#">Preparat Mulut/Tenggorokan</a>
+            <a class="dropdown-item" href="#">Alat Kesehatan Medis</a>
+            <a class="dropdown-item" href="#">Obat Kulit Lain</a>
+            <a class="dropdown-item" href="#">Analgesik (Non Opiat) dan Antipiretik</a>
           </div>
         </li>
       </ul>
@@ -33,7 +40,7 @@
               <li><p class="dropdown-item my-0 text-muted">Halo!</p><li>
               <li><a href="profile.php?email=<?php echo $_SESSION['user']['email'] ?>"class="dropdown-item"><?php echo $_SESSION['user']['nama']?></a><li>
               <li><a class="dropdown-item" href="pemesanan.php">Riwayat Belanja</a><li>
-              <li><a class="dropdown-item" href="#">Link 2</a><li>
+              <li><a class="dropdown-item" href="listbantuan.php">Bantuan</a><li>
               <li><a class="dropdown-item" href="../config/logout.php">Keluar</a><li>
          </ul>
         </li>

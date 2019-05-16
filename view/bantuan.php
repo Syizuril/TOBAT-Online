@@ -70,13 +70,17 @@
        <nav class="mb-3">
          <ol class="breadcrumb">
            <li class="breadcrumb-item text-uppercase"><a href="index-login.php">Home</a></li>
-           <li class="breadcrumb-item text-uppercase"><a href="index-login.php">Daftar Pertanyaan</a></li>
+           <li class="breadcrumb-item text-uppercase"><a href="listbantuan.php">Daftar Pertanyaan</a></li>
            <li class="breadcrumb-item text-uppercase active text-success" aria-current="page">Bantuan Masalah</li>
        </ol>
        </nav>
+       <!-- Page Heading -->
+       <h1 class="h3 mb-2 text-gray-800">Buat Formulir Permasalahan</h1>
+       <p class="mb-4">Terdapat masalah dalam memesan ? Silahkan kirim pertanyaanmu kepada Administrator. Pertanyaan Anda akan dijawab dalam beberapa saat kemudian.</p>
+
        <div class="card mb-4">
         <div class="card-header">
-             <h1 class="h3 mb-0 text-gray-800">Buat Formulir Permasalahan</h1>
+             <h1 class="h6 mb-0 text-gray-800">Buat Formulir Permasalahan</h1>
         </div>
         <div class="card-body">
           <div class="row">

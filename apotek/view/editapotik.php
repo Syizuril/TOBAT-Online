@@ -64,15 +64,16 @@
       </li>
       <?php require("navbar/navitem3.php") ?>
 
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
       <!-- Heading -->
       <div class="sidebar-heading">
-        Addons
+        Tambahan
       </div>
 
       <?php
-      require("navbar/navitem4.php");
       require("navbar/navitem5.php");
-      require("navbar/navitem6.php");
       require("navbar/toggle.php")
       ?>
     </ul>
@@ -199,16 +200,7 @@
       </div>
       <!-- End of Main Content -->
 
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
-          </div>
-        </div>
-      </footer>
-      <!-- End of Footer -->
-
+      <?php require("navbar/footer.php"); ?>
     </div>
     <!-- End of Content Wrapper -->
 

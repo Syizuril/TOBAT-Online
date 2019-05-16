@@ -12,7 +12,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
-  <title>Kelola Transaksi - Admin TOBAT Online</title>
+  <title>Kelola Data User - Admin TOBAT Online</title>
 
   <!-- Custom fonts for this template -->
   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -35,82 +35,20 @@
 </head>
 
 <body id="page-top">
-  <!-- Page Wrapper -->
-  <div id="wrapper">
-    <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-danger sidebar sidebar-dark accordion" id="accordionSidebar">
-      <?php
-      require("navbar/sidebrand.php");
-      require("navbar/navitem1.php");
-      require("navbar/navitem2.php"); ?>
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Pemesanan
-      </div>
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item active">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-cash-register"></i>
-          <span>Pemesanan</span>
-        </a>
-        <div id="collapseUtilities" class="collapse show"  aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Pemesanan:</h6>
-            <a class="collapse-item active" href="tabletransaksi">Pesanan Masuk</a>
-          </div>
-        </div>
-      </li>
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Addons
-      </div>
-
-      <?php
-      require("navbar/navitem4.php");
-      require("navbar/navitem5.php");
-      require("navbar/navitem6.php");
-      require("navbar/toggle.php")
-      ?>
-    </ul>
-    <!-- End of Sidebar -->
-
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
-
-      <!-- Main Content -->
-      <div id="content">
-
-        <!-- Topbar -->
-        <?php require("topbar.php") ?>
-        <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">
+        <div class="container-fluid mt-5">
 
-          <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="../index.php">Dashboard</a></li>
-              <li class="breadcrumb-item active"><a href="tabletransaksi.php">Pemesanan</a></li>
-            </ol>
-          </nav>
-
+          <center>
+        		<h2>DATA LAPORAN TRANSAKSI</h2>
+        		<h4>PENJUALAN OBAT TOKO OBAT ONLINE</h4>
+        	</center>
+          <hr>
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Kelola Pemesanan</h1>
-          <p class="mb-4">Berikut adalah tampilan data dari pemesanan yang ada saat ini, Anda dapat mengaturnya seperti mengonfirmasi pesanan, membatalkan pesanan, dsb</p>
-
-          <!-- DataTales Example -->
-          <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <div class="row">
-                <div class="col-6">
-                  <h6 class="m-0 mt-2 font-weight-bold text-primary">Data Pemesanan</h6>
-                </div>
-              </div>
-            </div>
-            <div class="card-body">
+          <h1 class="h3 mb-2 text-gray-800">Semua Pesanan Pemesanan</h1>
+        
               <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" width="100%" cellspacing="0">
                   <thead>
                     <th>Nomor Transaksi</th>
                     <th>Nama Pemesan</th>
@@ -153,21 +91,9 @@
                     <?php endforeach; ?>
                   </tbody>
                 </table>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /.container-fluid -->
 
-      </div>
-      <!-- End of Main Content -->
+    <?php require("navbar/footer.php"); ?>
 
-      <?php require("navbar/footer.php"); ?>
-    </div>
-    <!-- End of Content Wrapper -->
-
-  </div>
-  <!-- End of Page Wrapper -->
 
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="../#page-top">
@@ -192,7 +118,9 @@
 
   <!-- Page level custom scripts -->
   <script src="../js/demo/datatables-demo.js"></script>
-
+  <script>
+		window.print();
+	</script>
 </body>
 
 </html>

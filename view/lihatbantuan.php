@@ -76,7 +76,7 @@
        </nav>
        <div class="card mb-4">
         <div class="card-header">
-             <h1 class="h3 mb-0 text-gray-800">Bantuan Permasalahan</h1>
+             <h1 class="h5 mb-0 text-gray-800">Bantuan Permasalahan</h1>
         </div>
         <div class="card-body">
           <div class="row">
@@ -84,31 +84,30 @@
               <form action="#" method="get">
               <div class="form-group">
                 <label class="small text-secondary">Judul Permasalahan</label>
-                <p name="judul"><?php echo $data['judul'] ?></p>
+                <p class="h6" name="judul"><?php echo $data['judul'] ?></p>
               </div>
               <div class="form-group">
                 <label class="small text-secondary" for="mytextbox">
                     Isi Permasalahan
                 </label>
                 <br/>
-                <p name="isipermasalahan"><?php echo $data['isi'] ?></p>
+                <p class="h6" name="isipermasalahan"><?php echo $data['isi'] ?></p>
               </div>
               <?php
                 if(empty($data['jawaban'])){?>
                   <button type="button" class="btn btn-info btn-block" disabled>Belum ada jawaban dari admin</button>
                 <?php }else{?>
-                  <hr>
                   <label class="small text-secondary" for="mytextbox">
-                      Isi Permasalahan
+                      Jawaban Permasalahan
                   </label>
                   <br/>
-                  <p name="isipermasalahan"><?php echo $data['jawaban'] ?></p>
+                  <p class="h6" name="isipermasalahan"><?php echo $data['jawaban'] ?></p><hr>
                   <div class="row">
-                    <div class="col-6 mx-3">
+                    <div class="col-6">
                       <button type="button" class="btn btn-secondary btn-block" disabled>Selesai</button>
                     </div>
-                    <div class="col-6 mx-3">
-                      <button type="button" class="btn btn-success btn-block" disabled>Buat Pertanyaan Baru</button>
+                    <div class="col-6">
+                      <a href="bantuan.php" class="btn btn-success btn-block">Buat Pertanyaan Baru</a>
                     </div>
                   </div>
                <?php } ?>
