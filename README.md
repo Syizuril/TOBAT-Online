@@ -16,4 +16,4 @@ Bagi kalian yang ingin mengunduhnya dapat langsung mengunduh dengan cara menampi
 8. Perhatikan, terdapat tombol *add file* atau *pilih file* arahkan ke file **tobat.sql** yang ada dalam file tersebut.
 9. Scroll kebawah lalu klik kirim
 10. Buka dalam browser ( Chrome, Mozila Firefox, dsb )
-11. Masukkan link http:localhost/(nama folder yang dibuat pada tahap 2)
+11. Masukkan link http://localhost/(nama folder yang dibuat pada tahap 2)
