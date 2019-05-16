@@ -1,9 +1,8 @@
 <?php
   require_once("../../config/config.php");
   require("../config/auth.php");
-  require("../config/readtransaksi.php");
-  require_once("../../config/rp.php");
-  require_once("../../config/tgl_indo.php");
+  require("../config/readbantuan.php");
+  require("../../config/tgl_indo.php");
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,8 +10,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
-  <title>Kelola Data User - Admin TOBAT Online</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../../../images/favicon.ico">
+  <title>Kelola Data Bantuan - Admin TOBAT Online</title>
 
   <!-- Custom fonts for this template -->
   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -41,26 +40,28 @@
     <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
       <?php
       require("navbar/sidebrand.php");
-      require("navbar/navitem1.php");?>
+      require("navbar/navitem1.php");
+      ?>
+
       <!-- Heading -->
       <div class="sidebar-heading">
-        Kelola Data
+        Kelola
       </div>
-      <?php require("navbar/navitem2.php"); ?>
-
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item active">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-cash-register"></i>
-          <span>Pemesanan</span>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Kelola Data</span>
         </a>
-        <div id="collapseUtilities" class="collapse show"  aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Pemesanan:</h6>
-            <a class="collapse-item active" href="tabletransaksi.php">Pesanan Masuk</a>
+            <h6 class="collapse-header">Kelola Data:</h6>
+            <a class="collapse-item active" href="dataakun.php">Akun</a>
+            <a class="collapse-item" href="tablesobat.php">Obat</a>
           </div>
         </div>
       </li>
+      <?php require("navbar/navitem3.php") ?>
 
       <!-- Heading -->
       <div class="sidebar-heading">
@@ -92,20 +93,20 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="../index.php">Dashboard</a></li>
-              <li class="breadcrumb-item active"><a href="tabletransaksi.php">Pemesanan</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Daftar Bantuan</a></li>
             </ol>
           </nav>
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Kelola Pemesanan</h1>
-          <p class="mb-4">Berikut adalah tampilan data dari pemesanan yang ada saat ini, Anda dapat mengaturnya seperti mengonfirmasi pesanan, membatalkan pesanan, dsb</p>
+          <h1 class="h3 mb-2 text-gray-800">Kelola Daftar Bantuan</h1>
+          <p class="mb-4">Berikut adalah tampilan data dari daftar bantuan, Anda dapat mengaturnya seperti mengedit hingga menghapus data tersebut.</p>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <div class="row">
                 <div class="col-6">
-                  <h6 class="m-0 mt-2 font-weight-bold text-primary">Data Pemesanan</h6>
+                  <h6 class="m-0 mt-2 font-weight-bold text-primary">Daftar Bantuan</h6>
                 </div>
               </div>
             </div>
@@ -113,43 +114,24 @@
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
-                    <th>Nomor Transaksi</th>
-                    <th>Nama Pemesan</th>
-                    <th>Tanggal Pemesanan</th>
-                    <th>Status Pemesanan</th>
+                    <th>Nama</th>
+                    <th>Tanggal</th>
+                    <th>Judul</th>
+                    <th>Status</th>
                   </thead>
                   <tfoot>
-                    <th>Nomor Transaksi</th>
-                    <th>Nama Pemesan</th>
-                    <th>Tanggal Pemesanan</th>
-                    <th>Status Pemesanan</th>
+                    <th>Nama</th>
+                    <th>Tanggal</th>
+                    <th>Judul</th>
+                    <th>Status</th>
                   </tfoot>
                   <tbody>
                     <?php foreach ($data as $value): ?>
                     <tr>
-                        <td><a href="editstatuspemesanan.php?nomor_transaksi=<?php echo $value['nomor_transaksi'] ?>">IVC-TBT-<?php echo $value['nomor_transaksi'] ?></a></td>
-                        <td><?php echo $value['nama'] ?></td>
+                        <td><a href="jawabbantuan.php?id_bantuan=<?php echo $value['id_bantuan']?>&id_user=<?php echo $value['id_user'] ?>"><?php echo $value['nama'] ?></a></td>
                         <td><?php echo tgl_indo($value['tanggal']) ?></td>
-                        <td>
-                          <?php
-                          if ($value['status_beli']=="menunggu_konfirmasi.png") {?>
-                            <a href="editstatuspemesanan.php?nomor_transaksi=<?php echo $value['nomor_transaksi'] ?>" class="btn btn-info text-light d-block" name="button"><?php echo $value['status_bayar'] ?></button>
-                          <?php }elseif ($value['status_beli']=="diproses_apotek.png") {?>
-                            <a href="editstatuspemesanan.php?nomor_transaksi=<?php echo $value['nomor_transaksi'] ?>" class="btn btn-info text-light d-block" name="button"><?php echo $value['status_bayar'] ?></button>
-                          <?php }elseif ($value['status_beli']=="batal.png") {?>
-                            <a href="editstatuspemesanan.php?nomor_transaksi=<?php echo $value['nomor_transaksi'] ?>" class="btn btn-danger text-light d-block" name="button"><?php echo $value['status_bayar'] ?></button>
-                          <?php }elseif ($value['status_beli']=="pembayaran.png") {?>
-                            <a href="editstatuspemesanan.php?nomor_transaksi=<?php echo $value['nomor_transaksi'] ?>" class="btn btn-warning text-light d-block" name="button"><?php echo $value['status_bayar'] ?></button>
-                          <?php }elseif ($value['status_beli']=="diproses_apotek_second.png") {?>
-                            <a href="editstatuspemesanan.php?nomor_transaksi=<?php echo $value['nomor_transaksi'] ?>" class="btn btn-success text-light d-block" name="button"><?php echo $value['status_bayar'] ?></button>
-                          <?php }elseif ($value['status_beli']=="pengiriman.png") {?>
-                            <a href="editstatuspemesanan.php?nomor_transaksi=<?php echo $value['nomor_transaksi'] ?>" class="btn btn-success text-light d-block" name="button"><?php echo $value['status_bayar'] ?></button>
-                          <?php }elseif ($value['status_beli']=="sampai.png") {?>
-                            <a href="editstatuspemesanan.php?nomor_transaksi=<?php echo $value['nomor_transaksi'] ?>" class="btn btn-primary text-light d-block" name="button"><?php echo $value['status_bayar'] ?></button>
-                          <?php }elseif ($value['status_beli']=="selesai.png") {?>
-                            <a href="editstatuspemesanan.php?nomor_transaksi=<?php echo $value['nomor_transaksi'] ?>" class="btn btn-secondary text-light d-block" name="button"><?php echo $value['status_bayar'] ?></button>
-                          <?php } ?>
-                        </td>
+                        <td><?php echo $value['judul'] ?></td>
+                        <td> <button type="button" class="btn btn-info btn-block"><?php echo $value['status'] ?></button></td>
                     </tr>
                     <?php endforeach; ?>
                   </tbody>
@@ -157,6 +139,7 @@
               </div>
             </div>
           </div>
+
         </div>
         <!-- /.container-fluid -->
 
