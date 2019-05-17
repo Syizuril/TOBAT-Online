@@ -104,6 +104,19 @@
                 <div class="col-6">
                   <h6 class="m-0 mt-2 font-weight-bold text-primary">Data Pemesanan</h6>
                 </div>
+                <div class="col-6 d-flex justify-content-end">
+                  <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="button" name="button" id="dropdownMenuButton" data-toggle="dropdown"><i class="fas fa-download fa-sm text-white-50"></i>  Buat Laporan</button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <form action="cetaktransaksi.php" method="get">
+                    <div class="dropdown-header">Masukkan Tanggal Awal</div>
+                    <input type="date" class="dropdown-item" name="tglawal">
+                    <div class="dropdown-header">Masukkan Tanggal Akhir</div>
+                    <input type="date" class="dropdown-item" name="tglakhir">
+                    <div class="dropdown-divider"></div>
+                    <button class="dropdown-item btn btn-success"type="submit" name="generate">Buat Laporan</button>
+                  </form>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="card-body">

@@ -94,8 +94,12 @@
             </ol>
           </nav>
 
-          <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Kelola Akun Admin</h1>
+          <div class="row">
+            <h1 class="col-6 h3 mb-2 text-gray-800">Kelola Akun Admin</h1>
+            <div class="col-6 d-flex justify-content-end h6">
+              <a href="cetakakun.php?admin" class="btn btn-primary"><i class="fas fa-download fa-sm text-white-50"></i>  Buat Laporan</a>
+            </div>
+          </div>
           <p class="mb-4">Berikut adalah tampilan data dari Akun Admin, Anda dapat mengaturnya seperti menambahkan, mengedit, hingga menghapus akun admin tersebut.</p>
 
           <!-- DataTales Example -->

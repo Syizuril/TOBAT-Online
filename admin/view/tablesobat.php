@@ -95,7 +95,12 @@
           </nav>
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Kelola Data Obat</h1>
+          <div class="row">
+            <h1 class="col-6 h3 mb-2 text-gray-800">Kelola Akun Obat</h1>
+            <div class="col-6 d-flex justify-content-end h6">
+              <a href="cetakobat.php" class="btn btn-primary"><i class="fas fa-download fa-sm text-white-50"></i>  Buat Laporan</a>
+            </div>
+          </div>
           <p class="mb-4">Berikut adalah tampilan data dari obat yang ditampilkan, Anda dapat mengaturnya seperti menambahkan, mengedit, hingga menghapus data obat tersebut.</p>
 
           <!-- DataTales Example -->
