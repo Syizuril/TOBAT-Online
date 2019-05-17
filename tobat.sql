@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 16 Mei 2019 pada 10.39
+-- Generation Time: 17 Mei 2019 pada 17.33
 -- Versi Server: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -45,15 +45,9 @@ CREATE TABLE `bantuan` (
 --
 
 INSERT INTO `bantuan` (`id_bantuan`, `id_user`, `id_admin`, `id_apotek`, `judul`, `isi`, `tanggal`, `jawaban`, `status`) VALUES
-(1, 44, 12, 0, 'Saya mau testing', 'Jadi gini, saya mau ujicoba field ini. Terima kasih', '2019-05-16', 'ya', 'Sudah Terjawab'),
-(2, 44, 0, 0, 'Saya mau testing', '122222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222212222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222221222222222222222222222222222222222222', '2019-05-16', '', 'Belum Terjawab'),
-(3, 44, 0, 0, 'Saya mau testing', '122222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222212222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222221222222222222222222222222222222222222', '2019-05-16', '', 'Belum Terjawab'),
-(5, 43, 0, 0, 'testing apotek', 'ini lagi coba tsting untuk apotek', '2019-05-16', '', 'Belum Terjawab'),
-(6, 43, 0, 0, 'testing apotek', 'ini lagi coba tsting untuk apotek', '2019-05-16', '', 'Belum Terjawab'),
-(7, 43, 0, 0, '111', '1', '2019-05-16', '', 'Belum Terjawab'),
-(8, 43, 0, 0, '111', '1', '2019-05-16', '', 'Belum Terjawab'),
-(9, 0, 0, 43, '123', 'test', '2019-05-16', '', 'Belum Terjawab'),
-(10, 0, 0, 43, '123', '1', '2019-05-16', '', 'Belum Terjawab');
+(3, 3, 12, 0, 'Test Pertanyaan pertama', 'KEDUA MAS', '2019-05-16', 'OK', 'Sudah Terjawab'),
+(5, 0, 0, 45, 'Saya mau testing', 'test', '2019-05-16', '', 'Belum Terjawab'),
+(6, 46, 33, 0, 'Pesanan belum dikirim', 'Tolong percepat kirim', '2019-05-17', 'Ok, nanti di kirim', 'Sudah Terjawab');
 
 -- --------------------------------------------------------
 
@@ -190,8 +184,24 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`id_transaksi`, `nomor_transaksi`, `id_obat`, `id_user`, `id_admin`, `id_apotek`, `jumlah`, `harga`, `tanggal`, `jam`, `alamat`, `status_bayar`, `status_beli`, `tgl_bayar`, `bukti`, `alasan`) VALUES
-(10, '201905140003', 60, 39, 12, 43, 1, '7828', '2019-05-14', '17:26:51 pm', 'Cirebon', 'Selesai', 'selesai.png', '2019-05-15', '731388c1-a504-4f50-aa41-c6d183bcb5cc.jpg', ''),
-(16, '201905150001', 10, 44, 12, 43, 1, '2662', '2019-05-15', '22:22:04 pm', 'Perumahan Mahkota Regency Block C3 No.1 A, Telukjambe Timur, Desa Sirnabaya, Blok C3 No.1A  Kab. Karawang, Jawa Barat', 'Selesai', 'selesai.png', '2019-05-15', 'bukabersama tiket.png', '');
+(17, '201905170001', 77, 3, 12, 36, 6, '24961', '2019-05-17', '01:42:20 am', 'Cirebon, Klayan', 'Menunggu Apotek Memproses', 'diproses_apotek.png', '0000-00-00', '', ''),
+(18, '201905170001', 72, 3, 12, 36, 3, '50996', '2019-05-17', '01:42:20 am', 'Cirebon, Klayan', 'Menunggu Apotek Memproses', 'diproses_apotek.png', '0000-00-00', '', ''),
+(19, '201905170001', 70, 3, 12, 36, 1, '11132', '2019-05-17', '01:42:20 am', 'Cirebon, Klayan', 'Menunggu Apotek Memproses', 'diproses_apotek.png', '0000-00-00', '', ''),
+(20, '201905170002', 56, 3, 12, 45, 1, '56883', '2019-05-17', '01:42:40 am', 'Cirebon, Klayan', 'Proses Pembayaran', 'pembayaran.png', '0000-00-00', '', ''),
+(21, '201905170002', 12, 3, 12, 45, 1, '11880', '2019-05-17', '01:42:40 am', 'Cirebon, Klayan', 'Proses Pembayaran', 'pembayaran.png', '0000-00-00', '', ''),
+(22, '201905170002', 59, 3, 12, 45, 1, '3562', '2019-05-17', '01:42:40 am', 'Cirebon, Klayan', 'Proses Pembayaran', 'pembayaran.png', '0000-00-00', '', ''),
+(23, '201905170003', 57, 3, 12, 45, 1, '8819', '2019-05-17', '01:42:56 am', 'Cirebon, Klayan', 'Proses Pembayaran', 'pembayaran.png', '0000-00-00', '', ''),
+(24, '201905170003', 12, 3, 12, 45, 1, '11880', '2019-05-17', '01:42:56 am', 'Cirebon, Klayan', 'Proses Pembayaran', 'pembayaran.png', '0000-00-00', '', ''),
+(25, '201905170004', 19, 44, 12, 45, 1, '13585', '2019-05-17', '01:43:55 am', 'Perumahan Mahkota Regency Block C3 No.1 A, Telukjambe Timur, Desa Sirnabaya, Blok C3 No.1A  Kab. Karawang, Jawa Barat', 'Selesai', 'selesai.png', '2019-05-16', '3194559455-1.jpg', ''),
+(26, '201905170004', 26, 44, 12, 45, 1, '30360', '2019-05-17', '01:43:55 am', 'Perumahan Mahkota Regency Block C3 No.1 A, Telukjambe Timur, Desa Sirnabaya, Blok C3 No.1A  Kab. Karawang, Jawa Barat', 'Selesai', 'selesai.png', '2019-05-16', '3194559455-1.jpg', ''),
+(27, '201905170004', 25, 44, 12, 45, 1, '42556', '2019-05-17', '01:43:55 am', 'Perumahan Mahkota Regency Block C3 No.1 A, Telukjambe Timur, Desa Sirnabaya, Blok C3 No.1A  Kab. Karawang, Jawa Barat', 'Selesai', 'selesai.png', '2019-05-16', '3194559455-1.jpg', ''),
+(28, '201905170005', 23, 44, 12, 45, 1, '4026', '2019-05-17', '01:44:08 am', 'Perumahan Mahkota Regency Block C3 No.1 A, Telukjambe Timur, Desa Sirnabaya, Blok C3 No.1A  Kab. Karawang, Jawa Barat', 'Pesanan telah Dibatalkan', 'batal.png', '2019-05-16', 'A38MJTsCcAAuqb9.jpg', 'Pembayaran Bank Invalid'),
+(29, '201905170006', 78, 44, 12, 45, 1, '243815', '2019-05-17', '01:44:22 am', 'Perumahan Mahkota Regency Block C3 No.1 A, Telukjambe Timur, Desa Sirnabaya, Blok C3 No.1A  Kab. Karawang, Jawa Barat', 'Selesai', 'selesai.png', '2019-05-16', 'Bukti-Transfer-ATM.jpg', ''),
+(30, '201905170006', 76, 44, 12, 45, 1, '51195', '2019-05-17', '01:44:22 am', 'Perumahan Mahkota Regency Block C3 No.1 A, Telukjambe Timur, Desa Sirnabaya, Blok C3 No.1A  Kab. Karawang, Jawa Barat', 'Selesai', 'selesai.png', '2019-05-16', 'Bukti-Transfer-ATM.jpg', ''),
+(31, '201905170007', 23, 44, 12, 45, 1, '4026', '2019-05-17', '01:44:34 am', 'Perumahan Mahkota Regency Block C3 No.1 A, Telukjambe Timur, Desa Sirnabaya, Blok C3 No.1A  Kab. Karawang, Jawa Barat', 'Selesai', 'selesai.png', '2019-05-16', 'struk-atm-mandiri-asli.jpg', ''),
+(32, '201905170008', 13, 44, 12, 45, 1, '15299', '2019-05-17', '01:44:54 am', 'Perumahan Mahkota Regency Block C3 No.1 A, Telukjambe Timur, Desa Sirnabaya, Blok C3 No.1A  Kab. Karawang, Jawa Barat', 'Selesai', 'selesai.png', '2019-05-16', '3625430_201703271221040714.jpg', ''),
+(33, '201905170008', 31, 44, 12, 45, 1, '7854', '2019-05-17', '01:44:54 am', 'Perumahan Mahkota Regency Block C3 No.1 A, Telukjambe Timur, Desa Sirnabaya, Blok C3 No.1A  Kab. Karawang, Jawa Barat', 'Selesai', 'selesai.png', '2019-05-16', '3625430_201703271221040714.jpg', ''),
+(34, '201905170009', 63, 46, 33, 45, 5, '4158', '2019-05-17', '16:32:53 pm', 'Karawang', 'Selesai', 'selesai.png', '2019-05-17', '3625430_201703271221040714.jpg', '');
 
 -- --------------------------------------------------------
 
@@ -217,12 +227,11 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `email`, `password`, `nama`, `no_hp`, `alamat`, `sia`, `foto`, `level`) VALUES
 (3, 'syihabklayan@gmail.com', '$2y$10$lhz5ji5oepxNWrHvvzDyQeSA5518Ia0TIVWyIxFhkVSpXEgNTilc2', 'Syihab', 82218424651, 'Cirebon, Klayan', '', 'muzzamil.png', 0),
-(4, 'syamfirdaus@gmail.com', '$2y$10$2vzTEtWmU2i31L21Nb7T5.NBwKrrBP0AwI3JBCkvf2a.I95PxXCVa', 'Muhammad Syam', 82218427432, 'tidaktahu', '', 'default.svg', 1),
 (6, 'admin2@admin.com', '$2y$10$BLB4io4w62oSzHXhWX/JQOLfDwbvdmEuHzGiOR2HO.OErm7H12mWe', 'admin', 82218424650, 'Cirebon', '', 'bukan-antibiotik-kenali-4-jenis-obat-batuk-pilek-berdasarkan-gejala_m_-640x420.jpg', 1),
 (7, 'syamfirdaus5@gmail.com', '$2y$10$KLlSYHYNu23o1svHOm/BAO1O50AZOmlOWssT3gq0zVWkVbBKBWDea', 'Syam', 77123123, 'Purwakarta', '', 'RFactory1DS-UnusedZavier.png', 0),
-(12, 'kirito@sao.com', '$2y$10$mEz889xuxjT.sS6CeOrBVO0HSpu6scF466wGGZdbYQNSVdpSHLMHe', 'Kirigaya Kazuto', 123, 'Aincard', '', 'Screenshot (7).png', 1),
+(12, 'kirito@sao.com', '$2y$10$yy6F5sIsZGAqCJjU2w828OdpZDmyIYxU6ID6Npzl07Mt6G2n1Aso2', 'Kirigaya Kazuto', 123, 'Aincard Karawang', '', 'snm.png', 1),
 (14, 'apotik@apotik.com', '$2y$10$MstUbkY.9n3TBVyNLxwm..Lp8H2MgwxVLFt57ag7W85YrILRbTy0W', 'Apotik Sukaharga', 123, '123', '12EDWQ/213X/12X/123', 'SI TIKA Logo.png', 2),
-(33, 'admin@admin.com', '$2y$10$GlKoiYZOggugizVFEqJICeaq8J8UZMll3Bno.K9oSo8dbOddwoWau', 'admin', 82218424650, '123', '', 'unsika.png', 1),
+(33, 'admin@admin.com', '$2y$10$MbIsT0Yi.eyXHLABRGgtweqCs9UJAyyTigIFdL0fcLpjG.ODlNc.a', 'admin', 82218424650, '123', '', 'unsika.png', 1),
 (35, 'syekh.syihabuddin17023@student.unsika.ac.id', '$2y$10$fNPiOsZBwsyl55L2DAbU4.OrBssj1d6JMQOAx5mgMM5JYzoDQvTAq', 'Syekh Syihabuddin Azmil Umri', 82218424650, 'Cirebon', '', 'maxresdefault.jpg', 0),
 (36, 'apotik2@apotik.com', '$2y$10$ohq7bVGGnGwUJVWeu.b9.OFpeI1WvczLA8D51s/RF05zCLEC3hpau', 'APOTIK', 82218424650, '123', '12EDWQ/213X/12X/123', 'pray.png', 2),
 (37, 'dummy@akun.com', '$2y$10$RN4PnhNyV9o9VIuB8TKEBOg3lQpYuxXrTiEpt7jJrBjFHmYxQU3XG', 'Dummy1', 82218424650, 'Cirebon', '', 'Oprec Panitia Diesnatalis.png', 0),
@@ -230,8 +239,9 @@ INSERT INTO `user` (`id`, `email`, `password`, `nama`, `no_hp`, `alamat`, `sia`,
 (39, 'soniyazulfa@gmail.com', '$2y$10$Fe.f35QgWbTi6EVYajqCveFM1Nn8SAEF9Ma8Mx68qJEn8IbpWYjAi', 'Soniya', 82218424650, 'Cirebon', '', 'default.svg', 0),
 (40, 'nama@nama.com', '$2y$10$5EjmnnlnCBtdu12UQkEqOOhxOYvm/IPThz9Vg7FREf3H67NJ9Blui', 'Nama', 1, '1', '', 'default.svg', 0),
 (42, 'syihabklayan2@gmail.com', '$2y$10$sZ5j./NH.OSGMJqlNqq3eu3p8jSun2Arm/vuEm0bszJQ57ISUjdXq', 'Syekh Syihabuddin Azmil Umri', 1, '1', '', '2r8o10rebir21.jpg', 0),
-(43, 'k-24@25.com', '$2y$10$8exxL87Sb1Htj9S9wWakK.rdnRvNmrVBj2PPGrohXbToGmXKhwVYq', 'K-24 Karawang', 8458099, 'Jl. Bharata Raya No.5, Sukaharja, Kec. Telukjambe Tim., Kabupaten Karawang, Jawa Barat 41361', '445/46-SIA/YANPRIMER/I/2018/B', 'lowongan-kerja-apotek-k24.jpg', 2),
-(44, 'opi@dicopy.id', '$2y$10$RrFFaj9yJRDbRnvyLRWOq.R3./L256adoBBq5e9BY5yi4n2yOagiy', 'Opi', 8127312365, 'Perumahan Mahkota Regency Block C3 No.1 A, Telukjambe Timur, Desa Sirnabaya, Blok C3 No.1A  Kab. Karawang, Jawa Barat', '', 'images.png', 0);
+(44, 'opi@dicopy.id', '$2y$10$RrFFaj9yJRDbRnvyLRWOq.R3./L256adoBBq5e9BY5yi4n2yOagiy', 'Opi', 8127312365, 'Perumahan Mahkota Regency Block C3 No.1 A, Telukjambe Timur, Desa Sirnabaya, Blok C3 No.1A  Kab. Karawang, Jawa Barat', '', 'images.png', 0),
+(45, 'k-24@25.com', '$2y$10$8wnoX4fsh3kUI9JgIyRCHuNbcCv2doLazjU.UkDtkQp4v1QXbJMA.', 'K-24 Apotek', 82353213, 'Jl. Bharata Raya No.5, Sukaharja, Kec. Telukjambe Tim., Kabupaten Karawang, Jawa Barat 41361', '12EDWQ/213X/12X/123', 'lowongan-kerja-apotek-k24.jpg', 2),
+(46, 'abil@unsika.com', '$2y$10$rmLlzbLOGbOuw0ZXminm1erVy6XtXW4p1UTOIaYIpQvWP3uJlYwzO', 'Abil', 123456, 'Karawang', '', 'default.svg', 0);
 
 --
 -- Indexes for dumped tables
@@ -270,19 +280,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `bantuan`
 --
 ALTER TABLE `bantuan`
-  MODIFY `id_bantuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_bantuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_transaksi` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
