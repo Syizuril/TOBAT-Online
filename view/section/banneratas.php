@@ -38,12 +38,12 @@ $(function(){
 	<aside class="col-md-3">
 <h5 class="text-uppercase">Kategori</h5>
 	<ul class="menu-category">
-		<li> <a class="text-success" href="#">Antiseptik dan Desinfektan Kulit</a></li>
-		<li> <a class="text-success" href="#">Vitamin dan Mineral</a></li>
-		<li> <a class="text-success" href="#">Dekongestan Nasal dan Preparat Nasal</a></li>
-		<li> <a class="text-success" href="#">Suplemen dan Terapi Penunjang</a></li>
-		<li> <a class="text-success" href="#">Obat Batuk dan Pilek</a></li>
-		<li> <a class="text-success" href="#">Antasid, Obat Antirefluks & Antiulserasi</a></li>
+		<li> <a class="text-success" href="ktgr.php?kategori=Antiseptik dan Desinfektan Kulit">Antiseptik dan Desinfektan Kulit</a></li>
+		<li> <a class="text-success" href="ktgr.php?kategori=Vitamin dan Mineral">Vitamin dan Mineral</a></li>
+		<li> <a class="text-success" href="ktgr.php?kategori=Dekongestan Nasal dan Preparat Nasal">Dekongestan Nasal dan Preparat Nasal</a></li>
+		<li> <a class="text-success" href="ktgr.php?kategori=Suplemen dan Terapi Penunjang">Suplemen dan Terapi Penunjang</a></li>
+		<li> <a class="text-success" href="ktgr.php?kategori=Obat Batuk dan Pilek">Obat Batuk dan Pilek</a></li>
+		<li> <a class="text-success" href="ktgr.php?kategori=Antasid, Obat Antirefluks & Antiulserasi">Antasid, Obat Antirefluks & Antiulserasi</a></li>
 		<li class="has-submenu"> <a class="text-success" href="#">Kategori lainnya<i class="icon-arrow-right pull-right"></i></a>
 			<ul class="submenu">
 				<li> <a href="#">Food &amp Beverage </a></li>

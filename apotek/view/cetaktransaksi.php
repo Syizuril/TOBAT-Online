@@ -68,9 +68,10 @@
                     <?php
                     $total=0;
                     $status='Selesai';
-                    $stmt = $db->prepare("SELECT transaksi.*,obat.*,user.* FROM transaksi,obat,user WHERE transaksi.id_user=user.id AND transaksi.id_obat=obat.id_obat AND transaksi.status_bayar=:status AND transaksi.tgl_bayar BETWEEN :start_date AND :end_date GROUP BY transaksi.id_transaksi");
+                    $stmt = $db->prepare("SELECT transaksi.*,obat.*,user.* FROM transaksi,obat,user WHERE transaksi.id_user=user.id AND transaksi.id_apotek=:id_apotek AND transaksi.id_obat=obat.id_obat AND transaksi.status_bayar=:status AND transaksi.tgl_bayar BETWEEN :start_date AND :end_date GROUP BY transaksi.id_transaksi");
                     $params = array (
                       ":status"=>$status,
+                      ":id_apotek"=>$_GET['id_apotek'],
                       ":start_date"=>$_GET['tglawal'],
                       ":end_date"=>$_GET['tglakhir']
                     );
@@ -125,10 +126,11 @@
                     <?php
                     $total=0;
                     $status='selesai.png';
-                    $stmt = $db->prepare("SELECT transaksi.*,obat.*,user.* FROM transaksi,obat,user WHERE transaksi.id_user=user.id AND transaksi.id_obat=obat.id_obat AND transaksi.status_beli!=:status AND transaksi.tanggal BETWEEN :start_date AND :end_date GROUP BY transaksi.id_transaksi");
+                    $stmt = $db->prepare("SELECT transaksi.*,obat.*,user.* FROM transaksi,obat,user WHERE transaksi.id_user=user.id AND transaksi.id_obat=obat.id_obat AND transaksi.id_apotek=:id_apotek AND transaksi.status_beli!=:status AND transaksi.tanggal BETWEEN :start_date AND :end_date GROUP BY transaksi.id_transaksi");
                     $params = array (
                       ":status"=>$status,
                       ":start_date"=>$_GET['tglawal'],
+                      ":id_apotek"=>$_GET['id_apotek'],
                       ":end_date"=>$_GET['tglakhir']
                     );
                     $stmt->execute($params);
