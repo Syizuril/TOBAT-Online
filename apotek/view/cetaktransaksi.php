@@ -164,10 +164,11 @@
                  ?>
           <label class="small text-secondary font-italic">Data ini diambil pada : <?php echo date('l, d-m-Y  h:i:s a') ?></label>
     <?php require("navbar/footer.php"); ?>
-  <script>
-		window.print();
-    window.location.replace('javascript:history.back(-1)');
-	</script>
+    
+    <script>
+      window.print();
+      window.location.replace('javascript:history.back(-1)');
+    </script>
 
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="../#page-top">
