@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 17 Mei 2019 pada 17.33
+-- Generation Time: 21 Mei 2019 pada 09.17
 -- Versi Server: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -157,6 +157,29 @@ INSERT INTO `obat` (`id_obat`, `nama_obat`, `deskripsi_obat`, `foto_obat`, `kate
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `promosi`
+--
+
+CREATE TABLE `promosi` (
+  `id_promosi` int(11) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `foto` varchar(255) NOT NULL DEFAULT 'slide1.png',
+  `ringkasan` varchar(255) NOT NULL,
+  `deskripsi` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `promosi`
+--
+
+INSERT INTO `promosi` (`id_promosi`, `judul`, `foto`, `ringkasan`, `deskripsi`) VALUES
+(1, 'OVO Segera Hadir', 'sample1.png', 'Pemabayan melalui fintech OVO akan segera hadir di pembaharuan website berikutnya !', 'Pemabayan melalui fintech OVO akan segera hadir di pembaharuan website berikutnya !\r\nKalian bisa membeli obat dan membayarnya menggunakan OVO'),
+(2, 'Cari Obat ? Ada di TOBAT', 'sample2.png', 'Tak usah khawatir dengan obat yang kalian cari, ada kok di TOBAT !', 'Tak usah khawatir dengan obat yang kalian cari, ada kok di TOBAT !\r\nCukup cari lalu beli !'),
+(3, 'Berkah TOBAT Ramadhan', 'sample3.png', 'Dapatkan potongan khusus bagi pembeli pertama pada cabang TOBAT baru kami !', 'Merayakan bahagianya Ramadhan, Dapatkan potongan khusus bagi pembeli pertama pada cabang TOBAT baru kami di platform Shopee !');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `transaksi`
 --
 
@@ -201,7 +224,9 @@ INSERT INTO `transaksi` (`id_transaksi`, `nomor_transaksi`, `id_obat`, `id_user`
 (31, '201905170007', 23, 44, 12, 45, 1, '4026', '2019-05-17', '01:44:34 am', 'Perumahan Mahkota Regency Block C3 No.1 A, Telukjambe Timur, Desa Sirnabaya, Blok C3 No.1A  Kab. Karawang, Jawa Barat', 'Selesai', 'selesai.png', '2019-05-16', 'struk-atm-mandiri-asli.jpg', ''),
 (32, '201905170008', 13, 44, 12, 45, 1, '15299', '2019-05-17', '01:44:54 am', 'Perumahan Mahkota Regency Block C3 No.1 A, Telukjambe Timur, Desa Sirnabaya, Blok C3 No.1A  Kab. Karawang, Jawa Barat', 'Selesai', 'selesai.png', '2019-05-16', '3625430_201703271221040714.jpg', ''),
 (33, '201905170008', 31, 44, 12, 45, 1, '7854', '2019-05-17', '01:44:54 am', 'Perumahan Mahkota Regency Block C3 No.1 A, Telukjambe Timur, Desa Sirnabaya, Blok C3 No.1A  Kab. Karawang, Jawa Barat', 'Selesai', 'selesai.png', '2019-05-16', '3625430_201703271221040714.jpg', ''),
-(34, '201905170009', 63, 46, 33, 45, 5, '4158', '2019-05-17', '16:32:53 pm', 'Karawang', 'Selesai', 'selesai.png', '2019-05-17', '3625430_201703271221040714.jpg', '');
+(34, '201905170009', 63, 46, 33, 45, 5, '4158', '2019-05-17', '16:32:53 pm', 'Karawang', 'Selesai', 'selesai.png', '2019-05-17', '3625430_201703271221040714.jpg', ''),
+(35, '201905210001', 37, 3, 0, 0, 1, '43560', '2019-05-21', '14:03:06 pm', 'Cirebon, Klayan', 'Menunggu Konfirmasi Admin', 'menunggu_konfirmasi.png', '0000-00-00', '', ''),
+(36, '201905210001', 28, 3, 0, 0, 4, '99546', '2019-05-21', '14:03:06 pm', 'Cirebon, Klayan', 'Menunggu Konfirmasi Admin', 'menunggu_konfirmasi.png', '0000-00-00', '', '');
 
 -- --------------------------------------------------------
 
@@ -241,7 +266,8 @@ INSERT INTO `user` (`id`, `email`, `password`, `nama`, `no_hp`, `alamat`, `sia`,
 (42, 'syihabklayan2@gmail.com', '$2y$10$sZ5j./NH.OSGMJqlNqq3eu3p8jSun2Arm/vuEm0bszJQ57ISUjdXq', 'Syekh Syihabuddin Azmil Umri', 1, '1', '', '2r8o10rebir21.jpg', 0),
 (44, 'opi@dicopy.id', '$2y$10$RrFFaj9yJRDbRnvyLRWOq.R3./L256adoBBq5e9BY5yi4n2yOagiy', 'Opi', 8127312365, 'Perumahan Mahkota Regency Block C3 No.1 A, Telukjambe Timur, Desa Sirnabaya, Blok C3 No.1A  Kab. Karawang, Jawa Barat', '', 'images.png', 0),
 (45, 'k-24@25.com', '$2y$10$8wnoX4fsh3kUI9JgIyRCHuNbcCv2doLazjU.UkDtkQp4v1QXbJMA.', 'K-24 Apotek', 82353213, 'Jl. Bharata Raya No.5, Sukaharja, Kec. Telukjambe Tim., Kabupaten Karawang, Jawa Barat 41361', '12EDWQ/213X/12X/123', 'lowongan-kerja-apotek-k24.jpg', 2),
-(46, 'abil@unsika.com', '$2y$10$rmLlzbLOGbOuw0ZXminm1erVy6XtXW4p1UTOIaYIpQvWP3uJlYwzO', 'Abil', 123456, 'Karawang', '', 'default.svg', 0);
+(46, 'abil@unsika.com', '$2y$10$rmLlzbLOGbOuw0ZXminm1erVy6XtXW4p1UTOIaYIpQvWP3uJlYwzO', 'Abil', 123456, 'Karawang', '', 'default.svg', 0),
+(48, 'iniemail@email.com', '$2y$10$PN1.sEhDOK6iyS1liCvmuem9pBW/Mu1IJigLUfOcGaO8ryZo1yWCK', 'Syekh Syihabuddin', 8123123123, 'Perumahan Mahkota Regency Block C3 No.1 A, Telukjambe Timur, Desa Sirnabaya, Blok C3 No.1A  Kab. Karawang, Jawa Barat', '', 'default.svg', 0);
 
 --
 -- Indexes for dumped tables
@@ -258,6 +284,12 @@ ALTER TABLE `bantuan`
 --
 ALTER TABLE `obat`
   ADD PRIMARY KEY (`id_obat`);
+
+--
+-- Indexes for table `promosi`
+--
+ALTER TABLE `promosi`
+  ADD PRIMARY KEY (`id_promosi`);
 
 --
 -- Indexes for table `transaksi`
@@ -283,16 +315,22 @@ ALTER TABLE `bantuan`
   MODIFY `id_bantuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `promosi`
+--
+ALTER TABLE `promosi`
+  MODIFY `id_promosi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id_transaksi` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
