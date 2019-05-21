@@ -74,7 +74,7 @@ $(function(){
 			 </article> <!-- carousel-caption .// -->
 			</div>
 			<div class="carousel-item">
-				<img class="d-block w-100" src="../images/banners/<?php echo $promo['foto'] ?>" alt="Second slide">
+				<img class="d-block w-100" src="../images/banners/sample2.png" alt="Second slide">
 				<article class="carousel-caption d-none d-md-block">
 				<h5>Second slide label</h5>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -82,7 +82,7 @@ $(function(){
 			 </article> <!-- carousel-caption .// -->
 			</div>
 			<div class="carousel-item">
-				<img class="d-block w-100" src="../images/banners/slide3.jpg" alt="Third slide">
+				<img class="d-block w-100" src="../images/banners/sample3.png" alt="Third slide">
 				<article class="carousel-caption d-none d-md-block">
 				<h5>Third slide label</h5>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
