@@ -71,6 +71,7 @@
             <h6 class="collapse-header">Kelola Data:</h6>
             <a class="collapse-item" href="view/dataakun.php">Akun</a>
             <a class="collapse-item" href="view/tablesobat.php">Obat</a>
+            <a class="collapse-item" href="view/tablepromosi.php">Promosi</a>
           </div>
         </div>
       </li>

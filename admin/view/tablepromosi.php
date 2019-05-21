@@ -1,7 +1,7 @@
 <?php
   require_once("../../config/config.php");
   require("../config/auth.php");
-  require("../config/readobat.php");
+  require("../config/readpromosi.php");
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,8 +56,8 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Kelola Data:</h6>
             <a class="collapse-item" href="dataakun.php">Akun</a>
-            <a class="collapse-item active" href="tablesobat.html">Obat</a>
-            <a class="collapse-item" href="tablepromosi.php">Promosi</a>
+            <a class="collapse-item" href="tablesobat.php">Obat</a>
+            <a class="collapse-item active" href="tablepromosi.php">Promosi</a>
           </div>
         </div>
       </li>
@@ -91,28 +91,25 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="../index.php">Dashboard</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Kelola Data Obat</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Kelola Data Promosi</a></li>
             </ol>
           </nav>
 
           <!-- Page Heading -->
           <div class="row">
-            <h1 class="col-6 h3 mb-2 text-gray-800">Kelola Akun Obat</h1>
-            <div class="col-6 d-flex justify-content-end h6">
-              <a href="cetakobat.php" class="btn btn-primary"><i class="fas fa-download fa-sm text-white-50"></i>  Buat Laporan</a>
-            </div>
+            <h1 class="col-6 h3 mb-2 text-gray-800">Kelola Data Promosi</h1>
           </div>
-          <p class="mb-4">Berikut adalah tampilan data dari obat yang ditampilkan, Anda dapat mengaturnya seperti menambahkan, mengedit, hingga menghapus data obat tersebut.</p>
+          <p class="mb-4">Berikut adalah tampilan data dari data promosi yang ditampilkan, Anda dapat mengaturnya seperti menambahkan, mengedit, hingga menghapus data promosi tersebut.</p>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <div class="row">
                 <div class="col-6">
-                  <h6 class="m-0 mt-2 font-weight-bold text-primary">Data Obat</h6>
+                  <h6 class="m-0 mt-2 font-weight-bold text-primary">Data Promosi</h6>
                 </div>
                 <div class="col-6">
-                  <a href="tambahobat.php" class="float-right btn btn-info m-0">Tambah Obat</a>
+                  <a href="tambahpromosi.php" class="float-right btn btn-info m-0">Tambah Promosi</a>
                 </div>
               </div>
             </div>
@@ -120,24 +117,21 @@
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
-                    <th width="20%">Nama Obat</th>
+                    <th width="20%">Judul Promosi</th>
+                    <th width="20%">Ringkasan</th>
                     <th>Deskripsi</th>
-                    <th width="20%">Kategori</th>
-                    <th width="13%">Harga</th>
                   </thead>
                   <tfoot>
-                    <th>Nama Obat</th>
+                    <th>Judul Promosi</th>
+                    <th>Ringkasan</th>
                     <th>Deskripsi</th>
-                    <th>Kategori</th>
-                    <th>Harga</th>
                   </tfoot>
                   <tbody>
                     <?php foreach ($data as $value): ?>
                     <tr>
-                        <td><a href="editobat.php?id_obat=<?php echo $value['id_obat'] ?>"><?php echo $value['nama_obat'] ?></a></td>
-                        <td><?php echo $value['deskripsi_obat'] ?></td>
-                        <td><?php echo $value['kategori'] ?></td>
-                        <td><?php echo rp($value['harga']) ?></td>
+                        <td><a href="editpromosi.php?id_promosi=<?php echo $value['id_promosi'] ?>"><?php echo $value['judul'] ?></a></td>
+                        <td><?php echo $value['ringkasan'] ?></td>
+                        <td><?php echo $value['deskripsi'] ?></td>
                     </tr>
                     <?php endforeach; ?>
                   </tbody>

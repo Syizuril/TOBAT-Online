@@ -98,25 +98,25 @@
           <select class="custom-select" style="max-width: 120px;">
             <option selected="">+62</option>
           </select>
-            <input name="no_hp" class="form-control" placeholder="Nomor Telepon" type="number" required>
+            <input name="no_hp" class="form-control" placeholder="Nomor Telepon" type="number" pattern=".{10,}" required title="Minimal 10 Angka">
         </div> <!-- form-group// -->
         <div class="form-group input-group">
           <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-building"></i> </span>
           </div>
-          <input name="alamat" class="form-control" placeholder="Alamat" type="text" required>
+          <input name="alamat" class="form-control" placeholder="Alamat Lengkap" type="text" pattern=".{20,}" required title="Minimal 20 Karakter">
         </div> <!-- form-group end.// -->
         <div class="form-group input-group">
           <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
           </div>
-            <input name="password" class="form-control" placeholder="Password" type="password" required>
+            <input name="password" class="form-control" placeholder="Password" type="password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required title="Minimal mengandung gabungan huruf kecil, besar, dan angka dengan 8 karakter">
         </div> <!-- form-group// -->
         <div class="form-group input-group">
           <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
           </div>
-            <input name="password2" class="form-control" placeholder="Ulangi password" type="password" required>
+            <input name="password2" class="form-control" placeholder="Ulangi password" type="password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required title="Minimal mengandung gabungan huruf kecil, besar, dan angka dengan 8 karakter">
         </div> <!-- form-group// -->
         </div>
         <div class="modal-footer">

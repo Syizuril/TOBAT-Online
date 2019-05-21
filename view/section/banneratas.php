@@ -61,17 +61,20 @@ $(function(){
 	<div class="col-md-6">
 		<!-- 2-carousel bootstrap -->
 	<div id="carousel2_indicator" class="carousel slide carousel-fade" data-ride="carousel">
+    <?php
+      $stmt = $db->prepare("SELECT * FROM promosi");
+      $stmt->execute();
+      $promo = $stmt->fetch();?>
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img class="d-block w-100" src="../images/banners/slide1.jpg" alt="First slide">
+				<img class="d-block w-100" src="../images/banners/<?php echo $promo['foto'] ?>" alt="First slide">
 				<article class="carousel-caption d-none d-md-block">
-				<h5>First slide label</h5>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt.</p>
+				<h5><?php echo $promo['judul'] ?></h5>
+				<p><?php echo $promo['ringkasan'] ?></p>
 			 </article> <!-- carousel-caption .// -->
 			</div>
 			<div class="carousel-item">
-				<img class="d-block w-100" src="../images/banners/slide2.jpg" alt="Second slide">
+				<img class="d-block w-100" src="../images/banners/<?php echo $promo['foto'] ?>" alt="Second slide">
 				<article class="carousel-caption d-none d-md-block">
 				<h5>Second slide label</h5>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
